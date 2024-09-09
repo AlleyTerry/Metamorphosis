@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://s1y4epsxbkln"]
+
+[ext_resource type="Script" path="res://Script/star.gd" id="1_u50ky"]
+[ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="2_3kgvx"]
+
+[node name="star" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_u50ky")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_3kgvx")
+
+[node name="MoveTimer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(1, 20, 20, -1, 0, -24, -21, 0)
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
