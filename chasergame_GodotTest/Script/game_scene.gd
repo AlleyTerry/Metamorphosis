@@ -2,6 +2,7 @@ extends Node2D
 
 var gameDone = false
 var gameTimes = 0
+var downValue = 70
 @onready var noderef = $StarPosition/star
 
 
@@ -15,12 +16,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if (gameDone == false):
 		if (len($star/Area2D.get_overlapping_areas()) > 0):
-			$TextureProgressBar.value += 30 * delta
-			if ($TextureProgressBar.value >= 100):
+			print("overlapping")
+			$TextureProgressBar.value += 80 * delta
+			if ($TextureProgressBar.value >= 500):
 				Caught()
 				newFish()
 		else:
-			$TextureProgressBar.value -= 30 * delta
+			$TextureProgressBar.value -= downValue * delta
 			if ($TextureProgressBar.value <= 0):
 				$TextureProgressBar.value = 0
 			
@@ -33,7 +35,8 @@ func Caught():
 
 func newFish():
 	if gameTimes <= 3:
-		#get_node("star").newTime()
+		get_node("star").newTime()
+		downValue += 10
 		gameDone = false
 	else:
 		$EndGameMessage.text = "ripppp"
