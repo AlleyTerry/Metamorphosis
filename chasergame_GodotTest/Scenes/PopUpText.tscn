@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://beb3l6yikvoov"]
+
+[ext_resource type="Script" path="res://Script/pop_up_text.gd" id="1_gu1fl"]
+[ext_resource type="Texture2D" uid="uid://ccxex1rcniad" path="res://Assets/PNG/GUI-Kit-Pack-Free_35.png" id="2_21br5"]
+[ext_resource type="Texture2D" uid="uid://dvo5lpsuwkwav" path="res://Assets/PNG/GUI-Kit-Pack-Free_11.png" id="3_28w81"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nqofu"]
+
+[node name="letterShower" type="Label"]
+offset_left = 490.0
+offset_top = 167.0
+offset_right = 585.0
+offset_bottom = 253.0
+text = "press the correct letter"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_gu1fl")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -45.0
+offset_top = 336.0
+offset_right = 229.0
+offset_bottom = 392.0
+texture_under = ExtResource("2_21br5")
+texture_over = SubResource("PlaceholderTexture2D_nqofu")
+texture_progress = ExtResource("3_28w81")
