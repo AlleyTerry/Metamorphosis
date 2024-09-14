@@ -3,25 +3,28 @@
 [ext_resource type="Script" path="res://Script/player.gd" id="1_rsmd6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_778ps"]
-size = Vector2(58.551, 61)
+size = Vector2(58.551, 157.031)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k4quu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptx3f"]
-size = Vector2(68, 74)
+size = Vector2(68, 168)
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_rsmd6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 47.055)
 scale = Vector2(0.98, 0.98)
 shape = SubResource("RectangleShape2D_778ps")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(46.43, 50)
+position = Vector2(0, 45.5)
+scale = Vector2(46.43, 141)
 texture = SubResource("PlaceholderTexture2D_k4quu")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 47)
 shape = SubResource("RectangleShape2D_ptx3f")

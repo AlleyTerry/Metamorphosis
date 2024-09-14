@@ -17,6 +17,7 @@ vertical_alignment = 1
 script = ExtResource("1_gu1fl")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
 offset_left = -45.0
 offset_top = 336.0
 offset_right = 229.0
