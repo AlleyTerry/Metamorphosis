@@ -1,0 +1,258 @@
+[gd_scene load_steps=13 format=3 uid="uid://igecqa2dw71t"]
+
+[ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
+[ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
+[ext_resource type="Resource" uid="uid://bfg4h0ei44eum" path="res://Rresources/Wasp.tres" id="2_rw1h8"]
+[ext_resource type="Texture2D" uid="uid://bfsrpangrasw1" path="res://Assets/PlaceholderAssets/Wasp.jpg" id="3_udbdo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rofi"]
+
+[sub_resource type="Animation" id="Animation_hnokw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(108, 315)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Enemy:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1048, 315)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Enemy:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Enemy/CollisionShape2D/Sprite2D:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bg4a0"]
+resource_name = "player_attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.633333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(108, 315), Vector2(856, 315), Vector2(856, 315), Vector2(108, 315)]
+}
+
+[sub_resource type="Animation" id="Animation_jvn1y"]
+resource_name = "enemy_attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1048, 315), Vector2(313, 315), Vector2(313, 315), Vector2(1048, 315)]
+}
+
+[sub_resource type="Animation" id="Animation_tunke"]
+resource_name = "EnemyHurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sftu6"]
+resource_name = "PlayerHurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-9.36, 0), Vector2(16, -13), Vector2(-2, 19), Vector2(-16, 0), Vector2(4, -21), Vector2(17, 10), Vector2(-17, 27), Vector2(-14, -19), Vector2(25, -21), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ifb4y"]
+resource_name = "EnemyDied"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy/CollisionShape2D/Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(30, 30, 30, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_46eun"]
+_data = {
+"EnemyDied": SubResource("Animation_ifb4y"),
+"EnemyHurt": SubResource("Animation_tunke"),
+"PlayerHurt": SubResource("Animation_sftu6"),
+"RESET": SubResource("Animation_hnokw"),
+"enemy_attack": SubResource("Animation_jvn1y"),
+"player_attack": SubResource("Animation_bg4a0")
+}
+
+[node name="BattleScene" type="Node2D"]
+script = ExtResource("1_odkyw")
+enemy = ExtResource("2_rw1h8")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(1048, 315)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+scale = Vector2(9.235, 9.235)
+shape = SubResource("RectangleShape2D_6rofi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy/CollisionShape2D"]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("3_udbdo")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(108, 315)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(9.235, 9.235)
+shape = SubResource("RectangleShape2D_6rofi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/CollisionShape2D"]
+texture = ExtResource("1_btm8f")
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="AttackButton" type="Button" parent="Buttons"]
+offset_left = 26.0
+offset_top = 562.0
+offset_right = 232.0
+offset_bottom = 633.0
+text = "ATTACK
+"
+
+[node name="TalkButton" type="Button" parent="Buttons"]
+offset_left = 443.0
+offset_top = 564.0
+offset_right = 649.0
+offset_bottom = 635.0
+text = "TALK
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_46eun")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[connection signal="pressed" from="Buttons/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="Buttons/TalkButton" to="." method="_on_talk_button_pressed"]

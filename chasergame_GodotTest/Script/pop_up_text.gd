@@ -1,6 +1,6 @@
 extends Label
 
-@onready var letterArray = ["a","b","c","d"]
+@onready var letterArray = ["y","u","i","o","p","h","j","k","l","b","n","m"]
 var currentLetter = 0
 var letterToPress = ""
 
