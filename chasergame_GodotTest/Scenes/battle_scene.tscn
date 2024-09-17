@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=14 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
 [ext_resource type="Resource" uid="uid://bfg4h0ei44eum" path="res://Rresources/Wasp.tres" id="2_rw1h8"]
+[ext_resource type="PackedScene" uid="uid://beb3l6yikvoov" path="res://Scenes/PopUpText.tscn" id="3_8xy2b"]
 [ext_resource type="Texture2D" uid="uid://bfsrpangrasw1" path="res://Assets/PlaceholderAssets/Wasp.jpg" id="3_udbdo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rofi"]
@@ -207,6 +208,22 @@ _data = {
 script = ExtResource("1_odkyw")
 enemy = ExtResource("2_rw1h8")
 
+[node name="letterShower" parent="." instance=ExtResource("3_8xy2b")]
+offset_left = 50.0
+offset_top = 124.0
+offset_right = 228.0
+offset_bottom = 210.0
+
+[node name="timerProgress" parent="letterShower" index="2"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -56.0
+offset_right = 258.0
+offset_bottom = 0.0
+max_value = 1.0
+step = 0.1
+fill_mode = 6
+
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(1048, 315)
 
@@ -254,5 +271,8 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
+[connection signal="timeout" from="letterShower/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Buttons/AttackButton" to="." method="_on_attack_button_pressed"]
 [connection signal="pressed" from="Buttons/TalkButton" to="." method="_on_talk_button_pressed"]
+
+[editable path="letterShower"]

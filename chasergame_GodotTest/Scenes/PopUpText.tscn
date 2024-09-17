@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://beb3l6yikvoov"]
+[gd_scene load_steps=6 format=3 uid="uid://beb3l6yikvoov"]
 
 [ext_resource type="Script" path="res://Script/pop_up_text.gd" id="1_gu1fl"]
 [ext_resource type="Texture2D" uid="uid://ccxex1rcniad" path="res://Assets/PNG/GUI-Kit-Pack-Free_35.png" id="2_21br5"]
@@ -6,7 +6,10 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nqofu"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8kj20"]
+
 [node name="letterShower" type="Label"]
+visible = false
 offset_left = 490.0
 offset_top = 167.0
 offset_right = 585.0
@@ -24,4 +27,16 @@ offset_right = 229.0
 offset_bottom = 392.0
 texture_under = ExtResource("2_21br5")
 texture_over = SubResource("PlaceholderTexture2D_nqofu")
+texture_progress = ExtResource("3_28w81")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="timerProgress" type="TextureProgressBar" parent="."]
+offset_left = -35.0
+offset_top = -137.0
+offset_right = 239.0
+offset_bottom = -81.0
+max_value = 3.0
+texture_under = ExtResource("2_21br5")
+texture_over = SubResource("PlaceholderTexture2D_8kj20")
 texture_progress = ExtResource("3_28w81")
