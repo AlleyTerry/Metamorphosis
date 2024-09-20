@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 	
 
 func StepThrough():
+	$".".text = letterToPress
 	if (Input.is_action_just_pressed(letterToPress)):
 		var tween = create_tween()
 		$Timer.start()
@@ -37,6 +38,7 @@ func StepThrough():
 		else:
 			tween.tween_property($TextureProgressBar,"value", $TextureProgressBar.value + 25, 0.5)
 			$".".text = "congrats you know your abcs"
+			
 func StepThroughConinuous():
 	if (Input.is_action_pressed(letterArray[0])):
 		$".".text = letterArray[1]

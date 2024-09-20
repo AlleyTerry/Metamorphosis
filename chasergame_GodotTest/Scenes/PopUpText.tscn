@@ -32,6 +32,7 @@ texture_progress = ExtResource("3_28w81")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="timerProgress" type="TextureProgressBar" parent="."]
+layout_mode = 0
 offset_left = -35.0
 offset_top = -137.0
 offset_right = 239.0

@@ -1,12 +1,83 @@
-[gd_scene load_steps=14 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=17 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
 [ext_resource type="Resource" uid="uid://bfg4h0ei44eum" path="res://Rresources/Wasp.tres" id="2_rw1h8"]
 [ext_resource type="PackedScene" uid="uid://beb3l6yikvoov" path="res://Scenes/PopUpText.tscn" id="3_8xy2b"]
 [ext_resource type="Texture2D" uid="uid://bfsrpangrasw1" path="res://Assets/PlaceholderAssets/Wasp.jpg" id="3_udbdo"]
+[ext_resource type="Texture2D" uid="uid://ccxex1rcniad" path="res://Assets/PNG/GUI-Kit-Pack-Free_35.png" id="6_i26hj"]
+[ext_resource type="Texture2D" uid="uid://dvo5lpsuwkwav" path="res://Assets/PNG/GUI-Kit-Pack-Free_11.png" id="7_koc7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rofi"]
+
+[sub_resource type="Animation" id="Animation_ifb4y"]
+resource_name = "EnemyDied"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy/CollisionShape2D/Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(30, 30, 30, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tunke"]
+resource_name = "EnemyHurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sftu6"]
+resource_name = "PlayerHurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-9.36, 0), Vector2(16, -13), Vector2(-2, 19), Vector2(-16, 0), Vector2(4, -21), Vector2(17, 10), Vector2(-17, 27), Vector2(-14, -19), Vector2(25, -21), Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_hnokw"]
 length = 0.001
@@ -95,21 +166,6 @@ tracks/6/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_bg4a0"]
-resource_name = "player_attack"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.633333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(108, 315), Vector2(856, 315), Vector2(856, 315), Vector2(108, 315)]
-}
-
 [sub_resource type="Animation" id="Animation_jvn1y"]
 resource_name = "enemy_attack"
 tracks/0/type = "value"
@@ -125,73 +181,19 @@ tracks/0/keys = {
 "values": [Vector2(1048, 315), Vector2(313, 315), Vector2(313, 315), Vector2(1048, 315)]
 }
 
-[sub_resource type="Animation" id="Animation_tunke"]
-resource_name = "EnemyHurt"
+[sub_resource type="Animation" id="Animation_bg4a0"]
+resource_name = "player_attack"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Enemy:modulate")
+tracks/0/path = NodePath("Player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.633333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_sftu6"]
-resource_name = "PlayerHurt"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-9.36, 0), Vector2(16, -13), Vector2(-2, 19), Vector2(-16, 0), Vector2(4, -21), Vector2(17, 10), Vector2(-17, 27), Vector2(-14, -19), Vector2(25, -21), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ifb4y"]
-resource_name = "EnemyDied"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Enemy:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.2, 0.2)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Enemy/CollisionShape2D/Sprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(30, 30, 30, 1)]
+"values": [Vector2(108, 315), Vector2(856, 315), Vector2(856, 315), Vector2(108, 315)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46eun"]
@@ -204,6 +206,8 @@ _data = {
 "player_attack": SubResource("Animation_bg4a0")
 }
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8kj20"]
+
 [node name="BattleScene" type="Node2D"]
 script = ExtResource("1_odkyw")
 enemy = ExtResource("2_rw1h8")
@@ -215,7 +219,6 @@ offset_right = 228.0
 offset_bottom = 210.0
 
 [node name="timerProgress" parent="letterShower" index="2"]
-layout_mode = 0
 offset_left = -16.0
 offset_top = -56.0
 offset_right = 258.0
@@ -245,9 +248,9 @@ shape = SubResource("RectangleShape2D_6rofi")
 [node name="Sprite2D" type="Sprite2D" parent="Player/CollisionShape2D"]
 texture = ExtResource("1_btm8f")
 
-[node name="Buttons" type="Node" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="AttackButton" type="Button" parent="Buttons"]
+[node name="AttackButton" type="Button" parent="Node2D"]
 offset_left = 26.0
 offset_top = 562.0
 offset_right = 232.0
@@ -255,7 +258,7 @@ offset_bottom = 633.0
 text = "ATTACK
 "
 
-[node name="TalkButton" type="Button" parent="Buttons"]
+[node name="TalkButton" type="Button" parent="Node2D"]
 offset_left = 443.0
 offset_top = 564.0
 offset_right = 649.0
@@ -271,8 +274,32 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
+[node name="EnemyQTE" type="Label" parent="."]
+visible = false
+offset_left = 491.0
+offset_top = 216.0
+offset_right = 574.0
+offset_bottom = 269.0
+text = "hold s"
+
+[node name="EnemyTimerProgress" type="TextureProgressBar" parent="EnemyQTE"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = -153.0
+offset_right = 207.0
+offset_bottom = -97.0
+max_value = 1.0
+step = 0.1
+fill_mode = 6
+texture_under = ExtResource("6_i26hj")
+texture_over = SubResource("PlaceholderTexture2D_8kj20")
+texture_progress = ExtResource("7_koc7e")
+
+[node name="EnemyTimer" type="Timer" parent="EnemyQTE"]
+
 [connection signal="timeout" from="letterShower/Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Buttons/AttackButton" to="." method="_on_attack_button_pressed"]
-[connection signal="pressed" from="Buttons/TalkButton" to="." method="_on_talk_button_pressed"]
+[connection signal="pressed" from="Node2D/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="Node2D/TalkButton" to="." method="_on_talk_button_pressed"]
+[connection signal="timeout" from="EnemyQTE/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 
 [editable path="letterShower"]
