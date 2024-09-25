@@ -1,0 +1,14 @@
+- you can't stop me
+	You cannot stop me i will get what i want
+	move or die
+	set {badAnswer} += 1
+- eh idk u
+	bro idk who you even are 
+	lay off bro
+- eh idc about u
+	look i know you
+	but I don't care about you
+- nah bro listen its so good listen
+	i am totally within my right to do this
+	bro
+	set {goodAnswer} += 1

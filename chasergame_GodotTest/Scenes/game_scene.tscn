@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://y7rg1tew54ct"]
 
-[ext_resource type="PackedScene" uid="uid://ckkfrjwypor5v" path="res://Scenes/player.tscn" id="1_va6dv"]
+[ext_resource type="PackedScene" uid="uid://ckkfrjwypor5v" path="res://Scenes/Jumper.tscn" id="1_va6dv"]
 [ext_resource type="Script" path="res://Script/game_scene.gd" id="1_wi1e2"]
 [ext_resource type="PackedScene" uid="uid://s1y4epsxbkln" path="res://Scenes/star.tscn" id="2_kvt76"]
 [ext_resource type="Texture2D" uid="uid://ccxex1rcniad" path="res://Assets/PNG/GUI-Kit-Pack-Free_35.png" id="4_4ib0u"]
@@ -11,7 +11,7 @@
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_wi1e2")
 
-[node name="player" parent="." instance=ExtResource("1_va6dv")]
+[node name="Jumper" parent="." instance=ExtResource("1_va6dv")]
 position = Vector2(476, 207)
 
 [node name="star" parent="." instance=ExtResource("2_kvt76")]

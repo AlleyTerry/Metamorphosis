@@ -15,6 +15,7 @@ var timerCheck = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Dialogic.signal_event.connect(OnDialogicSignal)
 	$Node2D.visible = true
 	enemy.health = 3
 	$Enemy/CollisionShape2D/Sprite2D.texture = enemy.texture
@@ -52,7 +53,12 @@ func enemyTurn():
 		TurnReset()
 	
 
-
+func OnDialogicSignal(argument: String):
+	#remember to pause dialogue
+	if argument == "startBattle1":
+		$letterShower.visible = false
+		Dialogic.start("timeline")
+	
 
 func DefenseQTE():
 	$EnemyQTE.visible = true

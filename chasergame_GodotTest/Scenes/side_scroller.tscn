@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnflos3lph4pe"]
+
+[ext_resource type="Texture2D" uid="uid://0iwprl4pxf02" path="res://Assets/PlaceholderAssets/diego-lopez-groundtile2.jpg" id="1_x4vvg"]
+[ext_resource type="PackedScene" uid="uid://catodlhbr4hi4" path="res://Scenes/Player.tscn" id="2_glyjd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv7ru"]
+size = Vector2(57.6971, 56.9462)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kgwlm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86onw"]
+size = Vector2(85, 155.172)
+
+[node name="SideScroller" type="Node2D"]
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Floors" type="Node2D" parent="Level"]
+
+[node name="Floor1" type="StaticBody2D" parent="Level/Floors"]
+position = Vector2(0, 231)
+scale = Vector2(7.99, 7.99)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Floors/Floor1"]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_x4vvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Floors/Floor1"]
+position = Vector2(-0.0625792, -0.563208)
+shape = SubResource("RectangleShape2D_wv7ru")
+
+[node name="Floor2" type="StaticBody2D" parent="Level/Floors"]
+position = Vector2(-461, 231)
+scale = Vector2(7.99, 7.99)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Floors/Floor2"]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_x4vvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Floors/Floor2"]
+position = Vector2(-0.0625792, -0.563208)
+shape = SubResource("RectangleShape2D_wv7ru")
+
+[node name="Floor3" type="StaticBody2D" parent="Level/Floors"]
+position = Vector2(462, 231)
+scale = Vector2(7.99, 7.99)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Floors/Floor3"]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_x4vvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Floors/Floor3"]
+position = Vector2(-0.0625792, -0.563208)
+shape = SubResource("RectangleShape2D_wv7ru")
+
+[node name="Walls" type="Node2D" parent="Level"]
+
+[node name="wall" type="StaticBody2D" parent="Level/Walls"]
+position = Vector2(201, -263)
+scale = Vector2(1, 1.74)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Walls/wall"]
+scale = Vector2(80.78, 154.815)
+texture = SubResource("PlaceholderTexture2D_kgwlm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Walls/wall"]
+position = Vector2(0.5, 0.287384)
+shape = SubResource("RectangleShape2D_86onw")
+
+[node name="wall2" type="StaticBody2D" parent="Level/Walls"]
+position = Vector2(-78, -313)
+scale = Vector2(1, 1.74)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Walls/wall2"]
+scale = Vector2(80.78, 154.815)
+texture = SubResource("PlaceholderTexture2D_kgwlm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Walls/wall2"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_86onw")
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" parent="Entities" instance=ExtResource("2_glyjd")]
+position = Vector2(-462, -201)
+
+[node name="Camera2D" type="Camera2D" parent="Entities/CharacterBody2D"]
+zoom = Vector2(1.5, 1.5)
