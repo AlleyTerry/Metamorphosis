@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bfg4h0ei44eum"]
+
+[ext_resource type="Script" path="res://Script/BaseEnemy.gd" id="1_bpl5n"]
+[ext_resource type="Texture2D" uid="uid://dlkfgby5gc5db" path="res://Assets/RealAssets/Linnaeus_Front.png" id="2_d1n26"]
+
+[resource]
+script = ExtResource("1_bpl5n")
+name = "enemy"
+texture = ExtResource("2_d1n26")
+health = 50
+damage = 20

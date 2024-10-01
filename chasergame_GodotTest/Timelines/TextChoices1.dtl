@@ -1,14 +1,19 @@
+[wait time="1.0"]
 - you can't stop me
 	You cannot stop me i will get what i want
 	move or die
 	set {badAnswer} += 1
-- eh idk u
-	bro idk who you even are 
+	[signal arg="EnemyTurn"]
+- Attack
+	bro idk who you even are
 	lay off bro
+	[signal arg="AttackChoice"]
 - eh idc about u
 	look i know you
 	but I don't care about you
+	[signal arg="EnemyTurn"]
 - nah bro listen its so good listen
 	i am totally within my right to do this
 	bro
 	set {goodAnswer} += 1
+	[signal arg="EnemyTurn"]
