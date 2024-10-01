@@ -2,12 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
-[ext_resource type="Resource" uid="uid://bfg4h0ei44eum" path="res://Rresources/Linnaeus.tres" id="2_rw1h8"]
+[ext_resource type="Resource" uid="uid://cku4uxefc584m" path="res://Rresources/Linnaeus.tres" id="2_rw1h8"]
 [ext_resource type="PackedScene" uid="uid://beb3l6yikvoov" path="res://Scenes/PopUpText.tscn" id="3_8xy2b"]
-[ext_resource type="Texture2D" uid="uid://dlkfgby5gc5db" path="res://Assets/RealAssets/Linnaeus_Front.png" id="4_7o2ph"]
 [ext_resource type="Texture2D" uid="uid://ccxex1rcniad" path="res://Assets/PNG/GUI-Kit-Pack-Free_35.png" id="6_i26hj"]
 [ext_resource type="Texture2D" uid="uid://dvo5lpsuwkwav" path="res://Assets/PNG/GUI-Kit-Pack-Free_11.png" id="7_koc7e"]
 [ext_resource type="Texture2D" uid="uid://b05l35ftf0j14" path="res://Assets/RealAssets/Imaeris_Wings_Back.png" id="8_r8on8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2kt0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rofi"]
 size = Vector2(88.2838, 160)
@@ -25,18 +26,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.2, 0.2)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Enemy/Sprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(30, 30, 30, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_tunke"]
@@ -122,22 +111,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Enemy/Sprite2D:self_modulate")
+tracks/3/path = NodePath("Player:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Player:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -226,15 +203,13 @@ fill_mode = 6
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(320, 84)
 
-[node name="EnemyArea" type="Area2D" parent="Enemy"]
+[node name="EnemyArea2" type="Area2D" parent="Enemy"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/EnemyArea"]
-position = Vector2(-28, 10)
-shape = SubResource("RectangleShape2D_6rofi")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/EnemyArea2"]
+scale = Vector2(7.085, 7.085)
+shape = SubResource("RectangleShape2D_y2kt0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-position = Vector2(-27.325, 0)
-texture = ExtResource("4_7o2ph")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(529, 531)

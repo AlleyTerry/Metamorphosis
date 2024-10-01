@@ -11,6 +11,7 @@ var enemyTurnCheck = false
 var defenseCheck = false
 var newRandomLetter = ""
 var timerCheck = true
+var bossName = ""
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,13 +19,14 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(OnDialogicSignal)
 	Dialogic.signal_event.connect(AttackSignal)
 	Dialogic.signal_event.connect(EnemySignal)
-	Dialogic.start("timeline")
 	$Node2D.visible = true
 	enemy.health = 3
 	$Enemy/Sprite2D.texture = enemy.texture
+	bossName = enemy.bossName
+	print(bossName)
 	letterToPress = letterArray[0]
 	$letterShower.text = "press and hold: w a d"
-	newRandomLetter = letterArray.pick_random()
+	Dialogic.start(bossName + "StartDialogue")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -54,9 +56,9 @@ func enemyTurn():
 
 func OnDialogicSignal(argument: String):
 	#remember to pause dialogue
-	if argument == "startBattle1":
+	if argument == "startBattle":
 		print("signal was fired")
-		Dialogic.start("TextChoices1")
+		Dialogic.start(bossName + "Round1")
 	
 
 func DefenseQTE():
@@ -75,7 +77,7 @@ func DefenseQTE():
 		await get_tree().create_timer(1).timeout
 		$EnemyQTE.visible = false
 		$Node2D.visible = true
-		Dialogic.start("TextChoices1")
+		Dialogic.start( bossName + "Round" + (str(Dialogic.VAR.currentRound)))
 
 func AttackSignal(argument: String):
 	if argument == "AttackChoice":
@@ -85,8 +87,11 @@ func AttackSignal(argument: String):
 
 func EnemySignal(argument: String):
 	if argument == "EnemyTurn":
+		newRandomLetter = letterArray.pick_random()
 		$Node2D.visible = false
 		$letterShower/TextureProgressBar.value = 0
+		enemyTurn()
+		timerCheck = true
 		defenseCheck = true
 	
 
@@ -116,8 +121,8 @@ func PlayerAttack():
 			await get_tree().create_timer(.25).timeout
 			get_tree().change_scene_to_file("res://Scenes/game_scene.tscn")
 		else:
+			newRandomLetter = letterArray.pick_random()
 			defenseCheck = true
-			$EnemyQTE.text = "hold s"
 			timerCheck = true
 			enemyTurn()
 
@@ -136,6 +141,8 @@ func doMinigame():
 
 func StepThrough():
 	if (Input.is_action_just_pressed(letterToPress + "Action")):
+		$letterShower.visible = false
+		await get_tree().create_timer(.1).timeout
 		var tween = create_tween()
 		$letterShower/Timer.start()
 		if currentLetter <= 3:
@@ -146,7 +153,7 @@ func StepThrough():
 			print(letterToPress)
 			currentLetter += 1
 			tween.tween_property($letterShower/TextureProgressBar,"value", $letterShower/TextureProgressBar.value + 20, 0.5)
-			
+			$letterShower.visible = true
 		else:
 			tween.tween_property($letterShower/TextureProgressBar,"value", $letterShower/TextureProgressBar.value + 20, 0.5)
 
@@ -156,6 +163,7 @@ func StepThrough():
 func _on_timer_timeout() -> void:
 	TurnReset()
 	await get_tree().create_timer(.5).timeout
+	newRandomLetter = letterArray.pick_random()
 	defenseCheck = true
 	timerCheck = true
 	enemyTurn()
@@ -183,7 +191,7 @@ func _on_enemy_timer_timeout() -> void:
 	print("player health ", playerHealth)
 	TurnReset()
 	$Node2D.visible = true
-	Dialogic.start("TextChoices1")
+	Dialogic.start(bossName + "Round" + (str(Dialogic.VAR.currentRound)))
 
 
 

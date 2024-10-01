@@ -1,0 +1,23 @@
+[wait time="1.0"]
+- this is it
+	this is the last time i will say this
+	move or DIE
+	set {badAnswer} += 1
+	[signal arg="EnemyTurn"]
+	set {currentRound} += 1
+- Attack
+	lmao im going to kill u
+	byeee
+	[signal arg="AttackChoice"]
+	set {currentRound} += 1
+- listen priest
+	listen priest
+	I JUST don't care about you
+	[signal arg="EnemyTurn"]
+	set {currentRound} += 1
+- i will get it
+	i will get it
+	so be a good person jeez
+	set {goodAnswer} += 1
+	set {currentRound} += 1
+	[signal arg="EnemyTurn"]

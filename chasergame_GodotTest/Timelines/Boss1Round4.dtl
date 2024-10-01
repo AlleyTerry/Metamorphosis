@@ -1,0 +1,7 @@
+if {badAnswer} == 3:
+	- get out of my way
+		die
+if {goodAnswer} == 3:
+	- thank you
+		thank you for seeing the truth
+see u

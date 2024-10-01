@@ -1,0 +1,23 @@
+[wait time="1.0"]
+- Once again you cant stop me
+	You cannot stop me i will get what i want
+	move or die
+	set {badAnswer} += 1
+	[signal arg="EnemyTurn"]
+	set {currentRound} += 1
+- Attack
+	bro still dont know who u are
+	lay off BRO
+	[signal arg="AttackChoice"]
+	set {currentRound} += 1
+- eh I still dc about u
+	look i remember you now
+	but I don't care about you
+	[signal arg="EnemyTurn"]
+	set {currentRound} += 1
+- im telling you bro
+	you dont get it
+	stop being transphobic ugh
+	set {goodAnswer} += 1
+	set {currentRound} += 1
+	[signal arg="EnemyTurn"]

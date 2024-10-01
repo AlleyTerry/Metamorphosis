@@ -25,12 +25,17 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"TextChoices1": "res://Timelines/TextChoices1.dtl",
-"timeline": "res://Timelines/timeline.dtl"
+"Boss1Round1": "res://Timelines/Boss1Round1.dtl",
+"Boss1Round2": "res://Timelines/Boss1Round2.dtl",
+"Boss1Round3": "res://Timelines/Boss1Round3.dtl",
+"Boss1Round4": "res://Timelines/Boss1Round4.dtl",
+"Boss1StartDialogue": "res://Timelines/Boss1StartDialogue.dtl"
 }
 variables={
 "NuetralAnswer2": 0,
+"Var": "",
 "badAnswer": 0,
+"currentRound": 1,
 "goodAnswer": 0,
 "nuetralAnswer": 0
 }

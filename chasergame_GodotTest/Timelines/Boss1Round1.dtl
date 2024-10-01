@@ -3,17 +3,21 @@
 	You cannot stop me i will get what i want
 	move or die
 	set {badAnswer} += 1
+	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
 - Attack
 	bro idk who you even are
 	lay off bro
+	set {currentRound} += 1
 	[signal arg="AttackChoice"]
 - eh idc about u
 	look i know you
 	but I don't care about you
+	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
 - nah bro listen its so good listen
 	i am totally within my right to do this
 	bro
 	set {goodAnswer} += 1
+	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
