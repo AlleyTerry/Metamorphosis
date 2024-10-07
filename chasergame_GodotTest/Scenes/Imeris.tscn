@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyngaj2hbrvtl"]
+
+[ext_resource type="Texture2D" uid="uid://b05l35ftf0j14" path="res://Assets/RealAssets/Imaeris_Wings_Back.png" id="1_l515t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y617d"]
+size = Vector2(2.18557, 1.44127)
+
+[node name="Player2" type="Sprite2D"]
+position = Vector2(320, 419)
+texture = ExtResource("1_l515t")
+
+[node name="playerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerArea"]
+position = Vector2(0.28866, 0.015873)
+shape = SubResource("RectangleShape2D_y617d")
