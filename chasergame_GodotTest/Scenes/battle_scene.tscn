@@ -1,12 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=24 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
 [ext_resource type="Resource" uid="uid://cku4uxefc584m" path="res://Rresources/Linnaeus.tres" id="2_rw1h8"]
 [ext_resource type="PackedScene" uid="uid://beb3l6yikvoov" path="res://Scenes/PopUpText.tscn" id="3_8xy2b"]
+[ext_resource type="Texture2D" uid="uid://5b8cmvh4f8c0" path="res://Assets/RealAssets/chapel2.png" id="3_26kgh"]
 [ext_resource type="Texture2D" uid="uid://ccxex1rcniad" path="res://Assets/PNG/GUI-Kit-Pack-Free_35.png" id="6_i26hj"]
 [ext_resource type="Texture2D" uid="uid://dvo5lpsuwkwav" path="res://Assets/PNG/GUI-Kit-Pack-Free_11.png" id="7_koc7e"]
-[ext_resource type="Texture2D" uid="uid://b05l35ftf0j14" path="res://Assets/RealAssets/Imaeris_Wings_Back.png" id="8_r8on8"]
+[ext_resource type="PackedScene" uid="uid://egcchmciies4" path="res://Scenes/imerisMovement.tscn" id="8_n3u82"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2kt0"]
 
@@ -48,7 +49,7 @@ resource_name = "PlayerHurt"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
+tracks/0/path = NodePath("Imeris2/Camera2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -60,11 +61,11 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Player2:modulate")
+tracks/1/path = NodePath("Imeris2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(-2.23517e-08, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -87,7 +88,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:position")
+tracks/1/path = NodePath("Imeris2/Camera2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -119,6 +120,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(529, 531)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Imeris2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_jvn1y"]
@@ -171,12 +184,22 @@ _data = {
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8kj20"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y617d"]
-size = Vector2(2.18557, 1.44127)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu8lj"]
+size = Vector2(691, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h81wx"]
+size = Vector2(691, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyfag"]
+size = Vector2(1327, 62)
 
 [node name="BattleScene" type="Node2D"]
 script = ExtResource("1_odkyw")
 enemy = ExtResource("2_rw1h8")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(320, 399.42)
+texture = ExtResource("3_26kgh")
 
 [node name="letterShower" parent="." instance=ExtResource("3_8xy2b")]
 offset_left = 50.0
@@ -239,9 +262,6 @@ libraries = {
 "": SubResource("AnimationLibrary_46eun")
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-
 [node name="EnemyAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../EnemyQTE")
 libraries = {
@@ -273,23 +293,45 @@ texture_progress = ExtResource("7_koc7e")
 [node name="EnemyTimer" type="Timer" parent="EnemyQTE"]
 wait_time = 0.75
 
-[node name="Player2" type="Sprite2D" parent="."]
-position = Vector2(320, 419)
-texture = ExtResource("8_r8on8")
+[node name="Imeris2" parent="." instance=ExtResource("8_n3u82")]
+position = Vector2(321, 452)
 
-[node name="playerArea" type="Area2D" parent="Player2"]
+[node name="Camera2D" type="Camera2D" parent="Imeris2"]
+limit_left = 0
+limit_top = -140
+limit_right = 640
+limit_bottom = 940
+editor_draw_limits = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/playerArea"]
-position = Vector2(0.28866, 0.015873)
-shape = SubResource("RectangleShape2D_y617d")
+[node name="top wall" type="StaticBody2D" parent="."]
 
-[node name="Camera2D2" type="Camera2D" parent="."]
-position = Vector2(319, 239)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top wall"]
+position = Vector2(323, 63)
+shape = SubResource("RectangleShape2D_xu8lj")
+
+[node name="Bottom wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom wall"]
+position = Vector2(323, 941)
+shape = SubResource("RectangleShape2D_h81wx")
+
+[node name="left wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left wall"]
+position = Vector2(97, 373)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_yyfag")
+
+[node name="right wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right wall"]
+position = Vector2(544, 373)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_yyfag")
 
 [connection signal="timeout" from="letterShower/Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Player/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="pressed" from="Node2D/AttackButton" to="." method="_on_attack_button_pressed"]
 [connection signal="timeout" from="EnemyQTE/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
-[connection signal="area_entered" from="Player2/playerArea" to="." method="_on_player_area_area_entered"]
 
 [editable path="letterShower"]
