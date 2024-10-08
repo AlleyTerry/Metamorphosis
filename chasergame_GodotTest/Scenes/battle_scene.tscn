@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=25 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
@@ -112,7 +112,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Player:position")
+tracks/3/path = NodePath("PlayerAttack:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -142,7 +142,7 @@ resource_name = "player_attack"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Player:position")
+tracks/0/path = NodePath("PlayerAttack:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -193,6 +193,9 @@ size = Vector2(691, 62)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yyfag"]
 size = Vector2(1327, 62)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qloq3"]
+size = Vector2(383, 12.5)
+
 [node name="BattleScene" type="Node2D"]
 script = ExtResource("1_odkyw")
 enemy = ExtResource("2_rw1h8")
@@ -234,15 +237,16 @@ shape = SubResource("RectangleShape2D_y2kt0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="PlayerAttack" type="CharacterBody2D" parent="."]
 position = Vector2(529, 531)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="Sprite2D" type="Sprite2D" parent="PlayerAttack"]
 texture = ExtResource("1_btm8f")
 
-[node name="Area2D" type="Area2D" parent="Player"]
+[node name="Area2D" type="Area2D" parent="PlayerAttack"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAttack/Area2D"]
+position = Vector2(252, -4)
 scale = Vector2(0.525, 0.525)
 shape = SubResource("RectangleShape2D_6rofi")
 
@@ -294,7 +298,7 @@ texture_progress = ExtResource("7_koc7e")
 wait_time = 0.75
 
 [node name="Imeris2" parent="." instance=ExtResource("8_n3u82")]
-position = Vector2(321, 452)
+position = Vector2(321, 859)
 
 [node name="Camera2D" type="Camera2D" parent="Imeris2"]
 limit_left = 0
@@ -329,9 +333,16 @@ position = Vector2(544, 373)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_yyfag")
 
+[node name="HeadlessArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadlessArea"]
+position = Vector2(329, 268.25)
+shape = SubResource("RectangleShape2D_qloq3")
+
 [connection signal="timeout" from="letterShower/Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="Player/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="PlayerAttack/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="pressed" from="Node2D/AttackButton" to="." method="_on_attack_button_pressed"]
 [connection signal="timeout" from="EnemyQTE/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="area_entered" from="HeadlessArea" to="." method="_on_headless_area_area_entered"]
 
 [editable path="letterShower"]

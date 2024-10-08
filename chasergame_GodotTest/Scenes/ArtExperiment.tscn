@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://do4hgcvwwdtat"]
+
+[ext_resource type="Texture2D" uid="uid://5b8cmvh4f8c0" path="res://Assets/RealAssets/chapel2.png" id="1_uncdr"]
+[ext_resource type="Texture2D" uid="uid://ddxwvr636wfev" path="res://Assets/RealAssets/Imaeris_48x48.png" id="2_x8o18"]
+[ext_resource type="Texture2D" uid="uid://cbg8l7ptksud5" path="res://Assets/RealAssets/table.png" id="3_3h62j"]
+[ext_resource type="Texture2D" uid="uid://d4gkba20dm6j8" path="res://Assets/RealAssets/table48x48.png" id="3_5vfhg"]
+[ext_resource type="Texture2D" uid="uid://cw7db870wbuk3" path="res://Assets/RealAssets/Imaeris_32x32.png" id="5_iim1t"]
+[ext_resource type="Texture2D" uid="uid://dibc3poc40pxm" path="res://Assets/RealAssets/Imaeris_32x32_to48x48-export.png" id="6_cg0hl"]
+[ext_resource type="Texture2D" uid="uid://8n0pna0vphx8" path="res://Assets/RealAssets/Imaeris_48x48_Outlined_Simple.png" id="7_3m32x"]
+[ext_resource type="Texture2D" uid="uid://diqvjsakokl14" path="res://Assets/RealAssets/Imaeris_48x48_Outlined_Simple (1).png" id="8_n4430"]
+[ext_resource type="Texture2D" uid="uid://cpgsmykslmeuv" path="res://Assets/RealAssets/Imaeris_48x48_OutlinedTransparent.png" id="9_h82nt"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Chapel2" type="Sprite2D" parent="."]
+position = Vector2(276, 400)
+texture = ExtResource("1_uncdr")
+
+[node name="Imaeris48x48" type="Sprite2D" parent="."]
+position = Vector2(283, 319)
+texture = ExtResource("2_x8o18")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(313, 209)
+zoom = Vector2(1.535, 1.535)
+
+[node name="Table48x48" type="Sprite2D" parent="."]
+position = Vector2(240, 196)
+texture = ExtResource("3_5vfhg")
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(347, 198)
+texture = ExtResource("3_3h62j")
+
+[node name="Imaeris32x32" type="Sprite2D" parent="."]
+position = Vector2(154, 168)
+texture = ExtResource("5_iim1t")
+
+[node name="Imaeris32x32To48x48-export" type="Sprite2D" parent="."]
+position = Vector2(164, 130)
+texture = ExtResource("6_cg0hl")
+
+[node name="Imaeris48x48OutlinedSimple" type="Sprite2D" parent="."]
+position = Vector2(399, 189)
+texture = ExtResource("7_3m32x")
+
+[node name="Imaeris48x48OutlinedSimple(1)" type="Sprite2D" parent="."]
+position = Vector2(389, 240)
+texture = ExtResource("8_n4430")
+
+[node name="Imaeris48x48OutlinedTransparent" type="Sprite2D" parent="."]
+position = Vector2(355, 248)
+texture = ExtResource("9_h82nt")

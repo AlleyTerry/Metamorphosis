@@ -415,8 +415,7 @@ shape = SubResource("CapsuleShape2D_8fe4v")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -29)
 sprite_frames = SubResource("SpriteFrames_penay")
-animation = &"run"
-frame = 3
+animation = &"idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -431,8 +430,8 @@ parameters/idle/idl_bs2D/blend_position = Vector2(0, 0)
 parameters/run/TimeScale/scale = 1.0
 parameters/run/run_bs2D/blend_position = Vector2(0, 0)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="PlayerArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
 position = Vector2(1.5, -33.5)
 shape = SubResource("RectangleShape2D_50uu3")

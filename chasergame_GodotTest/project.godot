@@ -22,9 +22,11 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"Linnaeus": "res://Characters/Linnaeus.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"Boss1AreaSignal": "res://Characters/Boss1AreaSignal.dtl",
 "Boss1Round1": "res://Timelines/Boss1Round1.dtl",
 "Boss1Round2": "res://Timelines/Boss1Round2.dtl",
 "Boss1Round3": "res://Timelines/Boss1Round3.dtl",

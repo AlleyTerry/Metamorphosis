@@ -200,3 +200,8 @@ func _on_player_area_area_entered(area: Area2D) -> void:
 	if area.name == "EnemyArea":
 		defenseCheck = true
 		print(area.name)
+
+
+func _on_headless_area_area_entered(area: Area2D) -> void:
+	print("u are in the correct area")
+	Dialogic.start(bossName+ "AreaSignal")
