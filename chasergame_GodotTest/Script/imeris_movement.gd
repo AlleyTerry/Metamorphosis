@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 #setting up constant variables so you dont have to write 800 every time not public
 @export var ACCELERATION = 300
-const FRICTION = 5000
+const FRICTION = 1000000
 const MAX_SPEED = 300
 
 #getting our aniamtion tree

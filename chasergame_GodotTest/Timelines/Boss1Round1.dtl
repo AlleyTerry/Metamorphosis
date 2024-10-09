@@ -1,24 +1,47 @@
 [signal arg="startDialogue"]
-- you can't stop me
-	You cannot stop me i will get what i want
-	move or die
-	set {badAnswer} += 1
+- Reason
+	<Empty Text Event>
+	<Empty Text Event>
+	<Empty Text Event>
+	<Empty Text Event>
+- Apologize
+- stand
+	Imeris: I am not afraid of you.
+	(Linnaeus is enraged.)
+	Linnaeus: Oh?
+	Linnaeus: Don't worry.
+	Linnaeus: You will be.
+	(Next attack will be stronger)
 	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
-- Attack
-	bro idk who you even are
-	lay off bro
-	set {currentRound} += 1
-	[signal arg="AttackChoice"]
-- eh idc about u
-	look i know you
-	but I don't care about you
+- cower
+	(Linnaeus sees your fearful response. He smiles cruelly.)
+	Linnaeus: Are you frightened?
+	Linnaeus: Good.
+	Linnaeus: You should be.
+	(Next attack weaker)
+	Imeris: ...I'm sorry.
+	(He says nothing, but his grip eases.)
+- Denounce
+	Imeris: You never saw the truth of Her teachings, in all your years.
+	Imeris: You'll never understand.
+	(Linnaeus is enraged.)
+	Linnaeus: I won't understand? No, it is YOU who does not understand!
+	Linnaeus: That one of my own children would have the gall to condescend to me... No.
+	Linnaeus: You are my child no longer.
+	Linnaeus: And you shall find no more kindness from me.
+	Linnaeus: (Next attack stronger.)
 	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
-- nah bro listen its so good listen
-	i am totally within my right to do this
-	bro
-	set {goodAnswer} += 1
+- Placate
+	Imeris: Why do you despair, Father?
+	Imeris: I have done naught but follow Our Lady's word. Surely there is peace for us all at the end of Her path.
+	Linnaeus laughs bitterly.
+	Linnaeus: You are a naive fool if you think so.
+	Linnaeus: There is no way out of this. For any of us.
+	Linnaeus: Not until the bitter end.
+	Linnaeus: And there is certainly nothing good waiting after for sinners like you.
+	Linnaeus: But at least you have maintained some scrap of piety. I mustn't have failed so utterly, then.
 	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
 [signal arg="endDialogue"]

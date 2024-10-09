@@ -230,7 +230,6 @@ position = Vector2(-320, -399.42)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bg/left wall"]
 position = Vector2(100.306, 373)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yyfag")
 
 [node name="right wall" type="StaticBody2D" parent="bg"]
@@ -239,7 +238,6 @@ position = Vector2(-320, -399.42)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bg/right wall"]
 position = Vector2(536.389, 373)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yyfag")
 
 [node name="HeadlessArea" type="Area2D" parent="bg"]

@@ -26,6 +26,7 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(_endDialogue)
 	Dialogic.signal_event.connect(_startDialogue)
 	Dialogic.signal_event.connect(_giveVelocityBack)
+	Dialogic.signal_event.connect(enemyAttack1)
 	$Node2D.visible = true
 	enemy.health = 3
 	$Enemy/Sprite2D.texture = enemy.texture
@@ -40,7 +41,14 @@ func _ready() -> void:
 	
 	
 	
-	
+func enemyAttack1(argument: String):
+	if argument == "enemyAttack1":
+		print("this is enemy attack function")
+		newRandomLetter = letterArray.pick_random()
+		defenseCheck = true
+		timerCheck = true
+		enemyTurn()
+
 
 func _startDialogue(argument: String):
 	
