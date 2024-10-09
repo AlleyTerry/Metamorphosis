@@ -27,6 +27,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "Boss1AreaSignal": "res://Characters/Boss1AreaSignal.dtl",
+"Boss1AreaSignal2": "res://Timelines/Boss1AreaSignal2.dtl",
 "Boss1Round1": "res://Timelines/Boss1Round1.dtl",
 "Boss1Round2": "res://Timelines/Boss1Round2.dtl",
 "Boss1Round3": "res://Timelines/Boss1Round3.dtl",
@@ -44,8 +45,8 @@ variables={
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=480
+window/size/viewport_width=800
+window/size/viewport_height=600
 
 [editor_plugins]
 

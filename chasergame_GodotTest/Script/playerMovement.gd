@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 350.0
 const ACCELERATION = 1200.0
-const FRICTION = 1400.0
+const FRICTION = 30000.0
 
 const GRAVITY = 2000.0
 const FALL_GRAVITY = 3000.0

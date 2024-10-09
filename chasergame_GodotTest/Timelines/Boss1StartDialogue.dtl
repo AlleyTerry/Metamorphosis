@@ -1,3 +1,4 @@
+[signal arg="startDialogue"]
 Linnaeus: If it is food you are after, my child, look elsewhere.
 Linnaeus: I shall not relinquish my offerings to Our Lady even at the cost of my life.
 Linnaeus: Go. There is nothing for you here.
@@ -40,3 +41,4 @@ label LIN3
 	Linnaeus: You dare to question even the very teachings of Our Lady of Gold?
 	Linnaeus: Who are you, foolish, doubting child? 
 	Linnaeus: Show yourself!
+[signal arg="endDialogue"]

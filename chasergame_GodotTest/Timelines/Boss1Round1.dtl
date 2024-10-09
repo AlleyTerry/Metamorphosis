@@ -1,4 +1,4 @@
-[wait time="1.0"]
+[signal arg="startDialogue"]
 - you can't stop me
 	You cannot stop me i will get what i want
 	move or die
@@ -21,3 +21,4 @@
 	set {goodAnswer} += 1
 	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
+[signal arg="endDialogue"]

@@ -5,3 +5,4 @@ if {goodAnswer} == 3:
 	- thank you
 		thank you for seeing the truth
 see u
+[signal arg="velocity"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=27 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
@@ -9,10 +9,22 @@
 [ext_resource type="Texture2D" uid="uid://dvo5lpsuwkwav" path="res://Assets/PNG/GUI-Kit-Pack-Free_11.png" id="7_koc7e"]
 [ext_resource type="PackedScene" uid="uid://egcchmciies4" path="res://Scenes/imerisMovement.tscn" id="8_n3u82"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2kt0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu8lj"]
+size = Vector2(691, 62)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rofi"]
-size = Vector2(88.2838, 160)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h81wx"]
+size = Vector2(691, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyfag"]
+size = Vector2(1327, 83.8333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qloq3"]
+size = Vector2(503.5, 12.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80rtp"]
+size = Vector2(518.5, 12.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2kt0"]
 
 [sub_resource type="Animation" id="Animation_ifb4y"]
 resource_name = "EnemyDied"
@@ -112,7 +124,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAttack:position")
+tracks/3/path = NodePath("Imeris2/PlayerAttack:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -142,7 +154,7 @@ resource_name = "player_attack"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerAttack:position")
+tracks/0/path = NodePath("Imeris2/PlayerAttack:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -184,25 +196,67 @@ _data = {
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8kj20"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu8lj"]
-size = Vector2(691, 62)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u4nxi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h81wx"]
-size = Vector2(691, 62)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyfag"]
-size = Vector2(1327, 62)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qloq3"]
-size = Vector2(383, 12.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rofi"]
+size = Vector2(88.2838, 160)
 
 [node name="BattleScene" type="Node2D"]
 script = ExtResource("1_odkyw")
 enemy = ExtResource("2_rw1h8")
 
 [node name="bg" type="Sprite2D" parent="."]
-position = Vector2(320, 399.42)
+position = Vector2(400, 399.42)
+scale = Vector2(1.26, 1.26)
 texture = ExtResource("3_26kgh")
+
+[node name="top wall" type="StaticBody2D" parent="bg"]
+position = Vector2(-320, -399.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/top wall"]
+position = Vector2(323, 63)
+shape = SubResource("RectangleShape2D_xu8lj")
+
+[node name="Bottom wall" type="StaticBody2D" parent="bg"]
+position = Vector2(-320, -399.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/Bottom wall"]
+position = Vector2(323, 941)
+shape = SubResource("RectangleShape2D_h81wx")
+
+[node name="left wall" type="StaticBody2D" parent="bg"]
+position = Vector2(-320, -399.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/left wall"]
+position = Vector2(100.306, 373)
+rotation = 1.5708
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_yyfag")
+
+[node name="right wall" type="StaticBody2D" parent="bg"]
+position = Vector2(-320, -399.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/right wall"]
+position = Vector2(536.389, 373)
+rotation = 1.5708
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_yyfag")
+
+[node name="HeadlessArea" type="Area2D" parent="bg"]
+position = Vector2(-323.887, -323.417)
+scale = Vector2(0.809717, 0.809717)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/HeadlessArea"]
+position = Vector2(401.96, 328.437)
+shape = SubResource("RectangleShape2D_qloq3")
+
+[node name="HeadlessArea2" type="Area2D" parent="bg"]
+position = Vector2(-323.887, -323.417)
+scale = Vector2(0.809717, 0.809717)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/HeadlessArea2"]
+position = Vector2(403.921, 240.223)
+shape = SubResource("RectangleShape2D_80rtp")
 
 [node name="letterShower" parent="." instance=ExtResource("3_8xy2b")]
 offset_left = 50.0
@@ -227,7 +281,7 @@ step = 0.1
 fill_mode = 6
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
-position = Vector2(320, 84)
+position = Vector2(400, 84)
 
 [node name="EnemyArea2" type="Area2D" parent="Enemy"]
 
@@ -236,19 +290,6 @@ scale = Vector2(7.085, 7.085)
 shape = SubResource("RectangleShape2D_y2kt0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-
-[node name="PlayerAttack" type="CharacterBody2D" parent="."]
-position = Vector2(529, 531)
-
-[node name="Sprite2D" type="Sprite2D" parent="PlayerAttack"]
-texture = ExtResource("1_btm8f")
-
-[node name="Area2D" type="Area2D" parent="PlayerAttack"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAttack/Area2D"]
-position = Vector2(252, -4)
-scale = Vector2(0.525, 0.525)
-shape = SubResource("RectangleShape2D_6rofi")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -298,51 +339,39 @@ texture_progress = ExtResource("7_koc7e")
 wait_time = 0.75
 
 [node name="Imeris2" parent="." instance=ExtResource("8_n3u82")]
-position = Vector2(321, 859)
+position = Vector2(399, 978)
+
+[node name="Sprite2D" type="Sprite2D" parent="Imeris2"]
+visible = false
+position = Vector2(0, -5)
+scale = Vector2(31.5, 24.5)
+texture = SubResource("PlaceholderTexture2D_u4nxi")
+
+[node name="PlayerAttack" type="CharacterBody2D" parent="Imeris2"]
+position = Vector2(529, 531)
+
+[node name="Sprite2D" type="Sprite2D" parent="Imeris2/PlayerAttack"]
+texture = ExtResource("1_btm8f")
+
+[node name="Area2D" type="Area2D" parent="Imeris2/PlayerAttack"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Imeris2/PlayerAttack/Area2D"]
+position = Vector2(-2.99998, -31)
+scale = Vector2(0.525, 0.525)
+shape = SubResource("RectangleShape2D_6rofi")
 
 [node name="Camera2D" type="Camera2D" parent="Imeris2"]
 limit_left = 0
-limit_top = -140
-limit_right = 640
-limit_bottom = 940
+limit_top = -280
+limit_right = 800
+limit_bottom = 1080
 editor_draw_limits = true
 
-[node name="top wall" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="top wall"]
-position = Vector2(323, 63)
-shape = SubResource("RectangleShape2D_xu8lj")
-
-[node name="Bottom wall" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom wall"]
-position = Vector2(323, 941)
-shape = SubResource("RectangleShape2D_h81wx")
-
-[node name="left wall" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="left wall"]
-position = Vector2(97, 373)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_yyfag")
-
-[node name="right wall" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="right wall"]
-position = Vector2(544, 373)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_yyfag")
-
-[node name="HeadlessArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadlessArea"]
-position = Vector2(329, 268.25)
-shape = SubResource("RectangleShape2D_qloq3")
-
+[connection signal="area_entered" from="bg/HeadlessArea" to="." method="_on_headless_area_area_entered"]
+[connection signal="area_entered" from="bg/HeadlessArea2" to="." method="_on_headless_area_2_area_entered"]
 [connection signal="timeout" from="letterShower/Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="PlayerAttack/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="pressed" from="Node2D/AttackButton" to="." method="_on_attack_button_pressed"]
 [connection signal="timeout" from="EnemyQTE/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
-[connection signal="area_entered" from="HeadlessArea" to="." method="_on_headless_area_area_entered"]
+[connection signal="area_entered" from="Imeris2/PlayerAttack/Area2D" to="." method="_on_area_2d_area_entered"]
 
 [editable path="letterShower"]
