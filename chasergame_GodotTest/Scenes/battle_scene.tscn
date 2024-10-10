@@ -270,7 +270,6 @@ scale = Vector2(1.26, 1.26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/Bottom wall left"]
 position = Vector2(194.603, 745.515)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_j2lgd")
 
 [node name="Bottom wall right2" type="StaticBody2D" parent="ChapelV2"]
@@ -279,7 +278,6 @@ scale = Vector2(1.26, 1.26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/Bottom wall right2"]
 position = Vector2(194.603, 745.515)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_j2lgd")
 
 [node name="left wall" type="StaticBody2D" parent="ChapelV2"]
@@ -298,7 +296,6 @@ scale = Vector2(1.26, 1.26)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/left wall2"]
 position = Vector2(81.4289, 502.778)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_skge3")
 
 [node name="right wall2" type="StaticBody2D" parent="ChapelV2"]
@@ -308,7 +305,6 @@ scale = Vector2(1.26, 1.26)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/right wall2"]
 position = Vector2(117.858, 503.175)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5egwp")
 
 [node name="right wall" type="StaticBody2D" parent="ChapelV2"]
