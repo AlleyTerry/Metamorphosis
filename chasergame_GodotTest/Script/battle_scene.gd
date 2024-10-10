@@ -298,7 +298,7 @@ func _on_headless_area_area_entered(area: Area2D) -> void:
 		dialog.process_mode= Node.PROCESS_MODE_ALWAYS
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 		$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
-		$bg/HeadlessArea.visible = false
+		$ChapelV2/HeadlessArea.visible = false
 	
 
 
@@ -310,7 +310,7 @@ func _on_headless_area_2_area_entered(area: Area2D) -> void:
 		dialog.process_mode= Node.PROCESS_MODE_ALWAYS
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 		$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
-		$bg/HeadlessArea2.visible = false
+		$ChapelV2/HeadlessArea2.visible = false
 
 func _giveVelocityBack(argument):
 	if argument == "velocity":
