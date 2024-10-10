@@ -29,6 +29,8 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(enemyAttack1)
 	Dialogic.signal_event.connect(moveUp)
 	Dialogic.signal_event.connect(gameOver)
+	Dialogic.signal_event.connect(enemyDeath)
+	Dialogic.signal_event.connect(endVelocity)
 	$Node2D.visible = true
 	enemy.health = 3
 	$Enemy/Sprite2D.texture = enemy.texture
@@ -40,6 +42,7 @@ func _ready() -> void:
 	var dialog = Dialogic.start(currentDialogue)
 	dialog.process_mode= Node.PROCESS_MODE_ALWAYS
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+	$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	
 
@@ -114,6 +117,7 @@ func OnDialogicSignal(argument: String):
 		var dialog = Dialogic.start(bossName + "Round1")
 		dialog.process_mode= Node.PROCESS_MODE_ALWAYS
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+		$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
 	
 
 func DefenseQTE():
@@ -135,6 +139,7 @@ func DefenseQTE():
 		var dialog = Dialogic.start(bossName + "Round" + (str(Dialogic.VAR.currentRound)))
 		dialog.process_mode= Node.PROCESS_MODE_ALWAYS
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+		$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
 
 		
 		
@@ -274,6 +279,7 @@ func _on_enemy_timer_timeout() -> void:
 	var dialog = Dialogic.start(bossName + "Round" + (str(Dialogic.VAR.currentRound)))
 	dialog.process_mode= Node.PROCESS_MODE_ALWAYS
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+	$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
 
 
 
@@ -291,6 +297,7 @@ func _on_headless_area_area_entered(area: Area2D) -> void:
 		var dialog = Dialogic.start(currentDialogue)
 		dialog.process_mode= Node.PROCESS_MODE_ALWAYS
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+		$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
 		$bg/HeadlessArea.visible = false
 	
 
@@ -302,8 +309,19 @@ func _on_headless_area_2_area_entered(area: Area2D) -> void:
 		var dialog = Dialogic.start(currentDialogue)
 		dialog.process_mode= Node.PROCESS_MODE_ALWAYS
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+		$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
 		$bg/HeadlessArea2.visible = false
 
 func _giveVelocityBack(argument):
 	if argument == "velocity":
 		$Imeris2.ACCELERATION = 0
+		
+func enemyDeath(argument):
+	if argument == "enemyDeath":
+		$AnimationPlayer.play("EnemyDied")
+		await $AnimationPlayer.animation_finished
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+
+func endVelocity(argument):
+	if argument == "endVelocity":
+		$Imeris2.ACCELERATION += tempVelocity

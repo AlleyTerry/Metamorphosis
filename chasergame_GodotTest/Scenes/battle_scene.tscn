@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=32 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://beb3l6yikvoov" path="res://Scenes/PopUpText.tscn" id="3_8xy2b"]
 [ext_resource type="Texture2D" uid="uid://5b8cmvh4f8c0" path="res://Assets/RealAssets/chapel2.png" id="3_26kgh"]
 [ext_resource type="Texture2D" uid="uid://ccxex1rcniad" path="res://Assets/PNG/GUI-Kit-Pack-Free_35.png" id="6_i26hj"]
+[ext_resource type="FontFile" uid="uid://jf1ssf5rwido" path="res://Assets/Fonts/SawarabiMincho-Regular.ttf" id="6_m5cl5"]
 [ext_resource type="Texture2D" uid="uid://dvo5lpsuwkwav" path="res://Assets/PNG/GUI-Kit-Pack-Free_11.png" id="7_koc7e"]
 [ext_resource type="PackedScene" uid="uid://egcchmciies4" path="res://Scenes/imerisMovement.tscn" id="8_n3u82"]
+[ext_resource type="PackedScene" uid="uid://dycxpknlp44lv" path="res://Scenes/pew.tscn" id="9_8rwfg"]
+[ext_resource type="PackedScene" uid="uid://bbidbwtfx6qjs" path="res://Scenes/BattleMusic.tscn" id="10_wylqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xu8lj"]
 size = Vector2(691, 62)
@@ -23,6 +26,12 @@ size = Vector2(503.5, 12.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80rtp"]
 size = Vector2(518.5, 12.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qegk0"]
+font = ExtResource("6_m5cl5")
+font_size = 21
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2kt0"]
 
@@ -194,6 +203,12 @@ _data = {
 "EnemyAttack": SubResource("Animation_sgrsk")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_41png"]
+font = ExtResource("6_m5cl5")
+font_size = 56
+outline_size = 40
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8kj20"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u4nxi"]
@@ -256,11 +271,62 @@ scale = Vector2(0.809717, 0.809717)
 position = Vector2(403.921, 240.223)
 shape = SubResource("RectangleShape2D_80rtp")
 
+[node name="Pew" type="Node" parent="."]
+
+[node name="StaticBody2D" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(275, 897)
+
+[node name="StaticBody2D2" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(275, 804)
+
+[node name="StaticBody2D3" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(275, 714)
+
+[node name="StaticBody2D4" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(275, 625)
+
+[node name="StaticBody2D5" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(275, 530)
+
+[node name="StaticBody2D6" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(275, 438)
+
+[node name="StaticBody2D7" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(275, 348)
+
+[node name="StaticBody2D8" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(275, 258)
+
+[node name="StaticBody2D9" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(523, 896)
+
+[node name="StaticBody2D10" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(523, 803)
+
+[node name="StaticBody2D11" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(523, 713)
+
+[node name="StaticBody2D12" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(523, 624)
+
+[node name="StaticBody2D13" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(523, 529)
+
+[node name="StaticBody2D14" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(523, 437)
+
+[node name="StaticBody2D15" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(523, 347)
+
+[node name="StaticBody2D16" parent="Pew" instance=ExtResource("9_8rwfg")]
+position = Vector2(523, 257)
+
 [node name="letterShower" parent="." instance=ExtResource("3_8xy2b")]
-offset_left = 50.0
-offset_top = 124.0
-offset_right = 228.0
-offset_bottom = 210.0
+offset_left = 182.0
+offset_top = 162.0
+offset_right = 360.0
+offset_bottom = 248.0
+label_settings = SubResource("LabelSettings_qegk0")
 
 [node name="TextureProgressBar" parent="letterShower" index="0"]
 visible = false
@@ -313,11 +379,13 @@ libraries = {
 
 [node name="EnemyQTE" type="Label" parent="."]
 visible = false
-offset_left = 454.0
-offset_top = 209.0
-offset_right = 537.0
-offset_bottom = 262.0
+offset_left = 458.0
+offset_top = 157.0
+offset_right = 699.0
+offset_bottom = 278.0
+theme_override_fonts/font = ExtResource("6_m5cl5")
 text = "hold s"
+label_settings = SubResource("LabelSettings_41png")
 
 [node name="EnemyTimerProgress" type="TextureProgressBar" parent="EnemyQTE"]
 visible = false
@@ -364,6 +432,8 @@ limit_top = -280
 limit_right = 800
 limit_bottom = 1080
 editor_draw_limits = true
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("10_wylqj")]
 
 [connection signal="area_entered" from="bg/HeadlessArea" to="." method="_on_headless_area_area_entered"]
 [connection signal="area_entered" from="bg/HeadlessArea2" to="." method="_on_headless_area_2_area_entered"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbidbwtfx6qjs"]
+
+[ext_resource type="AudioStream" uid="uid://5wvi2xykmwx2" path="res://Assets/Music/MM Battle Theme.mp3" id="1_07mmr"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_07mmr")
+autoplay = true

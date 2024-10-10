@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5wvi2xykmwx2"
+path="res://.godot/imported/MM Battle Theme.mp3-096bab18c4d5a1dc7562006261000b21.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/MM Battle Theme.mp3"
+dest_files=["res://.godot/imported/MM Battle Theme.mp3-096bab18c4d5a1dc7562006261000b21.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
