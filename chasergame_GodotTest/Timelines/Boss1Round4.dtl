@@ -1,8 +1,41 @@
-if {badAnswer} == 3:
-	- get out of my way
-		die
-if {goodAnswer} == 3:
-	- thank you
-		thank you for seeing the truth
-see u
 [signal arg="velocity"]
+[signal arg="moveUp"]
+[wait time="0.5"]
+Linnaeus: No...
+Linnaeus: No!!!
+Imeris: ...
+Linnaeus: Come no closer, wretch!
+Linnaeus: Leave me!
+Linnaeus: I shall not let you taint me, too!!!
+(Linnaeus raises his arm to strike you)
+- Defend Yourself
+	(Short animation of Imeris striking Linnaeus, and then the screen fades to black,)
+	You have killed someone.
+	Your hands are wet with red. Your skin crawls.
+	The smell of iron brings bile into your throat.
+	...
+	This tool of the Court, wielding words like a cudgel to keep you all in check. Preaching false truths to distract from the wondrous reality you've managed to grasp.
+	You look upon him, the holder of the first key to your cage, and feel...
+	Sadness
+	Anger
+	Contempt
+	Pity
+	Disgust
+	Contempt
+	And //Hunger.//
+	His crimson blood flows like spilled wine and soaks into the scarlet carpet, and your tongue sits heavy in your dry mouth.
+	Your throat burns.
+	Your teeth ache.
+	Your hands curl into your stomach.
+	You look upon the offerings he defended with his life\: they are paltry. He threw himself away for mere scraps of bread, dry save for crusted spots of honey.
+	You look back at him. You feel disgust once more, but not for him.
+	- Eat the Bread
+		(Short series of images showing Imeris at the offering bowls, and then walking down the carpet towards the exit of the church.)
+		You gather all the offerings and eat them, one by one.
+		Your mouth is no less dry, and your hunger is no less sharp, but for now, you are done.
+		There is nothing more for you here.
+		[signal arg="endVelocity"]
+	- Sate your hunger.
+		...
+		(A short series of images showing Imeris cupping their hands and filling them with blood before bringing them to their mouth.)
+		[signal arg="endVelocity"]

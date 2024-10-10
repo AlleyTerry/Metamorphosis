@@ -27,6 +27,8 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(_startDialogue)
 	Dialogic.signal_event.connect(_giveVelocityBack)
 	Dialogic.signal_event.connect(enemyAttack1)
+	Dialogic.signal_event.connect(moveUp)
+	Dialogic.signal_event.connect(gameOver)
 	$Node2D.visible = true
 	enemy.health = 3
 	$Enemy/Sprite2D.texture = enemy.texture
@@ -38,6 +40,17 @@ func _ready() -> void:
 	var dialog = Dialogic.start(currentDialogue)
 	dialog.process_mode= Node.PROCESS_MODE_ALWAYS
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	
+
+func gameOver (argument: String):
+	if argument == "gameOver":
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+
+func moveUp(argument: String):
+	if argument == "moveUp":
+		var tween = create_tween()
+		tween.tween_property($Imeris2, 'position:y', $Imeris2.position.y -50 , 0.5)
 	
 	
 	
@@ -128,6 +141,11 @@ func DefenseQTE():
 
 func AttackSignal(argument: String):
 	if argument == "AttackChoice":
+		Dialogic.paused = true
+		if (Dialogic.Text.is_textbox_visible()):
+			Dialogic.Text.hide_textbox()
+		else:
+			Dialogic.Text.show_textbox()
 		$Node2D.visible = false
 		$letterShower/TextureProgressBar.value = 0
 		startMinigame = true
@@ -169,10 +187,10 @@ func PlayerAttack():
 			await $AnimationPlayer.animation_finished
 			await get_tree().create_timer(.25).timeout
 		else:
-			newRandomLetter = letterArray.pick_random()
-			defenseCheck = true
-			timerCheck = true
-			enemyTurn()
+			Dialogic.VAR.attackFinished = true
+			Dialogic.paused = false
+			Dialogic.Text.show_textbox()
+
 
 	
 func doMinigame():
@@ -213,14 +231,20 @@ func StepThrough():
 
 func _on_timer_timeout() -> void:
 	inputCheck = false
-	$letterShower.text = "MISS"
-	$Imeris2.ACCELERATION += $Imeris2.ACCELERATION
-	await get_tree().create_timer(.5).timeout
 	TurnReset()
-	newRandomLetter = letterArray.pick_random()
-	defenseCheck = true
-	timerCheck = true
-	enemyTurn()
+	$AnimationPlayer.play("PlayerHurt")
+	playerHealth -= 1
+	if playerHealth == 0:
+		Dialogic.VAR.attackFinished = true
+		Dialogic.paused = false
+		Dialogic.Text.show_textbox()
+		Dialogic.start("PlayerDeath")
+	else:
+		
+		Dialogic.VAR.attackFinished = true
+		Dialogic.paused = false
+		Dialogic.Text.show_textbox()
+		Dialogic.start("PLayerHurt")
 	
 	
 func TurnReset():
@@ -242,6 +266,8 @@ func _on_enemy_timer_timeout() -> void:
 	$AnimationPlayer.play("PlayerHurt")
 	await $AnimationPlayer.animation_finished
 	playerHealth -= 1
+	if playerHealth ==0:
+		Dialogic.start("PlayerDeath")
 	print("player health ", playerHealth)
 	TurnReset()
 	$Node2D.visible = true
@@ -265,7 +291,7 @@ func _on_headless_area_area_entered(area: Area2D) -> void:
 		var dialog = Dialogic.start(currentDialogue)
 		dialog.process_mode= Node.PROCESS_MODE_ALWAYS
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
-	
+		$bg/HeadlessArea.visible = false
 	
 
 
@@ -276,7 +302,8 @@ func _on_headless_area_2_area_entered(area: Area2D) -> void:
 		var dialog = Dialogic.start(currentDialogue)
 		dialog.process_mode= Node.PROCESS_MODE_ALWAYS
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+		$bg/HeadlessArea2.visible = false
 
 func _giveVelocityBack(argument):
 	if argument == "velocity":
-		$Imeris2.ACCELERATION += tempVelocity
+		$Imeris2.ACCELERATION = 0

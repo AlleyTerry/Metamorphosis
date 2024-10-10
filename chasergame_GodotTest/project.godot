@@ -33,15 +33,14 @@ directories/dtl_directory={
 "Boss1Round2": "res://Timelines/Boss1Round2.dtl",
 "Boss1Round3": "res://Timelines/Boss1Round3.dtl",
 "Boss1Round4": "res://Timelines/Boss1Round4.dtl",
-"Boss1StartDialogue": "res://Timelines/Boss1StartDialogue.dtl"
+"Boss1StartDialogue": "res://Timelines/Boss1StartDialogue.dtl",
+"PLayerHurt": "res://Timelines/PLayerHurt.dtl",
+"PlayerDeath": "res://Timelines/PlayerDeath.dtl"
 }
 variables={
-"NuetralAnswer2": 0,
-"Var": "",
-"badAnswer": 0,
+"attackFinished": false,
 "currentRound": 1,
-"goodAnswer": 0,
-"nuetralAnswer": 0
+"linAttack": false
 }
 
 [display]

@@ -1,23 +1,54 @@
-[wait time="1.0"]
-- Once again you cant stop me
-	You cannot stop me i will get what i want
-	move or die
-	set {badAnswer} += 1
-	[signal arg="EnemyTurn"]
+[signal arg="velocity"]
+[signal arg="moveUp"]
+[wait time="0.5"]
+Linnaeus: Why do you approach? Do you not fear for your life, o' wretch?
+[wait time="0.5"]
+- Threaten
+	Imeris: Your role has softened you, Father.t
+	Imeris: You are frail and weak with the comforts of your life.
+	Imeris: My body, though new, is still strengthened by hardship, and sharper with my hunger.
+	Imeris: You will not be able to hold me back.
+	Imeris: Stand aside.
+	(Linnaeus is enraged.)
+	Curb your tongue, child.
+	Or I shall cut it out.
 	set {currentRound} += 1
+	[signal arg="EnemyTurn"]
+- Plead
+	Imeris: Please.
+	Imeris: I am starving.
+	Imeris: Allow me to pass.
+	Linnaeus: I beg you, Father.
+	Linnaeus: I pray Our Lady of Gold have merchy on thee, child.
+	Linnaeus: But unfortunately, I shall not.
+	set {currentRound} += 1
+	[signal arg="EnemyTurn"]
+- Appeal
+	Imeris: You are hungry too, Father.
+	Imeris: Why resist your urges?
+	Imeris: Would Our Lady not wish for you to live to worship her, rather than join her early?
+	Imeris: Surely she would not wish for our deaths.
+	Linnaeus: Though She is merciful, She is also unforgiving.
+	Linnaeus: She will not hesitate to punish our transgressions should we falter.
+	Linnaeus: I shall not fail Her, no matter how you ply me.
+	Linnaeus: And since you shall not cease your temptations, I have no choice but to stop you myself.
+	set {currentRound} += 1
+	if {attackFinished} == false:
+	[signal arg="EnemyTurn"]
 - Attack
-	bro still dont know who u are
-	lay off BRO
+	(Words will do no good here.)
+	(You ready your attack.)
 	[signal arg="AttackChoice"]
-	set {currentRound} += 1
-- eh I still dc about u
-	look i remember you now
-	but I don't care about you
-	[signal arg="EnemyTurn"]
-	set {currentRound} += 1
-- im telling you bro
-	you dont get it
-	stop being transphobic ugh
-	set {goodAnswer} += 1
+	Linnaeus: ...You strike me?
+	Linnaeus: You raise your hand against your Father?
+	Linnaeus: You would go so far...?
+	Linnaeus: ...I see.
+	Linnaeus: Then let us mince words no longer.
+	Linnaeus: Come, child.
+	Linnaeus: I shall send you to meet our maker.
+	(Next attack stronger.)
+	(Linnaeus will no longer listen to you.)
+	set {linAttack} = true
+	set {attackFinished} = false
 	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
