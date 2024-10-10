@@ -1,33 +1,34 @@
 [signal arg="velocity"]
+Imeris: ...
 [signal arg="moveUp"]
 [wait time="0.5"]
 Linnaeus: Why do you approach? Do you not fear for your life, o' wretch?
 [wait time="0.5"]
 - Threaten
-	Imeris: Your role has softened you, Father.t
+	Imeris: Your role has softened you, Father.
 	Imeris: You are frail and weak with the comforts of your life.
 	Imeris: My body, though new, is still strengthened by hardship, and sharper with my hunger.
 	Imeris: You will not be able to hold me back.
 	Imeris: Stand aside.
 	(Linnaeus is enraged.)
-	Curb your tongue, child.
-	Or I shall cut it out.
+	Linnaeus: Curb your tongue, child.
+	Linnaeus: Or I shall cut it out.
 	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
 - Plead
 	Imeris: Please.
 	Imeris: I am starving.
 	Imeris: Allow me to pass.
-	Linnaeus: I beg you, Father.
-	Linnaeus: I pray Our Lady of Gold have merchy on thee, child.
+	Imeris: I beg you, Father.
+	Linnaeus: I pray Our Lady of Gold have mercy on thee, child.
 	Linnaeus: But unfortunately, I shall not.
 	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
 - Appeal
 	Imeris: You are hungry too, Father.
 	Imeris: Why resist your urges?
-	Imeris: Would Our Lady not wish for you to live to worship her, rather than join her early?
-	Imeris: Surely she would not wish for our deaths.
+	Imeris: Would Our Lady not wish for you to live to worship Her, rather than join Her early?
+	Imeris: Surely She would not wish for our deaths.
 	Linnaeus: Though She is merciful, She is also unforgiving.
 	Linnaeus: She will not hesitate to punish our transgressions should we falter.
 	Linnaeus: I shall not fail Her, no matter how you ply me.

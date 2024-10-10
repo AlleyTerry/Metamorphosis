@@ -1,12 +1,12 @@
 [signal arg="startDialogue"]
-...!
-Imeris...
-My most faithful child...
-How have you come to be so warped...? 
-How could I have failed you so?
-Is your hunger so great you have swallowed even your common sense in an effort to fill your empty belly?
-You, who kneeled before our altar longer than all others, have risen and walked out of the grace of Our Lady's light...
-My goddess, what have we come to... Why has this happened...?
-Speak! 
-Answer me! 
+Linnaeus: ...!
+Linnaeus: Imeris...
+Linnaeus: My most faithful disciple...
+Linnaeus: How have you come to be so warped...?
+Linnaeus: How could I have failed you so?
+Linnaeus: Is your hunger so great you have swallowed even your common sense in an effort to fill your empty belly?
+Linnaeus: You, who kneeled before our altar longer than all others, have risen and walked out of the grace of Our Lady's light...
+Linnaeus: My Goddess, what have we come to... Why has this happened...?
+Linnaeus: Speak!
+Linnaeus: Answer me!
 [signal arg="endDialogue"]

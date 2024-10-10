@@ -18,9 +18,9 @@
 		[signal arg="EnemyTurn"]
 	- Cower
 		(Linnaeus sees your fearful response. He smiles cruelly.)
-		Are you frightened?
-		Good.
-		You should be.
+		Linnaeus: Are you frightened?
+		Linnaeus: Good.
+		Linnaeus: You should be.
 		(Next attack weaker)
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
@@ -59,17 +59,17 @@
 	Linnaeus: (Next attack stronger.)
 	- Accept
 		Imeris: If all that came before this was your mercy, then I am happy to do without it.
-		Imeris: ...
-		...Then so be it.
+		Linnaeus: ...
+		Linnaeus: ...Then so be it.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Flinch
 		(Linnaeus sees your stricken response. He smiles cruelly.)
-		Oh, are you frightened, little lamb?
-		You should be.
-		Even if you make it out of this room, you'll never outrun your fate.
-		You'll be followed forever by the very wings that spell out your crimes.
-		Until you finally fall into the pits of Hell.
+		Linnaeus: Oh, are you frightened, little lamb?
+		Linnaeus: You should be.
+		Linnaeus: Even if you make it out of this room, you'll never outrun your fate.
+		Linnaeus: You'll be followed forever by the very wings that spell out your crimes.
+		Linnaeus: Until you finally fall into the pits of Hell.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 - Placate
@@ -84,7 +84,7 @@
 	(Next attack is weaker)
 	- Argue
 		Imeris: I am no sinner.
-		Imeris: Our Lady guides me. I mold myself in her image.
+		Imeris: Our Lady guides me. I mold myself in Her image.
 		Imeris: My body is all the more holy for what I have done, and more true.
 		Imeris: If you wish to remain here, unchanged, and perish, then so be it. But I will not die with you.
 		Imeris: I will not walk in your shadow, Father, but in Her light.
@@ -101,8 +101,8 @@
 		Imeris: I must heed the call of my soul.
 		Imeris: I must let myself out of the shell of this body.
 		Imeris: I hope you may come to understand.
-		Imeris: ...
-		Imeris: ...So be it.
+		Linnaeus: ...
+		Linnaeus: ...So be it.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 [signal arg="endDialogue"]

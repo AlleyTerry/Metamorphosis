@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=43 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
@@ -9,12 +9,12 @@
 [ext_resource type="FontFile" uid="uid://jf1ssf5rwido" path="res://Assets/Fonts/SawarabiMincho-Regular.ttf" id="6_m5cl5"]
 [ext_resource type="Texture2D" uid="uid://dvo5lpsuwkwav" path="res://Assets/PNG/GUI-Kit-Pack-Free_11.png" id="7_koc7e"]
 [ext_resource type="PackedScene" uid="uid://egcchmciies4" path="res://Scenes/imerisMovement.tscn" id="8_n3u82"]
-[ext_resource type="PackedScene" uid="uid://dycxpknlp44lv" path="res://Scenes/pew.tscn" id="9_8rwfg"]
 [ext_resource type="PackedScene" uid="uid://bbidbwtfx6qjs" path="res://Scenes/BattleMusic.tscn" id="10_wylqj"]
 [ext_resource type="Texture2D" uid="uid://cbg8l7ptksud5" path="res://Assets/RealAssets/table.png" id="12_eybyw"]
 [ext_resource type="Texture2D" uid="uid://rim74c000qka" path="res://Assets/RealAssets/bee window.png" id="13_cwpxj"]
 [ext_resource type="Texture2D" uid="uid://bvcddfnpkw3vo" path="res://Assets/RealAssets/candle table.png" id="14_ebfux"]
 [ext_resource type="Texture2D" uid="uid://wug6vcdll66r" path="res://Assets/RealAssets/pillar.png" id="15_u2g55"]
+[ext_resource type="Texture2D" uid="uid://dkyjdgntxlexp" path="res://Assets/RealAssets/pew.png" id="16_3svda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xu8lj"]
 size = Vector2(691, 62)
@@ -22,14 +22,32 @@ size = Vector2(691, 62)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h81wx"]
 size = Vector2(691, 62)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2lgd"]
+size = Vector2(131.746, 48.4126)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yyfag"]
 size = Vector2(1327, 83.8333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skge3"]
+size = Vector2(367.461, 121.587)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5egwp"]
+size = Vector2(368.254, 121.429)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qloq3"]
 size = Vector2(503.5, 12.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80rtp"]
 size = Vector2(518.5, 12.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba450"]
+size = Vector2(87, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytomv"]
+size = Vector2(85, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsgaw"]
+size = Vector2(52, 208)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qegk0"]
 font = ExtResource("6_m5cl5")
@@ -213,6 +231,9 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8kj20"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grxul"]
+size = Vector2(101, 31)
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u4nxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rofi"]
@@ -223,6 +244,7 @@ script = ExtResource("1_odkyw")
 enemy = ExtResource("2_rw1h8")
 
 [node name="ChapelV2" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(400, 325)
 texture = ExtResource("3_trgkv")
 
@@ -239,8 +261,26 @@ position = Vector2(-407.2, -582.849)
 scale = Vector2(1.26, 1.26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/Bottom wall"]
-position = Vector2(323, 941)
+position = Vector2(327.143, 922.102)
 shape = SubResource("RectangleShape2D_h81wx")
+
+[node name="Bottom wall left" type="StaticBody2D" parent="ChapelV2"]
+position = Vector2(-407.2, -582.849)
+scale = Vector2(1.26, 1.26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/Bottom wall left"]
+position = Vector2(194.603, 745.515)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_j2lgd")
+
+[node name="Bottom wall right2" type="StaticBody2D" parent="ChapelV2"]
+position = Vector2(-84, -584)
+scale = Vector2(1.26, 1.26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/Bottom wall right2"]
+position = Vector2(194.603, 745.515)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_j2lgd")
 
 [node name="left wall" type="StaticBody2D" parent="ChapelV2"]
 position = Vector2(-407.2, -582.849)
@@ -250,6 +290,26 @@ scale = Vector2(1.26, 1.26)
 position = Vector2(100.306, 373)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_yyfag")
+
+[node name="left wall2" type="StaticBody2D" parent="ChapelV2"]
+position = Vector2(-212, -583)
+scale = Vector2(1.26, 1.26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/left wall2"]
+position = Vector2(81.4289, 502.778)
+rotation = 1.5708
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_skge3")
+
+[node name="right wall2" type="StaticBody2D" parent="ChapelV2"]
+position = Vector2(-38, -583)
+scale = Vector2(1.26, 1.26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/right wall2"]
+position = Vector2(117.858, 503.175)
+rotation = 1.5708
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_5egwp")
 
 [node name="right wall" type="StaticBody2D" parent="ChapelV2"]
 position = Vector2(-407.2, -582.849)
@@ -276,37 +336,100 @@ scale = Vector2(1.02024, 1.02024)
 position = Vector2(403.921, 240.223)
 shape = SubResource("RectangleShape2D_80rtp")
 
-[node name="Pew" type="Node" parent="."]
+[node name="leftCorner" type="StaticBody2D" parent="ChapelV2"]
 
-[node name="StaticBody2D3" parent="Pew" instance=ExtResource("9_8rwfg")]
-position = Vector2(288, 580)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChapelV2/leftCorner"]
+polygon = PackedVector2Array(-64, 539, -64, 501, -92, 472, -185, 472, -228, 429, -229, 539)
 
-[node name="StaticBody2D4" parent="Pew" instance=ExtResource("9_8rwfg")]
-position = Vector2(288, 488)
+[node name="leftCorner2" type="StaticBody2D" parent="ChapelV2"]
+position = Vector2(275, 20)
 
-[node name="StaticBody2D5" parent="Pew" instance=ExtResource("9_8rwfg")]
-position = Vector2(288, 400)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChapelV2/leftCorner2"]
+position = Vector2(-272, -32)
+scale = Vector2(-1, 1.029)
+polygon = PackedVector2Array(-64, 539, -64, 501, -92, 472, -185, 472, -228, 429, -229, 539)
 
-[node name="StaticBody2D6" parent="Pew" instance=ExtResource("9_8rwfg")]
-position = Vector2(286, 305)
+[node name="Objects" type="Node" parent="."]
 
-[node name="StaticBody2D7" parent="Pew" instance=ExtResource("9_8rwfg")]
-position = Vector2(285, 216)
+[node name="AltarTable" type="StaticBody2D" parent="Objects"]
 
-[node name="StaticBody2D11" parent="Pew" instance=ExtResource("9_8rwfg")]
-position = Vector2(515, 580)
+[node name="Table" type="Sprite2D" parent="Objects/AltarTable"]
+position = Vector2(400, 38)
+texture = ExtResource("12_eybyw")
 
-[node name="StaticBody2D12" parent="Pew" instance=ExtResource("9_8rwfg")]
-position = Vector2(515, 491)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/AltarTable"]
+position = Vector2(402, 41)
+shape = SubResource("RectangleShape2D_ba450")
 
-[node name="StaticBody2D13" parent="Pew" instance=ExtResource("9_8rwfg")]
-position = Vector2(515, 396)
+[node name="BeeWindow" type="Sprite2D" parent="Objects"]
+position = Vector2(400, -76)
+texture = ExtResource("13_cwpxj")
 
-[node name="StaticBody2D14" parent="Pew" instance=ExtResource("9_8rwfg")]
-position = Vector2(515, 304)
+[node name="CandleTable1" type="StaticBody2D" parent="Objects"]
+position = Vector2(544, 726)
 
-[node name="StaticBody2D15" parent="Pew" instance=ExtResource("9_8rwfg")]
-position = Vector2(515, 214)
+[node name="CandleTable" type="Sprite2D" parent="Objects/CandleTable1"]
+texture = ExtResource("14_ebfux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/CandleTable1"]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_ytomv")
+
+[node name="CandleTable3" type="StaticBody2D" parent="Objects"]
+position = Vector2(544, 726)
+
+[node name="CandleTable2" type="Sprite2D" parent="Objects/CandleTable3"]
+position = Vector2(-301, -4)
+texture = ExtResource("14_ebfux")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/CandleTable3"]
+position = Vector2(-299, -1)
+shape = SubResource("RectangleShape2D_ytomv")
+
+[node name="PillarCollision" type="StaticBody2D" parent="Objects"]
+position = Vector2(608, 506)
+
+[node name="Pillar" type="Sprite2D" parent="Objects/PillarCollision"]
+texture = ExtResource("15_u2g55")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/PillarCollision"]
+position = Vector2(7, 2)
+shape = SubResource("RectangleShape2D_tsgaw")
+
+[node name="PillarCollision2" type="StaticBody2D" parent="Objects"]
+position = Vector2(608, 506)
+
+[node name="Pillar2" type="Sprite2D" parent="Objects/PillarCollision2"]
+position = Vector2(0, -331)
+texture = ExtResource("15_u2g55")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/PillarCollision2"]
+position = Vector2(4, -333)
+shape = SubResource("RectangleShape2D_tsgaw")
+
+[node name="PillarCollision3" type="StaticBody2D" parent="Objects"]
+position = Vector2(608, 506)
+
+[node name="Pillar3" type="Sprite2D" parent="Objects/PillarCollision3"]
+position = Vector2(-414, 0)
+texture = ExtResource("15_u2g55")
+flip_h = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Objects/PillarCollision3"]
+position = Vector2(-419, -3)
+shape = SubResource("RectangleShape2D_tsgaw")
+
+[node name="PillarCollision4" type="StaticBody2D" parent="Objects"]
+position = Vector2(608, 506)
+
+[node name="Pillar4" type="Sprite2D" parent="Objects/PillarCollision4"]
+position = Vector2(-415, -324)
+texture = ExtResource("15_u2g55")
+flip_h = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Objects/PillarCollision4"]
+position = Vector2(-418, -321)
+shape = SubResource("RectangleShape2D_tsgaw")
 
 [node name="letterShower" parent="." instance=ExtResource("3_8xy2b")]
 offset_left = 151.0
@@ -391,6 +514,88 @@ texture_progress = ExtResource("7_koc7e")
 [node name="EnemyTimer" type="Timer" parent="EnemyQTE"]
 wait_time = 0.75
 
+[node name="Pews" type="Node2D" parent="."]
+
+[node name="pews" type="StaticBody2D" parent="Pews"]
+position = Vector2(288, 580)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pews/pews"]
+texture = ExtResource("16_3svda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews"]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_grxul")
+
+[node name="pews2" type="StaticBody2D" parent="Pews"]
+position = Vector2(288, 487)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pews/pews2"]
+texture = ExtResource("16_3svda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews2"]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_grxul")
+
+[node name="pews3" type="StaticBody2D" parent="Pews"]
+position = Vector2(288, 401)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pews/pews3"]
+texture = ExtResource("16_3svda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews3"]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_grxul")
+
+[node name="pews4" type="StaticBody2D" parent="Pews"]
+position = Vector2(288, 305)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pews/pews4"]
+texture = ExtResource("16_3svda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews4"]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_grxul")
+
+[node name="pews5" type="StaticBody2D" parent="Pews"]
+position = Vector2(515, 305)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pews/pews5"]
+texture = ExtResource("16_3svda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews5"]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_grxul")
+
+[node name="pews6" type="StaticBody2D" parent="Pews"]
+position = Vector2(515, 396)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pews/pews6"]
+texture = ExtResource("16_3svda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews6"]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_grxul")
+
+[node name="pews7" type="StaticBody2D" parent="Pews"]
+position = Vector2(515, 491)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pews/pews7"]
+texture = ExtResource("16_3svda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews7"]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_grxul")
+
+[node name="pews8" type="StaticBody2D" parent="Pews"]
+position = Vector2(515, 581)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pews/pews8"]
+texture = ExtResource("16_3svda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews8"]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_grxul")
+
 [node name="Imeris2" parent="." instance=ExtResource("8_n3u82")]
 position = Vector2(399, 798)
 
@@ -421,40 +626,6 @@ limit_bottom = 925
 editor_draw_limits = true
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("10_wylqj")]
-
-[node name="Table" type="Sprite2D" parent="."]
-position = Vector2(400, 38)
-texture = ExtResource("12_eybyw")
-
-[node name="BeeWindow" type="Sprite2D" parent="."]
-position = Vector2(400, -76)
-texture = ExtResource("13_cwpxj")
-
-[node name="CandleTable" type="Sprite2D" parent="."]
-position = Vector2(544, 726)
-texture = ExtResource("14_ebfux")
-
-[node name="CandleTable2" type="Sprite2D" parent="."]
-position = Vector2(243, 722)
-texture = ExtResource("14_ebfux")
-
-[node name="Pillar" type="Sprite2D" parent="."]
-position = Vector2(608, 506)
-texture = ExtResource("15_u2g55")
-
-[node name="Pillar3" type="Sprite2D" parent="."]
-position = Vector2(194, 506)
-texture = ExtResource("15_u2g55")
-flip_h = true
-
-[node name="Pillar4" type="Sprite2D" parent="."]
-position = Vector2(193, 182)
-texture = ExtResource("15_u2g55")
-flip_h = true
-
-[node name="Pillar2" type="Sprite2D" parent="."]
-position = Vector2(608, 175)
-texture = ExtResource("15_u2g55")
 
 [connection signal="area_entered" from="ChapelV2/HeadlessArea" to="." method="_on_headless_area_area_entered"]
 [connection signal="area_entered" from="ChapelV2/HeadlessArea2" to="." method="_on_headless_area_2_area_entered"]

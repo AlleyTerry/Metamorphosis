@@ -11,34 +11,43 @@ Linnaeus: What shall you do next, unpredictable thing?
 		There is nothing more to say.
 		[signal arg="EnemyTurn"]
 		set {currentRound} += 1
-	Imeris: Pathetic man. Relying on others down to the end, I see.
-	Imeris: Do you have no words of your own that are not fed to you?
-	Imeris: Are you but a mouthpiece for others?
-	Imeris: How I could have been so blind as to believe in you, I will never understand.
-	Imeris: The strength to trust in Our Lady's power, and the knowledge of her scriptures.
-	Imeris: All I am today, I am because of you.
-	Imeris: Because of what you taught me.
-	Imeris: I have become myself, and my self is holy, even if you lack the eyes to see it.
-	Imeris: And your damnation is your fault alone.
-	Linnaeus is mute with rage.
-	He bares his teeth, eyes crazed, unable to draw out a single clever word in response.
-	You fall into silence, satisfied.
-	There is nothing more to say.
-	[signal arg="EnemyTurn"]
-	set {currentRound} += 1
+	if {linAttack} == false:
+		Imeris: Pathetic man. Relying on others down to the end, I see.
+		Imeris: Do you have no words of your own that are not fed to you?
+		Imeris: Are you but a mouthpiece for others?
+		Imeris: How I could have been so blind as to believe in you, I will never understand.
+		Imeris: But I will at least thank you for the gifts you gave me.
+		Imeris: The strength to trust in Our Lady's power, and the knowledge of her scriptures.
+		Imeris: All I am today, I am because of you.
+		Imeris: Because of what you taught me.
+		Imeris: I have become myself, and my self is holy, even if you lack the eyes to see it.
+		Imeris: And your damnation is your fault alone.
+		Linnaeus is mute with rage.
+		He bares his teeth, eyes crazed, unable to draw out a single clever word in response.
+		You fall into silence, satisfied.
+		There is nothing more to say.
+		[signal arg="EnemyTurn"]
+		set {currentRound} += 1
 - Preach
-	Imeris: I will try to save your soul.
-	Imeris: Open your ears and listen to me.
-	Imeris: I found the truth beyond your lies.
-	Imeris: I found a way to make this body mine, and Our Lady herself showed me the way.
-	Imeris: If you do not want this as I wanted it, then so be it.
-	Imeris: But understand.
-	Imeris: Understand me.
-	Linnaeus: ...
-	Linnaeus: I can't.
-	There is nothing more to say.
-	[signal arg="EnemyTurn"]
-	set {currentRound} += 1
+	if {linAttack} == true:
+		You open your mouth to speak.
+		But Linnaeus is not listening.
+		There is nothing more to say.
+		[signal arg="EnemyTurn"]
+		set {currentRound} += 1
+	if {linAttack} == false:
+		Imeris: I will try to save your soul.
+		Imeris: Open your ears and listen to me.
+		Imeris: I found the truth beyond your lies.
+		Imeris: I found a way to make this body mine, and Our Lady herself showed me the way.
+		Imeris: If you do not want this as I wanted it, then so be it.
+		Imeris: But understand.
+		Imeris: Understand me.
+		Linnaeus: ...
+		Linnaeus: I can't.
+		There is nothing more to say.
+		[signal arg="EnemyTurn"]
+		set {currentRound} += 1
 - Attack
 	(You look at Linnaeus in silence and ready your attack.)
 	Linnaeus: ...
@@ -48,14 +57,21 @@ Linnaeus: What shall you do next, unpredictable thing?
 	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
 - Pray
-	You clasp your hands and look at the face of the goddess. When you lower your gaze, Linnaeus's furious eyes look back.
-	Linnaeus: Now you pray?
-	Linnaeus: Do you think it will save you?
-	Linnaeus: It is far too late for that.
-	Linnaeus: She does not love you any longer.
-	You close your eyes, lower your head, and begin to mumble your prayer.
-	Linnaeus snarls.
-	Imeris: O' Goddess,
-	Imeris: Save my soul.
-	[signal arg="EnemyTurn"]
-	set {currentRound} += 1
+	if {linAttack} == true:
+		You open your mouth to speak.
+		But Linnaeus is not listening.
+		There is nothing more to say.
+		[signal arg="EnemyTurn"]
+		set {currentRound} += 1
+	if {linAttack} == false:
+		You clasp your hands and look up at the face of the Goddess statue before you.. When you lower your gaze, Linnaeus's furious eyes look back.
+		Linnaeus: Now you pray?
+		Linnaeus: Do you think it will save you?
+		Linnaeus: It is far too late for that.
+		Linnaeus: She does not love you any longer.
+		You close your eyes, lower your head, and begin to mumble your prayer.
+		Linnaeus snarls.
+		Imeris: O' Goddess,
+		Imeris: Save my soul.
+		[signal arg="EnemyTurn"]
+		set {currentRound} += 1

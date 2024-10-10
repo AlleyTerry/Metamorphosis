@@ -237,6 +237,7 @@ func StepThrough():
 func _on_timer_timeout() -> void:
 	inputCheck = false
 	TurnReset()
+	Dialogic.VAR.linAttack = true
 	$AnimationPlayer.play("PlayerHurt")
 	playerHealth -= 1
 	if playerHealth == 0:
@@ -324,4 +325,5 @@ func enemyDeath(argument):
 
 func endVelocity(argument):
 	if argument == "endVelocity":
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 		$Imeris2.ACCELERATION += tempVelocity

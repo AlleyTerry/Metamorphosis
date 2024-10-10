@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 #setting up constant variables so you dont have to write 800 every time not public
 @export var ACCELERATION = 100
-const FRICTION = 1000000
+const FRICTION = 10000
 const MAX_SPEED = 100
 
 #getting our aniamtion tree
@@ -32,10 +32,10 @@ func move(delta):
 	#if we are not moving
 	if inputVector == Vector2.ZERO:
 		animationTree.set(blendPosPaths[state], blendPoition)
-		applyFriction(FRICTION * delta)
+		applyFriction(FRICTION)
 	else: #we are moving
 		state = RUN
-		applyMovement(inputVector * ACCELERATION * delta)
+		applyMovement(inputVector * ACCELERATION)
 		blendPoition = inputVector
 	move_and_slide()
 	

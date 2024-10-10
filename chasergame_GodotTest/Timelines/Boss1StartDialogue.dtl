@@ -13,32 +13,32 @@ Linnaeus: Go. There is nothing for you here.
 	Linnaeus: We cannot falter in times of strife. There is no reward in weakness.
 	jump LIN2
 label LIN2
-- But Why
+- But why?
 	Linnaeus: Because that is what She asks of us.
-	You would do well to listen to the words of your Father. I know what is best.
+	Linnaeus: You would do well to listen to the words of your Father. I know what is best.
 	jump LIN3
 - I can't...
-	Linnaeus: You can. 
+	Linnaeus: You can.
 	Linnaeus: Or I will *make* you.
 	Linnaeus: There is no other choice.
 	Linnaeus: Now listen to your Father. I know what is best.
 	jump LIN3
 label LIN3
-- You're wong.
-	...Wrong?
-	I was primed from my hatching to lead our swarm, to ensure the righteousness and obedience of every last grub. To give you all the proper tutelage, so we may all follow in the footsteps of our Golden Goddess.
-	The Queen herself has instructed me, ensured I have done my duty to the court. To you all.
-	And yet you say I am WRONG?!
-	You DARE to question the Queen?
-	You dare to question the very teachings of Our Lady of Gold?
-	Show yourself, o' mutinous child!
+- You're wrong.
+	Linnaeus: ...Wrong?
+	Linnaeus: I was primed from my hatching to lead our swarm, to ensure the righteousness and obedience of every last grub. To give you all the proper tutelage, so we may all follow in the footsteps of our Golden Goddess.
+	Linnaeus: The Queen herself has instructed me, ensured I have done my duty to the court. To you all.
+	Linnaeus: And yet you say I am WRONG?!
+	Linnaeus: You DARE to question the Queen?
+	Linnaeus: You dare to question the very teachings of Our Lady of Gold?
+	Linnaeus: Show yourself, o' mutinous child!
 - You're lying.
 	Linnaeus: ...
 	Linnaeus: How audacious. To accuse your beloved Father of such a thing.
 	Linnaeus: I was primed from my hatching to lead our swarm, to ensure the righteousness and obedience of every last grub. To give you all the proper tutelage, so we may all follow in the footsteps of our Golden Goddess.
-	Linnaeus: The Queen herself has instructed me, ensured I have done my duty to the court. To you all.
-	Linnaeus: And yet you dare to question her? 
+	Linnaeus: The Queen herself has instructed me, ensured I have done my duty to the Court. To you all.
+	Linnaeus: And yet you dare to question her?
 	Linnaeus: You dare to question even the very teachings of Our Lady of Gold?
-	Linnaeus: Who are you, foolish, doubting child? 
+	Linnaeus: Who are you, foolish, doubting child?
 	Linnaeus: Show yourself!
 [signal arg="endDialogue"]

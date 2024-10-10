@@ -1,3 +1,3 @@
-Your attack failed and you injured yourself
+Your attack failed and you injured yourself.
 set {currentRound} += 1
 [signal arg="EnemyTurn"]
