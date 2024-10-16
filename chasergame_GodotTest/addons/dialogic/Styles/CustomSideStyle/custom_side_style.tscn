@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cqpb3ie51rwl5"]
 
-[ext_resource type="Script" path="res://Styles/CustomSideStyle/default_layout_base.gd" id="1_ifsho"]
+[ext_resource type="Script" path="res://addons/dialogic/Styles/CustomSideStyle/default_layout_base.gd" id="1_ifsho"]
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_gc3op"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="4_fyjge"]
 [ext_resource type="PackedScene" uid="uid://by6waso0mjpjp" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_SpeakerPortraitTextbox/textbox_with_speaker_portrait.tscn" id="6_5vuhe"]
@@ -19,10 +19,10 @@ apply_overrides_on_ready = true
 apply_overrides_on_ready = true
 
 [node name="TextboxWithSpeakerPortrait" parent="." instance=ExtResource("6_5vuhe")]
-offset_left = -9.0
-offset_top = -382.0
-offset_right = -9.0
-offset_bottom = -382.0
+offset_left = -3.0
+offset_top = -4.0
+offset_right = -3.0
+offset_bottom = -4.0
 apply_overrides_on_ready = true
 
 [node name="Glossary" parent="." instance=ExtResource("8_yst2f")]

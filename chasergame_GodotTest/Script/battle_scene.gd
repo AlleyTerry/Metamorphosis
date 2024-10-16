@@ -67,16 +67,17 @@ func enemyAttack1(argument: String):
 
 
 func _startDialogue(argument: String):
-	
 	if argument == "startDialogue":
-
-		get_tree().paused = true
+		$Imeris2.canMove = false
+		#get_tree().paused = true
+		print("this is the issue ew")
 
 		
 
 func _endDialogue(argument: String):
 	if argument == "endDialogue":
-		get_tree().paused = false
+		$Imeris2.canMove = true
+		#get_tree().paused = false
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

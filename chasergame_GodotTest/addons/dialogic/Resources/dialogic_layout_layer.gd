@@ -35,8 +35,8 @@ func apply_export_overrides() -> void:
 		if "visible" in self:
 			set('visible', true)
 		process_mode = Node.PROCESS_MODE_INHERIT
-
-	_apply_export_overrides()
+	if apply_overrides_on_ready:
+		_apply_export_overrides()
 
 
 ## Use this to get potential global settings.

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var canMove = true
 #setting up constant variables so you dont have to write 800 every time not public
 @export var ACCELERATION = 100
 const FRICTION = 10000
@@ -24,8 +25,10 @@ var animTreeStateKeys = ["idle", "run"]
 
 
 func _physics_process(delta):
-	move(delta)
-	animate()
+	if canMove == true:
+		move(delta)
+		animate()
+
 
 func move(delta):
 	var inputVector = Input.get_vector("move_left","move_right","move_up","move_down")
