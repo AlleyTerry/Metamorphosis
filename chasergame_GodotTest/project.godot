@@ -42,8 +42,8 @@ variables={
 "currentRound": 1,
 "linAttack": false
 }
-layout/style_list=["res://styles/CustomStyles.tres", "res://styles/CustomStylez2.tres"]
-layout/default_style="res://styles/CustomStyles.tres"
+layout/style_list=["res://Styles/DefaultBackup.tres", "res://Styles/SideStyle2.tres"]
+layout/default_style="res://Styles/DefaultBackup.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -63,6 +63,7 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+glossary/default_case_sensitive=true
 
 [display]
 
