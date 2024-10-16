@@ -22,9 +22,6 @@ mouse_filter = 2
 script = ExtResource("1_7jt4d")
 box_panel = "res://Stylepls/TextboxWithPortrait/default_stylebox.tres"
 typing_sounds_sounds_folder = "res://addons/dialogic/Example Assets/sound-effects"
-typing_sounds_every_nths_character = null
-typing_sounds_pitch_variance = null
-typing_sounds_volume_variance = null
 
 [node name="Anchor" type="Control" parent="."]
 layout_mode = 1
