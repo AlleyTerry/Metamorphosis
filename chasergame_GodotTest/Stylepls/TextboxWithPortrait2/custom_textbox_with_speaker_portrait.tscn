@@ -1,15 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://by6waso0mjpjp"]
+[gd_scene load_steps=11 format=3 uid="uid://ceqpbt1wavtb"]
 
-[ext_resource type="Script" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="1_4jxq7"]
-[ext_resource type="Script" path="res://Stylepls/TextboxWithPortrait/speaker_portrait_textbox_layer.gd" id="1_7jt4d"]
-[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="2_y0h34"]
-[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_11puy"]
-[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="5_sr2qw"]
-[ext_resource type="AudioStream" uid="uid://b6c1p14bc20p1" path="res://addons/dialogic/Example Assets/sound-effects/typing1.wav" id="6_2e8rr"]
-[ext_resource type="AudioStream" uid="uid://c3uw4nft0de13" path="res://addons/dialogic/Example Assets/sound-effects/typing2.wav" id="7_dd5fe"]
-[ext_resource type="AudioStream" uid="uid://dnboblpkf0fqi" path="res://addons/dialogic/Example Assets/sound-effects/typing3.wav" id="8_1gam2"]
-[ext_resource type="AudioStream" uid="uid://c2viukvbub6v6" path="res://addons/dialogic/Example Assets/sound-effects/typing4.wav" id="9_bb82b"]
-[ext_resource type="AudioStream" uid="uid://dwcre3fjf3cj8" path="res://addons/dialogic/Example Assets/sound-effects/typing5.wav" id="10_0mtcn"]
+[ext_resource type="Script" path="res://Stylepls/TextboxWithPortrait/speaker_portrait_textbox_layer.gd" id="1_p0woc"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="2_gpjuf"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_1oia1"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="4_ojsgx"]
+[ext_resource type="AudioStream" uid="uid://b6c1p14bc20p1" path="res://addons/dialogic/Example Assets/sound-effects/typing1.wav" id="5_87ghw"]
+[ext_resource type="AudioStream" uid="uid://c3uw4nft0de13" path="res://addons/dialogic/Example Assets/sound-effects/typing2.wav" id="6_bnmmx"]
+[ext_resource type="AudioStream" uid="uid://dnboblpkf0fqi" path="res://addons/dialogic/Example Assets/sound-effects/typing3.wav" id="7_xem7w"]
+[ext_resource type="AudioStream" uid="uid://c2viukvbub6v6" path="res://addons/dialogic/Example Assets/sound-effects/typing4.wav" id="8_e7qen"]
+[ext_resource type="AudioStream" uid="uid://dwcre3fjf3cj8" path="res://addons/dialogic/Example Assets/sound-effects/typing5.wav" id="9_h8jl2"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="10_rp0rv"]
 
 [node name="TextboxWithSpeakerPortrait" type="Control"]
 layout_mode = 3
@@ -19,7 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_7jt4d")
+script = ExtResource("1_p0woc")
 box_panel = "res://Stylepls/TextboxWithPortrait/default_stylebox.tres"
 typing_sounds_sounds_folder = "res://addons/dialogic/Example Assets/sound-effects"
 
@@ -30,6 +30,8 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = 890.0
+offset_right = 890.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -73,7 +75,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "name"
-script = ExtResource("2_y0h34")
+script = ExtResource("2_gpjuf")
 name_label_root = NodePath("../../..")
 
 [node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/PanelContainer/VBoxContainer/HBoxContainer/DialogicNode_NameLabel" node_paths=PackedStringArray("textbox_root")]
@@ -85,21 +87,21 @@ offset_bottom = 325.0
 size_flags_horizontal = 3
 bbcode_enabled = true
 text = "your text here"
-script = ExtResource("3_11puy")
+script = ExtResource("3_1oia1")
 textbox_root = NodePath("../../../..")
 
 [node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/PanelContainer/VBoxContainer/HBoxContainer/DialogicNode_NameLabel/DialogicNode_DialogText"]
-script = ExtResource("5_sr2qw")
-sounds = Array[AudioStream]([ExtResource("6_2e8rr"), ExtResource("7_dd5fe"), ExtResource("8_1gam2"), ExtResource("9_bb82b"), ExtResource("10_0mtcn")])
+script = ExtResource("4_ojsgx")
+sounds = Array[AudioStream]([ExtResource("5_87ghw"), ExtResource("6_bnmmx"), ExtResource("7_xem7w"), ExtResource("8_e7qen"), ExtResource("9_h8jl2")])
 play_every_character = 0
 
 [node name="DialogicNode_PortraitContainer" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 40.0
+offset_left = 930.0
 offset_top = 22.0
-offset_right = 177.0
+offset_right = 1067.0
 offset_bottom = 197.0
-script = ExtResource("1_4jxq7")
+script = ExtResource("10_rp0rv")
 mode = 1
 container_ids = PackedStringArray("1", "2", "3")

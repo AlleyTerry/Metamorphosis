@@ -8,23 +8,23 @@
 "sound_moods": {},
 "style": "test again sigghhhh"
 },
-"default_portrait": "test",
+"default_portrait": "Group/test",
 "description": "",
 "display_name": "Linnaeus",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
-"fdjhslkgdh": {
+"Group/fdjhslkgdh": {
 "export_overrides": {
-"image": "\"res://Assets/PlaceholderAssets/honeycomb.webp\""
+"image": "\"res://Assets/PlaceholderAssets/Mellisuga_Portrait_Experiment.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
 "scene": ""
 },
-"test": {
+"Group/test": {
 "export_overrides": {
 "image": "\"res://Assets/PlaceholderAssets/mellisuga_devastated.png\""
 },

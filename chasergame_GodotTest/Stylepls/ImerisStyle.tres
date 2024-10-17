@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=5 format=3 uid="uid://dp4tcfxrrlk14"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_2si64"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_rgm4w"]
+[ext_resource type="PackedScene" uid="uid://ceqpbt1wavtb" path="res://Stylepls/TextboxWithPortrait2/custom_textbox_with_speaker_portrait.tscn" id="2_sixpc"]
+
+[sub_resource type="Resource" id="Resource_fo0ah"]
+script = ExtResource("1_2si64")
+scene = ExtResource("2_sixpc")
+overrides = {}
+
+[resource]
+script = ExtResource("2_rgm4w")
+name = "ImerisStyle"
+base_overrides = {}
+layers = Array[ExtResource("1_2si64")]([SubResource("Resource_fo0ah")])
+metadata/_latest_layer = 0

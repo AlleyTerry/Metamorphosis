@@ -42,7 +42,7 @@ variables={
 "currentRound": 1,
 "linAttack": false
 }
-layout/style_list=["res://addons/dialogic/Styles/DefaultBackup.tres", "res://addons/dialogic/Styles/SideStyle2.tres", "res://addons/dialogic/Styles/styleTest.tres", "res://addons/dialogic/testtest.tres", "res://addons/dialogic/VizStyle.tres", "res://Stylepls/test again sigghhhh.tres"]
+layout/style_list=["res://addons/dialogic/Styles/DefaultBackup.tres", "res://addons/dialogic/Styles/SideStyle2.tres", "res://addons/dialogic/Styles/styleTest.tres", "res://addons/dialogic/testtest.tres", "res://addons/dialogic/VizStyle.tres", "res://Stylepls/test again sigghhhh.tres", "res://Stylepls/ImerisStyle.tres"]
 layout/default_style="res://Styles/DefaultBackup.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
