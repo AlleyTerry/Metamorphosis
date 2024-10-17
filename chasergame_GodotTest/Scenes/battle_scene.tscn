@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=44 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bvcddfnpkw3vo" path="res://Assets/RealAssets/candle table.png" id="14_ebfux"]
 [ext_resource type="Texture2D" uid="uid://wug6vcdll66r" path="res://Assets/RealAssets/pillar.png" id="15_u2g55"]
 [ext_resource type="Texture2D" uid="uid://dkyjdgntxlexp" path="res://Assets/RealAssets/pew.png" id="16_3svda"]
+[ext_resource type="PackedScene" uid="uid://cpoehg5hog30" path="res://Scenes/Door.tscn" id="16_jd230"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba450"]
 size = Vector2(87, 36)
@@ -245,6 +246,7 @@ script = ExtResource("1_odkyw")
 enemy = ExtResource("2_rw1h8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = -500
 offset_left = -592.0
 offset_top = -267.0
@@ -633,6 +635,16 @@ editor_draw_limits = true
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("10_wylqj")]
 
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door_chapelDoor" parent="Doors" instance=ExtResource("16_jd230")]
+position = Vector2(403, 854)
+destinationScene = "Hallway"
+destinationDoor = "chapelDoor"
+
+[node name="Spawn" parent="Doors/Door_chapelDoor" index="1"]
+position = Vector2(0, -86)
+
 [connection signal="area_entered" from="ChapelV2/HeadlessArea" to="." method="_on_headless_area_area_entered"]
 [connection signal="area_entered" from="ChapelV2/HeadlessArea2" to="." method="_on_headless_area_2_area_entered"]
 [connection signal="timeout" from="letterShower/Timer" to="." method="_on_timer_timeout"]
@@ -641,3 +653,4 @@ editor_draw_limits = true
 [connection signal="area_entered" from="Imeris2/PlayerAttack/Area2D" to="." method="_on_area_2d_area_entered"]
 
 [editable path="letterShower"]
+[editable path="Doors/Door_chapelDoor"]

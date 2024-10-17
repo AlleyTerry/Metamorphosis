@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 var canMove = true
 #setting up constant variables so you dont have to write 800 every time not public
 @export var ACCELERATION = 100
@@ -9,7 +9,7 @@ const MAX_SPEED = 100
 #getting our aniamtion tree
 enum {IDLE, RUN}
 var state = IDLE
-
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
 @onready var stateMachine = animationTree["parameters/playback"]
 
@@ -22,6 +22,13 @@ var blendPosPaths =[
 ]
 var animTreeStateKeys = ["idle", "run"]
 
+func _ready() -> void:
+	DoorManager.onTriggerPlayerSpawn.connect(onSpawn)
+	
+
+func onSpawn(position: Vector2, direction: String):
+	print("you are in the onSpawn Function")
+	global_position = position
 
 
 func _physics_process(delta):

@@ -20,6 +20,8 @@ var inputCheck = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if DoorManager.spawnTag != null:
+		onleveSpawn(DoorManager.spawnTag)
 	Dialogic.signal_event.connect(OnDialogicSignal)
 	Dialogic.signal_event.connect(AttackSignal)
 	Dialogic.signal_event.connect(EnemySignal)
@@ -44,6 +46,11 @@ func _ready() -> void:
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 	$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
 	
+
+func onleveSpawn(destinationTag: String):
+	var door_path = "Doors/Door_" + destinationTag
+	var door = get_node(door_path) as Door
+	DoorManager.triggerPlayerSpawn(door.spawn.global_position, door.spawnDirection)
 	
 
 func gameOver (argument: String):
