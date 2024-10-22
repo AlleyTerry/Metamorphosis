@@ -1,36 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://cba2o5sb6poq6"]
+[gd_scene load_steps=5 format=3 uid="uid://cba2o5sb6poq6"]
 
 [ext_resource type="Script" path="res://Script/hallway.gd" id="1_7md1n"]
-[ext_resource type="Texture2D" uid="uid://p3j2j2jbjvgd" path="res://Assets/RealAssets/chapel v2.png" id="1_w6k4a"]
 [ext_resource type="PackedScene" uid="uid://cpoehg5hog30" path="res://Scenes/Door.tscn" id="2_6rug4"]
+[ext_resource type="Texture2D" uid="uid://cummy4djl80qx" path="res://Assets/PlaceholderAssets/hallwayTemp.png" id="2_y78hc"]
 [ext_resource type="PackedScene" uid="uid://egcchmciies4" path="res://Scenes/imerisMovement.tscn" id="4_v58x6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fe5vs"]
-size = Vector2(691, 62)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmnht"]
-size = Vector2(691, 62)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lh7hi"]
-size = Vector2(131.746, 48.4126)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmau4"]
-size = Vector2(1327, 83.8333)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4bui"]
-size = Vector2(367.461, 121.587)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1br8j"]
-size = Vector2(368.254, 121.429)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kc166"]
-size = Vector2(503.5, 12.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iefve"]
-size = Vector2(518.5, 12.5)
 
 [node name="Hallway" type="Node2D"]
 script = ExtResource("1_7md1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(534.5, 298)
+scale = Vector2(0.715625, 1)
+texture = ExtResource("2_y78hc")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 426.0
@@ -39,128 +20,41 @@ offset_right = 502.0
 offset_bottom = 443.0
 text = "HALLWAY"
 
-[node name="ChapelV2" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(550, 0)
-texture = ExtResource("1_w6k4a")
-
-[node name="top wall" type="StaticBody2D" parent="ChapelV2"]
-position = Vector2(-407, -415)
-scale = Vector2(1.26, 1.26)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/top wall"]
-position = Vector2(323, 63)
-shape = SubResource("RectangleShape2D_fe5vs")
-
-[node name="Bottom wall" type="StaticBody2D" parent="ChapelV2"]
-position = Vector2(-407.2, -582.849)
-scale = Vector2(1.26, 1.26)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/Bottom wall"]
-position = Vector2(327.143, 922.102)
-shape = SubResource("RectangleShape2D_bmnht")
-
-[node name="Bottom wall left" type="StaticBody2D" parent="ChapelV2"]
-position = Vector2(-407.2, -582.849)
-scale = Vector2(1.26, 1.26)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/Bottom wall left"]
-position = Vector2(194.603, 745.515)
-shape = SubResource("RectangleShape2D_lh7hi")
-
-[node name="Bottom wall right2" type="StaticBody2D" parent="ChapelV2"]
-position = Vector2(-84, -584)
-scale = Vector2(1.26, 1.26)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/Bottom wall right2"]
-position = Vector2(194.603, 745.515)
-shape = SubResource("RectangleShape2D_lh7hi")
-
-[node name="left wall" type="StaticBody2D" parent="ChapelV2"]
-position = Vector2(-407.2, -582.849)
-scale = Vector2(1.26, 1.26)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/left wall"]
-position = Vector2(100.306, 373)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_dmau4")
-
-[node name="left wall2" type="StaticBody2D" parent="ChapelV2"]
-position = Vector2(-212, -583)
-scale = Vector2(1.26, 1.26)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/left wall2"]
-position = Vector2(81.4289, 502.778)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_s4bui")
-
-[node name="right wall2" type="StaticBody2D" parent="ChapelV2"]
-position = Vector2(-38, -583)
-scale = Vector2(1.26, 1.26)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/right wall2"]
-position = Vector2(117.858, 503.175)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_1br8j")
-
-[node name="right wall" type="StaticBody2D" parent="ChapelV2"]
-position = Vector2(-407.2, -582.849)
-scale = Vector2(1.26, 1.26)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/right wall"]
-position = Vector2(536.389, 373)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_dmau4")
-
-[node name="HeadlessArea" type="Area2D" parent="ChapelV2"]
-position = Vector2(-408, -339)
-scale = Vector2(1.02024, 1.02024)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/HeadlessArea"]
-position = Vector2(401.865, 303.849)
-shape = SubResource("RectangleShape2D_kc166")
-
-[node name="HeadlessArea2" type="Area2D" parent="ChapelV2"]
-position = Vector2(-408, -339)
-scale = Vector2(1.02024, 1.02024)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/HeadlessArea2"]
-position = Vector2(403.921, 240.223)
-shape = SubResource("RectangleShape2D_iefve")
-
-[node name="leftCorner" type="StaticBody2D" parent="ChapelV2"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChapelV2/leftCorner"]
-polygon = PackedVector2Array(-64, 539, -64, 501, -92, 472, -185, 472, -228, 429, -229, 539)
-
-[node name="leftCorner2" type="StaticBody2D" parent="ChapelV2"]
-position = Vector2(275, 20)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChapelV2/leftCorner2"]
-position = Vector2(-272, -32)
-scale = Vector2(-1, 1.029)
-polygon = PackedVector2Array(-64, 539, -64, 501, -92, 472, -185, 472, -228, 429, -229, 539)
-
 [node name="Doors" type="Node2D" parent="."]
 
+[node name="Door_cafeteriaDoor" parent="Doors" instance=ExtResource("2_6rug4")]
+position = Vector2(171, 158)
+destinationScene = "Cafeteria"
+destinationDoor = "cafeteriaDoor"
+
+[node name="Spawn" parent="Doors/Door_cafeteriaDoor" index="1"]
+position = Vector2(-2, 133)
+
 [node name="Door_roomDoor" parent="Doors" instance=ExtResource("2_6rug4")]
-position = Vector2(551, 527)
+position = Vector2(60, 388)
 destinationScene = "ImerisRoom"
 destinationDoor = "roomDoor"
 
+[node name="CollisionShape2D" parent="Doors/Door_roomDoor" index="0"]
+position = Vector2(-38, 4)
+
 [node name="Spawn" parent="Doors/Door_roomDoor" index="1"]
-position = Vector2(-2, -110)
+position = Vector2(81, -14)
 
 [node name="Door_chapelDoor" parent="Doors" instance=ExtResource("2_6rug4")]
-position = Vector2(550, -303)
+position = Vector2(728, 285)
 destinationScene = "Chapel"
 destinationDoor = "chapelDoor"
 
+[node name="CollisionShape2D" parent="Doors/Door_chapelDoor" index="0"]
+position = Vector2(8, -88)
+
 [node name="Spawn" parent="Doors/Door_chapelDoor" index="1"]
-position = Vector2(4, 52)
+position = Vector2(1, 58)
 
 [node name="Imeris" parent="Doors" instance=ExtResource("4_v58x6")]
-position = Vector2(463, 236)
+position = Vector2(227, 408)
 
+[editable path="Doors/Door_cafeteriaDoor"]
 [editable path="Doors/Door_roomDoor"]
 [editable path="Doors/Door_chapelDoor"]

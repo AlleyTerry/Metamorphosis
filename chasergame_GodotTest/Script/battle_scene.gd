@@ -16,6 +16,8 @@ var newArgument = "startDialogue"
 var currentDialogue = bossName + "StartDialogue"
 var inputCheck = false
 @onready var tempVelocity = $Imeris2.ACCELERATION
+@export var tempArrow: Sprite2D
+var firstCheck = true
 
 
 # Called when the node enters the scene tree for the first time.
@@ -129,20 +131,23 @@ func OnDialogicSignal(argument: String):
 	
 
 func DefenseQTE():
-	$EnemyQTE.visible = true
-	# if (Input.is_action_pressed("s")):
+	#$EnemyQTE.visible = true
 	$EnemyQTE.text = newRandomLetter
+	#finds the node based off the name newRandomLetter
+	tempArrow = find_child(newRandomLetter)
+	tempArrow.visible = true
 	if timerCheck == true:
 		$EnemyQTE/EnemyTimer.start()
 		timerCheck = false
-	#$EnemyQTE.text = newRandomLetter
 	if (Input.is_action_pressed(newRandomLetter+"Action")):
 		$EnemyQTE/EnemyTimer.stop()
 		enemyTurnCheck = false
 		defenseCheck = false
 		$EnemyQTE.text = "MISS"
+		$AnimationPlayer.play("DownArrow")
 		await get_tree().create_timer(1).timeout
 		$EnemyQTE.visible = false
+		tempArrow.visible = false
 		$Node2D.visible = true
 		var dialog = Dialogic.start(bossName + "Round" + (str(Dialogic.VAR.currentRound)))
 		dialog.process_mode= Node.PROCESS_MODE_ALWAYS
@@ -184,6 +189,7 @@ func PlayerAttack():
 	if (testPass == true):
 		$Imeris2/PlayerAttack.visible = true
 		$letterShower.visible = false
+		tempArrow.visible = false
 		testPass = false
 		enemy.health -= 1
 		print("enemy health ", enemy.health)
@@ -195,6 +201,7 @@ func PlayerAttack():
 		await $AnimationPlayer.animation_finished
 		print(enemy.health)
 		$Imeris2/PlayerAttack.visible = false
+		firstCheck = true
 		if (enemy.health <= 0):
 			$AnimationPlayer.play("EnemyDied")
 			await $AnimationPlayer.animation_finished
@@ -207,11 +214,18 @@ func PlayerAttack():
 
 	
 func doMinigame():
+	tempArrow = null
 	inputCheck = true
 	$letterShower.visible =  true
 	if inputCheck == true:
 		while (Input.is_action_pressed("w") && Input.is_action_pressed("a") && Input.is_action_pressed("d")):
-			$letterShower.text = letterToPress
+			$letterShower.visible = false
+			#$letterShower.text = letterToPress
+			tempArrow = find_child(letterToPress)
+			#checks to see if this is the first turn, if so set the arrow visible and then turn the check to false
+			if firstCheck == true:
+				tempArrow.visible = true
+				firstCheck = false
 			StepThrough()
 			if ($letterShower/TextureProgressBar.value >= 100):
 				testPass = true
@@ -224,18 +238,21 @@ func doMinigame():
 func StepThrough():
 	if (Input.is_action_just_pressed(letterToPress + "Action")):
 		$letterShower.visible = false
+		tempArrow.visible = false
 		await get_tree().create_timer(.1).timeout
 		var tween = create_tween()
 		$letterShower/Timer.start()
-		if currentLetter <= 3:
+		if currentLetter <= 4:
 			var randomLetter = letterArray.pick_random()
-			#letterToPress = letterArray[currentLetter]
 			$letterShower.text = randomLetter
+			tempArrow = find_child(randomLetter)
 			letterToPress = randomLetter
 			print(letterToPress)
 			currentLetter += 1
 			tween.tween_property($letterShower/TextureProgressBar,"value", $letterShower/TextureProgressBar.value + 20, 0.5)
-			$letterShower.visible = true
+			#$letterShower.visible = true
+			tempArrow.visible = true
+			
 		else:
 			tween.tween_property($letterShower/TextureProgressBar,"value", $letterShower/TextureProgressBar.value + 20, 0.5)
 
@@ -278,6 +295,7 @@ func _on_enemy_timer_timeout() -> void:
 	defenseCheck = false
 	$EnemyQTE/EnemyTimer.stop()
 	$AnimationPlayer.play("PlayerHurt")
+	tempArrow.visible = false
 	await $AnimationPlayer.animation_finished
 	playerHealth -= 1
 	if playerHealth ==0:

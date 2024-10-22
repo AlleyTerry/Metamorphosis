@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca7lxing5hdou"]
+
+[ext_resource type="Script" path="res://Script/cafeteria.gd" id="1_47bbl"]
+[ext_resource type="Texture2D" uid="uid://fgh13k7h1rmf" path="res://Assets/PlaceholderAssets/CafeteriaTemp.png" id="2_fm5hp"]
+[ext_resource type="PackedScene" uid="uid://cpoehg5hog30" path="res://Scenes/Door.tscn" id="3_fr80p"]
+[ext_resource type="PackedScene" uid="uid://egcchmciies4" path="res://Scenes/imerisMovement.tscn" id="4_mhb1j"]
+
+[node name="Cafeteria" type="Node2D"]
+script = ExtResource("1_47bbl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(550, 303)
+scale = Vector2(0.911667, 1)
+texture = ExtResource("2_fm5hp")
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door_cafeteriaDoor" parent="Doors" instance=ExtResource("3_fr80p")]
+position = Vector2(176, 522)
+destinationScene = "Hallway"
+destinationDoor = "cafeteriaDoor"
+
+[node name="Spawn" parent="Doors/Door_cafeteriaDoor" index="1"]
+position = Vector2(0, -75)
+
+[node name="Imeris" parent="." instance=ExtResource("4_mhb1j")]
+position = Vector2(233, 433)
+
+[editable path="Doors/Door_cafeteriaDoor"]

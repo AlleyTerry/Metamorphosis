@@ -2,7 +2,7 @@ extends Node
 
 const sceneImerisRoom = preload("res://Scenes/ImerisRoom.tscn")
 const sceneHallway = preload("res://Scenes/Hallway.tscn")
-#const sceneCafeteria =
+const sceneCafeteria = preload("res://Scenes/Cafeteria.tscn")
 const sceneChapel = preload("res://Scenes/battle_scene.tscn")
 #const sceneMainHall = 
 #const sceneServentTunnel = 
@@ -21,8 +21,8 @@ func goToLevel(levelTag, destinationTag):
 			sceneToLoad = sceneHallway
 		"Chapel":
 			sceneToLoad = sceneChapel
-		#"Cafeteria":
-			#sceneToLoad = sceneCafeteria
+		"Cafeteria":
+			sceneToLoad = sceneCafeteria
 		
 		
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=49 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
@@ -9,9 +9,13 @@
 [ext_resource type="FontFile" uid="uid://jf1ssf5rwido" path="res://Assets/Fonts/SawarabiMincho-Regular.ttf" id="6_m5cl5"]
 [ext_resource type="Texture2D" uid="uid://dvo5lpsuwkwav" path="res://Assets/PNG/GUI-Kit-Pack-Free_11.png" id="7_koc7e"]
 [ext_resource type="PackedScene" uid="uid://egcchmciies4" path="res://Scenes/imerisMovement.tscn" id="8_n3u82"]
+[ext_resource type="Texture2D" uid="uid://bnmirqr1rpk6p" path="res://Assets/UI/Down_Arrow.png" id="10_m6jhv"]
 [ext_resource type="PackedScene" uid="uid://bbidbwtfx6qjs" path="res://Scenes/BattleMusic.tscn" id="10_wylqj"]
+[ext_resource type="Texture2D" uid="uid://dn7p6u5fi2rg4" path="res://Assets/UI/Left_Arrow.png" id="11_13mt3"]
 [ext_resource type="Texture2D" uid="uid://cbg8l7ptksud5" path="res://Assets/RealAssets/table.png" id="12_eybyw"]
+[ext_resource type="Texture2D" uid="uid://b08kd6sysx4hd" path="res://Assets/UI/Right_Arrow.png" id="12_yrwwm"]
 [ext_resource type="Texture2D" uid="uid://rim74c000qka" path="res://Assets/RealAssets/bee window.png" id="13_cwpxj"]
+[ext_resource type="Texture2D" uid="uid://cfg5s2s7jbj1s" path="res://Assets/UI/Up_Arrow.png" id="13_d1ogn"]
 [ext_resource type="Texture2D" uid="uid://bvcddfnpkw3vo" path="res://Assets/RealAssets/candle table.png" id="14_ebfux"]
 [ext_resource type="Texture2D" uid="uid://wug6vcdll66r" path="res://Assets/RealAssets/pillar.png" id="15_u2g55"]
 [ext_resource type="Texture2D" uid="uid://dkyjdgntxlexp" path="res://Assets/RealAssets/pew.png" id="16_3svda"]
@@ -108,10 +112,10 @@ tracks/1/path = NodePath("Imeris2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.128125, 0.228125, 0.3, 0.408333, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_hnokw"]
@@ -176,6 +180,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Arrows:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_jvn1y"]
 resource_name = "enemy_attack"
@@ -195,8 +211,24 @@ tracks/0/keys = {
 "values": [Vector2(320, 419), Vector2(320, 138), Vector2(320, 138), Vector2(320, 419)]
 }
 
+[sub_resource type="Animation" id="Animation_xt5e1"]
+resource_name = "DownArrow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arrows:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.166667, -0.0385417, 0.0614583, 0.133333, 0.241667, 0.333333, 0.433333, 0.533333, 0.633333, 0.733333, 0.861458),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46eun"]
 _data = {
+"DownArrow": SubResource("Animation_xt5e1"),
 "EnemyDied": SubResource("Animation_ifb4y"),
 "EnemyHurt": SubResource("Animation_tunke"),
 "PlayerHurt": SubResource("Animation_sftu6"),
@@ -246,7 +278,6 @@ script = ExtResource("1_odkyw")
 enemy = ExtResource("2_rw1h8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 z_index = -500
 offset_left = -592.0
 offset_top = -267.0
@@ -520,6 +551,29 @@ texture_progress = ExtResource("7_koc7e")
 
 [node name="EnemyTimer" type="Timer" parent="EnemyQTE"]
 wait_time = 0.75
+
+[node name="Arrows" type="Node2D" parent="."]
+position = Vector2(483, 140)
+
+[node name="Down" type="Sprite2D" parent="Arrows"]
+visible = false
+position = Vector2(19, 13)
+texture = ExtResource("10_m6jhv")
+
+[node name="Left" type="Sprite2D" parent="Arrows"]
+visible = false
+position = Vector2(19, 13)
+texture = ExtResource("11_13mt3")
+
+[node name="Right" type="Sprite2D" parent="Arrows"]
+visible = false
+position = Vector2(19, 13)
+texture = ExtResource("12_yrwwm")
+
+[node name="Up" type="Sprite2D" parent="Arrows"]
+visible = false
+position = Vector2(19, 13)
+texture = ExtResource("13_d1ogn")
 
 [node name="Pews" type="Node2D" parent="."]
 
