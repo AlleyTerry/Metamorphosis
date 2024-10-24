@@ -1,5 +1,5 @@
-extends CharacterBody2D
-class_name Player
+class_name Player extends CharacterBody2D
+
 var canMove = true
 #setting up constant variables so you dont have to write 800 every time not public
 @export var ACCELERATION = 100

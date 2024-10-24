@@ -15,7 +15,7 @@ var bossName = ""
 var newArgument = "startDialogue"
 var currentDialogue = bossName + "StartDialogue"
 var inputCheck = false
-@onready var tempVelocity = $Imeris2.ACCELERATION
+@onready var tempVelocity = $Imeris.ACCELERATION
 @export var tempArrow: Sprite2D
 var firstCheck = true
 
@@ -62,7 +62,7 @@ func gameOver (argument: String):
 func moveUp(argument: String):
 	if argument == "moveUp":
 		var tween = create_tween()
-		tween.tween_property($Imeris2, 'position:y', $Imeris2.position.y -50 , 0.5)
+		tween.tween_property($Imeris, 'position:y', $Imeris.position.y -50 , 0.5)
 	
 	
 	
@@ -77,7 +77,7 @@ func enemyAttack1(argument: String):
 
 func _startDialogue(argument: String):
 	if argument == "startDialogue":
-		$Imeris2.canMove = false
+		$Imeris.canMove = false
 		#get_tree().paused = true
 		print("this is the issue ew")
 
@@ -85,7 +85,7 @@ func _startDialogue(argument: String):
 
 func _endDialogue(argument: String):
 	if argument == "endDialogue":
-		$Imeris2.canMove = true
+		$Imeris.canMove = true
 		#get_tree().paused = false
 	
 	
@@ -112,7 +112,7 @@ func enemyTurn():
 	#$EnemyAnimationPlayer.play("EnemyAttack")
 	var tweenPosition = $Enemy.position.y
 	var tween = create_tween()
-	tween.tween_property($Enemy, 'position:y', $Imeris2.position.y, 0.5)
+	tween.tween_property($Enemy, 'position:y', $Imeris.position.y, 0.5)
 	tween.tween_property($Enemy, 'position:y', tweenPosition, 0.5)
 	#$AnimationPlayer.play("enemy_attack")
 	#await $EnemyAnimationPlayer.animation_finished
@@ -123,7 +123,7 @@ func OnDialogicSignal(argument: String):
 	#remember to pause dialogue
 	if argument == "startBattle":
 		print("signal was fired")
-		$Imeris2.ACCELERATION = 0
+		$Imeris.ACCELERATION = 0
 		var dialog = Dialogic.start(bossName + "Round1")
 		dialog.process_mode= Node.PROCESS_MODE_ALWAYS
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -187,20 +187,20 @@ func _on_attack_button_pressed() -> void:
 
 func PlayerAttack():
 	if (testPass == true):
-		$Imeris2/PlayerAttack.visible = true
+		$Imeris/PlayerAttack.visible = true
 		$letterShower.visible = false
 		tempArrow.visible = false
 		testPass = false
 		enemy.health -= 1
 		print("enemy health ", enemy.health)
-		var tweenPosition = $Imeris2/PlayerAttack/Sprite2D.position.y
+		var tweenPosition = $Imeris/PlayerAttack/Sprite2D.position.y
 		var tween = create_tween()
-		tween.tween_property($Imeris2/PlayerAttack, 'position:y',  -$Enemy.position.y, 0.5)
-		tween.tween_property($Imeris2/PlayerAttack/Sprite2D, 'position:y', tweenPosition, 0.5)
+		tween.tween_property($Imeris/PlayerAttack, 'position:y',  -$Enemy.position.y, 0.5)
+		tween.tween_property($Imeris/PlayerAttack/Sprite2D, 'position:y', tweenPosition, 0.5)
 		$AnimationPlayer.play("EnemyHurt")
 		await $AnimationPlayer.animation_finished
 		print(enemy.health)
-		$Imeris2/PlayerAttack.visible = false
+		$Imeris/PlayerAttack.visible = false
 		firstCheck = true
 		if (enemy.health <= 0):
 			$AnimationPlayer.play("EnemyDied")
@@ -341,7 +341,7 @@ func _on_headless_area_2_area_entered(area: Area2D) -> void:
 
 func _giveVelocityBack(argument):
 	if argument == "velocity":
-		$Imeris2.ACCELERATION = 0
+		$Imeris.ACCELERATION = 0
 		
 func enemyDeath(argument):
 	if argument == "enemyDeath":
@@ -352,4 +352,4 @@ func enemyDeath(argument):
 func endVelocity(argument):
 	if argument == "endVelocity":
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
-		$Imeris2.ACCELERATION += tempVelocity
+		$Imeris.ACCELERATION += tempVelocity

@@ -61,6 +61,21 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2kt0"]
 
+[sub_resource type="Animation" id="Animation_xt5e1"]
+resource_name = "DownArrow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arrows:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.166667, -0.0385417, 0.0614583, 0.133333, 0.241667, 0.333333, 0.433333, 0.533333, 0.633333, 0.733333, 0.861458),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_ifb4y"]
 resource_name = "EnemyDied"
 tracks/0/type = "value"
@@ -96,7 +111,7 @@ resource_name = "PlayerHurt"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Imeris2/Camera2D:position")
+tracks/0/path = NodePath("Imeris/Camera2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -108,7 +123,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Imeris2:modulate")
+tracks/1/path = NodePath("Imeris:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -135,7 +150,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Imeris2/Camera2D:position")
+tracks/1/path = NodePath("Imeris/Camera2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -159,7 +174,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Imeris2/PlayerAttack:position")
+tracks/3/path = NodePath("Imeris/PlayerAttack:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -171,7 +186,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Imeris2:modulate")
+tracks/4/path = NodePath("Imeris:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -201,7 +216,7 @@ resource_name = "player_attack"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Imeris2/PlayerAttack:position")
+tracks/0/path = NodePath("Imeris/PlayerAttack:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -209,21 +224,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(320, 419), Vector2(320, 138), Vector2(320, 138), Vector2(320, 419)]
-}
-
-[sub_resource type="Animation" id="Animation_xt5e1"]
-resource_name = "DownArrow"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Arrows:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.166667, -0.0385417, 0.0614583, 0.133333, 0.241667, 0.333333, 0.433333, 0.533333, 0.633333, 0.733333, 0.861458),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46eun"]
@@ -657,29 +657,29 @@ texture = ExtResource("16_3svda")
 position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_grxul")
 
-[node name="Imeris2" parent="." instance=ExtResource("8_n3u82")]
+[node name="Imeris" parent="." instance=ExtResource("8_n3u82")]
 position = Vector2(399, 798)
 
-[node name="Sprite2D" type="Sprite2D" parent="Imeris2"]
+[node name="Sprite2D" type="Sprite2D" parent="Imeris"]
 visible = false
 position = Vector2(0, -5)
 scale = Vector2(31.5, 24.5)
 texture = SubResource("PlaceholderTexture2D_u4nxi")
 
-[node name="PlayerAttack" type="CharacterBody2D" parent="Imeris2"]
+[node name="PlayerAttack" type="CharacterBody2D" parent="Imeris"]
 position = Vector2(529, 531)
 
-[node name="Sprite2D" type="Sprite2D" parent="Imeris2/PlayerAttack"]
+[node name="Sprite2D" type="Sprite2D" parent="Imeris/PlayerAttack"]
 texture = ExtResource("1_btm8f")
 
-[node name="Area2D" type="Area2D" parent="Imeris2/PlayerAttack"]
+[node name="Area2D" type="Area2D" parent="Imeris/PlayerAttack"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Imeris2/PlayerAttack/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Imeris/PlayerAttack/Area2D"]
 position = Vector2(-2.99998, -31)
 scale = Vector2(0.525, 0.525)
 shape = SubResource("RectangleShape2D_6rofi")
 
-[node name="Camera2D" type="Camera2D" parent="Imeris2"]
+[node name="Camera2D" type="Camera2D" parent="Imeris"]
 offset = Vector2(300, 0)
 limit_left = 300
 limit_top = -275
@@ -704,7 +704,7 @@ position = Vector2(0, -86)
 [connection signal="timeout" from="letterShower/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Node2D/AttackButton" to="." method="_on_attack_button_pressed"]
 [connection signal="timeout" from="EnemyQTE/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
-[connection signal="area_entered" from="Imeris2/PlayerAttack/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Imeris/PlayerAttack/Area2D" to="." method="_on_area_2d_area_entered"]
 
 [editable path="letterShower"]
 [editable path="Doors/Door_chapelDoor"]
