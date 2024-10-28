@@ -26,6 +26,8 @@ var inputCheck = false
 @export var tempArrow: Sprite2D
 #var to check if you have done the hold wad for the first time
 var firstCheck = true
+var upCheck = false
+@onready var tweenPosition = $Imeris.position.y
 
 
 # Called when the node enters the scene tree for the first time.
@@ -54,7 +56,7 @@ func _ready() -> void:
 	print(bossName)
 	
 	letterToPress = letterArray[0]
-	$letterShower.text = "press and hold: w a d"
+	$letterShower.text = "press w to move forward"
 	#dialogic pause shit that doesnt work anymore for some reason
 	currentDialogue = bossName + "StartDialogue"
 	var dialog = Dialogic.start(currentDialogue)
@@ -230,14 +232,10 @@ func PlayerAttack():
 		$letterShower.visible = false
 		tempArrow.visible = false
 		testPass = false
+		upCheck = false
 		#decreases the enemy's health by 1 though we may not need this since the battle is on rails
 		enemy.health -= 1
 		print("enemy health ", enemy.health)
-		#show the little star guy going towars linneus will be changed later
-		var tweenPosition = $Imeris/PlayerAttack/Sprite2D.position.y
-		var tween = create_tween()
-		tween.tween_property($Imeris/PlayerAttack, 'position:y',  -$Enemy.position.y, 0.5)
-		tween.tween_property($Imeris/PlayerAttack/Sprite2D, 'position:y', tweenPosition, 0.5)
 		#play enemy hurt animation
 		$AnimationPlayer.play("EnemyHurt")
 		await $AnimationPlayer.animation_finished
@@ -247,6 +245,8 @@ func PlayerAttack():
 		#make it so when you attack again you can do it the first time
 		firstCheck = true
 		#if enemy health is 0 they are dead but this doesnt make sense any more take it out
+		var tween = create_tween()
+		tween.tween_property($Imeris, 'position:y',  tweenPosition, 0.5)
 		if (enemy.health <= 0):
 			$AnimationPlayer.play("EnemyDied")
 			await $AnimationPlayer.animation_finished
@@ -254,17 +254,25 @@ func PlayerAttack():
 		else:
 			Dialogic.VAR.attackFinished = true
 			Dialogic.paused = false
-			Dialogic.Text.show_textbox()
+			if (Dialogic.Text.is_textbox_visible()== false):
+				Dialogic.Text.show_textbox()
 
 
 # attack qte minigame
 func doMinigame():
+	var tween = create_tween()
 	#so that nothing shows up when it is visible
+	if (Input.is_action_just_pressed("w")):
+		tweenPosition = $Imeris.position.y
+		print (tweenPosition)
+		tween.tween_property($Imeris, 'position:y',  $Enemy.position.y + 50, 0.5)
+		await get_tree().create_timer(1).timeout
+		upCheck = true
 	tempArrow = null
 	inputCheck = true
 	$letterShower.visible =  true
-	if inputCheck == true:
-		while (Input.is_action_pressed("w") && Input.is_action_pressed("a") && Input.is_action_pressed("d")):
+	if upCheck == true:
+		while (inputCheck == true):
 			$letterShower.visible = false
 			#$letterShower.text = letterToPress
 			tempArrow = find_child(letterToPress)
@@ -306,6 +314,8 @@ func StepThrough():
 
 
 func _on_timer_timeout() -> void:
+	var tween = create_tween()
+	tween.tween_property($Imeris, 'position:y',  $Enemy.position.y + 50, 0.5)
 	inputCheck = false
 	TurnReset()
 	Dialogic.VAR.linAttack = true
@@ -325,15 +335,16 @@ func _on_timer_timeout() -> void:
 	
 	
 func TurnReset():
+	#var tween = create_tween()
+	#tween.tween_property($Imeris, 'position:y',  tweenPosition, 0.5)
 	startMinigame = false
 	$EnemyQTE.visible = false
 	$letterShower/TextureProgressBar.value = 0
 	currentLetter = 0
 	$letterShower/Timer.stop()
-	$letterShower.text = "press and hold: w a d "
+	$letterShower.text = "press w to move forward"
 	$letterShower.visible = false
-	
-
+	tempArrow.visible = false
 
 
 
@@ -372,7 +383,7 @@ func _on_headless_area_area_entered(area: Area2D) -> void:
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 		$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
 		$ChapelV2/HeadlessArea.visible = false
-	
+		$ChapelV2/HeadlessArea.queue_free()
 
 
 func _on_headless_area_2_area_entered(area: Area2D) -> void:
@@ -384,6 +395,7 @@ func _on_headless_area_2_area_entered(area: Area2D) -> void:
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 		$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
 		$ChapelV2/HeadlessArea2.visible = false
+		$ChapelV2/HeadlessArea2.queue_free()
 
 func _giveVelocityBack(argument):
 	if argument == "velocity":
