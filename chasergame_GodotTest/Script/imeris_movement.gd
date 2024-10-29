@@ -35,13 +35,15 @@ func _physics_process(delta):
 	if canMove == true:
 		move(delta)
 		animate()
+		
 
 
 func move(delta):
 	var inputVector = Input.get_vector("move_left","move_right","move_up","move_down")
+	#print(inputVector)
 	#if we are not moving
 	if inputVector == Vector2.ZERO:
-		animationTree.set(blendPosPaths[state], blendPoition)
+		state = IDLE
 		applyFriction(FRICTION)
 	else: #we are moving
 		state = RUN
