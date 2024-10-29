@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cba2o5sb6poq6"]
+[gd_scene load_steps=6 format=3 uid="uid://cba2o5sb6poq6"]
 
 [ext_resource type="Script" path="res://Script/hallway.gd" id="1_7md1n"]
 [ext_resource type="PackedScene" uid="uid://cpoehg5hog30" path="res://Scenes/Door.tscn" id="2_6rug4"]
 [ext_resource type="Texture2D" uid="uid://cummy4djl80qx" path="res://Assets/PlaceholderAssets/hallwayTemp.png" id="2_y78hc"]
 [ext_resource type="PackedScene" uid="uid://egcchmciies4" path="res://Scenes/imerisMovement.tscn" id="4_v58x6"]
+[ext_resource type="PackedScene" uid="uid://dkf16ueb8sgji" path="res://Scenes/interactable.tscn" id="5_fg440"]
 
 [node name="Hallway" type="Node2D"]
 script = ExtResource("1_7md1n")
@@ -55,6 +56,16 @@ position = Vector2(1, 58)
 [node name="Imeris" parent="Doors" instance=ExtResource("4_v58x6")]
 position = Vector2(227, 408)
 
+[node name="Interactable" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_fg440")]
+position = Vector2(341, 256)
+imerisHolder = NodePath("../Doors/Imeris")
+currentDialogue = "interactable2"
+
+[node name="CollisionPolygon2D" parent="Interactable/Area2D" index="0"]
+position = Vector2(-81, 152)
+polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
+
 [editable path="Doors/Door_cafeteriaDoor"]
 [editable path="Doors/Door_roomDoor"]
 [editable path="Doors/Door_chapelDoor"]
+[editable path="Interactable"]

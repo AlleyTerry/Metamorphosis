@@ -1,18 +1,18 @@
 extends Node2D
 
-@onready var tempVelocity = $"../Imeris".ACCELERATION
+@export var imerisHolder = Node2D
+var tempVelocity = 0
 var player_in_area = false
 @export var currentDialogue = ""
 
 func _ready():
-	print(currentDialogue)
-
+	tempVelocity = imerisHolder.ACCELERATION
 
 
 
 	
 func _physics_process(delta):
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") && player_in_area == true:
 		playText()
 		
 
@@ -20,7 +20,7 @@ func _physics_process(delta):
 func _on_dialogic_signal(argument: String):
 	if argument == "end":
 		print("ended")
-		$"../Imeris".ACCELERATION += tempVelocity
+		imerisHolder.canMove = true
 
 
 
@@ -34,12 +34,11 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func playText():
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	var dialog = Dialogic.start(currentDialogue)
-	dialog.process_mode= Node.PROCESS_MODE_ALWAYS
+	dialog.process_mode = Node.PROCESS_MODE_ALWAYS
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
-	$"../AudioStreamPlayer2D".process_mode = Node.PROCESS_MODE_ALWAYS
-	$"../Imeris".ACCELERATION = 0
-	
+	imerisHolder.canMove = false
 
+		
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 		if area.name == "PlayerArea":

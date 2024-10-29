@@ -1,7 +1,7 @@
 [signal arg="startDialogue"]
 Linnaeus: If it is food you are after, my child, look elsewhere.
-Linnaeus: I shall not relinquish my offerings to Our Lady even at the cost of my life.
-Linnaeus: Go. There is nothing for you here.
+Linnaeus (Group/fdjhslkgdh): I shall not relinquish my offerings to Our Lady even at the cost of my life.
+Linnaeus (Group/test): Go. There is nothing for you here.
 - I hunger.
 	Linnaeus: As do I, dear child. But this food is not for us. It is for Her.
 	Linnaeus: If we are to hope for salvation from this hell we find ourselves in, we must remain pious and unselfish.

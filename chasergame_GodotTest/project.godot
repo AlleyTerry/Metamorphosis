@@ -24,6 +24,7 @@ DoorManager="*res://Script/Global/DoorManager.gd"
 
 directories/dch_directory={
 "Imeris": "res://Characters/Imeris.dch",
+"InteractableCharacter": "res://Characters/InteractableCharacter.dch",
 "Linnaeus": "res://Characters/Linnaeus.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
@@ -37,14 +38,16 @@ directories/dtl_directory={
 "Boss1StartDialogue": "res://Timelines/Boss1StartDialogue.dtl",
 "PLayerHurt": "res://Timelines/PLayerHurt.dtl",
 "PlayerDeath": "res://Timelines/PlayerDeath.dtl",
-"interactable1": "res://Timelines/interactable1.dtl"
+"interactable1": "res://Timelines/interactable1.dtl",
+"interactable2": "res://Timelines/interactable2.dtl",
+"interactable3": "res://Timelines/interactable3.dtl"
 }
 variables={
 "attackFinished": false,
 "currentRound": 1,
 "linAttack": false
 }
-layout/style_list=["res://addons/dialogic/Styles/DefaultBackup.tres", "res://addons/dialogic/Styles/SideStyle2.tres", "res://addons/dialogic/Styles/styleTest.tres", "res://addons/dialogic/testtest.tres", "res://addons/dialogic/VizStyle.tres", "res://Stylepls/test again sigghhhh.tres", "res://Stylepls/ImerisStyle.tres"]
+layout/style_list=["res://addons/dialogic/Styles/DefaultBackup.tres", "res://addons/dialogic/Styles/SideStyle2.tres", "res://addons/dialogic/Styles/styleTest.tres", "res://addons/dialogic/testtest.tres", "res://addons/dialogic/VizStyle.tres", "res://Stylepls/test again sigghhhh.tres", "res://Stylepls/ImerisStyle.tres", "res://Characters/twest.tres"]
 layout/default_style="res://Styles/DefaultBackup.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -57,7 +60,7 @@ animations/join_default_length=0.5
 animations/join_default_wait=true
 animations/leave_default_length=0.5
 animations/leave_default_wait=true
-animations/cross_fade_default_length=0.5
+animations/cross_fade_default_length=0.0
 choices/autofocus_first=true
 choices/delay=0.2
 choices/reveal_delay=0
@@ -66,6 +69,9 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 glossary/default_case_sensitive=true
+animations/join_default="Instant In"
+animations/leave_default="Instant Out"
+animations/cross_fade_default="Fade Cross"
 
 [display]
 
