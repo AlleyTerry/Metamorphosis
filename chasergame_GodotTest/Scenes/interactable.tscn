@@ -8,7 +8,7 @@ script = ExtResource("1_3pa4t")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(17, 12, 218, 110, 161, 208, 25, 82)
+polygon = PackedVector2Array(-58, -46, 72, -46, 105, 60, -89, 63)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

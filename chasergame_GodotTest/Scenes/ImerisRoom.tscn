@@ -34,26 +34,76 @@ text = "ImerisRoom"
 [node name="Imeris" parent="." instance=ExtResource("3_pigpx")]
 position = Vector2(586, 317)
 
-[node name="Interactable" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
+[node name="bed1" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
 position = Vector2(341, 256)
 imerisHolder = NodePath("../Imeris")
 currentDialogue = "interactable1"
 
-[node name="CollisionPolygon2D" parent="Interactable/Area2D" index="0"]
+[node name="CollisionPolygon2D" parent="bed1/Area2D" index="0"]
 position = Vector2(-75, 51)
 polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
 
-[node name="Interactable2" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
+[node name="Dresser" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
+position = Vector2(656, 222)
+imerisHolder = NodePath("../Imeris")
+currentDialogue = "ImerisRoom_Dresser"
+
+[node name="CollisionPolygon2D" parent="Dresser/Area2D" index="0"]
+position = Vector2(-75, 51)
+polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
+
+[node name="Cocoon" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
+position = Vector2(483, 192)
+imerisHolder = NodePath("../Imeris")
+currentDialogue = "ImerisRoom_Cocoon"
+
+[node name="CollisionPolygon2D" parent="Cocoon/Area2D" index="0"]
+position = Vector2(-75, 51)
+polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
+
+[node name="QueenPicture" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
+position = Vector2(470, 56)
+imerisHolder = NodePath("../Imeris")
+currentDialogue = "ImerisRoom_QueenPicture"
+
+[node name="CollisionPolygon2D" parent="QueenPicture/Area2D" index="0"]
+position = Vector2(-75, 51)
+polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
+
+[node name="BeehivePicture" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
+position = Vector2(670, 77)
+imerisHolder = NodePath("../Imeris")
+currentDialogue = "ImerisRoom_BeehivePicture"
+
+[node name="CollisionPolygon2D" parent="BeehivePicture/Area2D" index="0"]
+position = Vector2(-75, 51)
+polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
+
+[node name="Armoire" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
+position = Vector2(582, 109)
+imerisHolder = NodePath("../Imeris")
+currentDialogue = "ImerisRoom_Armoire"
+
+[node name="CollisionPolygon2D" parent="Armoire/Area2D" index="0"]
+position = Vector2(-75, 51)
+polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
+
+[node name="Bed2" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
 position = Vector2(349, 99)
 imerisHolder = NodePath("../Imeris")
 currentDialogue = "interactable3"
 
-[node name="CollisionPolygon2D" parent="Interactable2/Area2D" index="0"]
+[node name="CollisionPolygon2D" parent="Bed2/Area2D" index="0"]
 position = Vector2(-75, 51)
 polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("6_5jhur")]
 
 [editable path="Doors/Door_roomDoor"]
-[editable path="Interactable"]
-[editable path="Interactable2"]
+[editable path="bed1"]
+[editable path="Dresser"]
+[editable path="Cocoon"]
+[editable path="QueenPicture"]
+[editable path="BeehivePicture"]
+[editable path="Armoire"]
+[editable path="Bed2"]
