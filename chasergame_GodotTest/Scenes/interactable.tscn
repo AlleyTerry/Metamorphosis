@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" path="res://Script/interactable.gd" id="1_3pa4t"]
 
-[node name="Interactable" type="Node2D"]
+[node name="Interactable" type="StaticBody2D"]
 script = ExtResource("1_3pa4t")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-75, 120, 232, 105, 134, -50, -109, -54)
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -12,5 +15,3 @@ polygon = PackedVector2Array(-58, -46, 72, -46, 105, 60, -89, 63)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

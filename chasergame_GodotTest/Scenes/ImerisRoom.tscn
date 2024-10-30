@@ -1,18 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://buqtq3to38vbn"]
+[gd_scene load_steps=14 format=3 uid="uid://buqtq3to38vbn"]
 
 [ext_resource type="Script" path="res://Script/imeris_room.gd" id="1_w1vxl"]
 [ext_resource type="PackedScene" uid="uid://cpoehg5hog30" path="res://Scenes/Door.tscn" id="2_l0b14"]
-[ext_resource type="Texture2D" uid="uid://cqbsg8xscf3wm" path="res://Assets/PlaceholderAssets/imerisRoom.png" id="2_xps8a"]
 [ext_resource type="PackedScene" uid="uid://egcchmciies4" path="res://Scenes/imerisMovement.tscn" id="3_pigpx"]
 [ext_resource type="PackedScene" uid="uid://dkf16ueb8sgji" path="res://Scenes/interactable.tscn" id="5_udy2k"]
 [ext_resource type="PackedScene" uid="uid://bbidbwtfx6qjs" path="res://Scenes/BattleMusic.tscn" id="6_5jhur"]
+[ext_resource type="Texture2D" uid="uid://bp4vn37vgmajy" path="res://Assets/UpdatedAssets/ImerisRoom/side bed.png" id="6_6830r"]
+[ext_resource type="Texture2D" uid="uid://t2vx70evl6sn" path="res://Assets/UpdatedAssets/ImerisRoom/bedroom.png" id="6_w2vd7"]
+[ext_resource type="Texture2D" uid="uid://0ivr6sglk541" path="res://Assets/UpdatedAssets/ImerisRoom/dresser.png" id="6_yf6n4"]
+[ext_resource type="Texture2D" uid="uid://bal6hfdqggsld" path="res://Assets/UpdatedAssets/ImerisRoom/dresser side.png" id="7_1gfum"]
+[ext_resource type="Texture2D" uid="uid://vftulkn6r4m5" path="res://Assets/UpdatedAssets/ImerisRoom/queen picture.png" id="8_fs04p"]
+[ext_resource type="Texture2D" uid="uid://bp1hejbrtxaqv" path="res://Assets/UpdatedAssets/ImerisRoom/picture bee frame.png" id="9_rmw18"]
+[ext_resource type="Texture2D" uid="uid://pfghg6hb4fw0" path="res://Assets/UpdatedAssets/ImerisRoom/bed.png" id="11_41812"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xikfa"]
+size = Vector2(159.524, 62)
 
 [node name="ImerisRoom" type="Node2D"]
 script = ExtResource("1_w1vxl")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(535, 297)
-texture = ExtResource("2_xps8a")
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(651, 238)
+texture = ExtResource("6_w2vd7")
+
+[node name="top wall" type="StaticBody2D" parent="."]
+position = Vector2(215, 127)
+scale = Vector2(1.26, 1.26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top wall"]
+position = Vector2(251.984, 65.0794)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xikfa")
 
 [node name="Doors" type="Node2D" parent="."]
 
@@ -21,8 +39,11 @@ position = Vector2(751, 346)
 destinationScene = "Hallway"
 destinationDoor = "roomDoor"
 
+[node name="CollisionShape2D" parent="Doors/Door_roomDoor" index="0"]
+position = Vector2(-52, -36)
+
 [node name="Spawn" parent="Doors/Door_roomDoor" index="1"]
-position = Vector2(-71, -2)
+position = Vector2(-167, -33)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 400.0
@@ -34,73 +55,121 @@ text = "ImerisRoom"
 [node name="Imeris" parent="." instance=ExtResource("3_pigpx")]
 position = Vector2(586, 317)
 
-[node name="bed1" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
-position = Vector2(341, 256)
+[node name="SideBed" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
+position = Vector2(473, 363)
 imerisHolder = NodePath("../Imeris")
 currentDialogue = "interactable1"
 
-[node name="CollisionPolygon2D" parent="bed1/Area2D" index="0"]
-position = Vector2(-75, 51)
-polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
+[node name="CollisionPolygon2D" parent="SideBed" index="0"]
+polygon = PackedVector2Array(-32, 17, 30, 18, 31, -15, -32, -18)
+
+[node name="CollisionPolygon2D" parent="SideBed/Area2D" index="0"]
+position = Vector2(-94, -77)
+polygon = PackedVector2Array(61, 61, 126, 60, 125, 97, 59, 96)
+
+[node name="Sprite2D" type="Sprite2D" parent="SideBed"]
+texture = ExtResource("6_6830r")
 
 [node name="Dresser" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
-position = Vector2(656, 222)
+position = Vector2(613, 308)
 imerisHolder = NodePath("../Imeris")
 currentDialogue = "ImerisRoom_Dresser"
 
+[node name="CollisionPolygon2D" parent="Dresser" index="0"]
+polygon = PackedVector2Array(-10, 27, 18, 27, 19, -24, -10, -25)
+
+[node name="Area2D" parent="Dresser" index="1"]
+position = Vector2(0, 1)
+
 [node name="CollisionPolygon2D" parent="Dresser/Area2D" index="0"]
-position = Vector2(-75, 51)
-polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
+position = Vector2(-82, -72)
+polygon = PackedVector2Array(71, 47, 99, 47, 102, 96, 72, 97)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dresser"]
+texture = ExtResource("7_1gfum")
 
 [node name="Cocoon" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
-position = Vector2(483, 192)
+position = Vector2(538, 315)
 imerisHolder = NodePath("../Imeris")
 currentDialogue = "ImerisRoom_Cocoon"
 
+[node name="CollisionPolygon2D" parent="Cocoon" index="0"]
+polygon = PackedVector2Array(-20, 3, 10, 5, 7, -17, -22, -17)
+
 [node name="CollisionPolygon2D" parent="Cocoon/Area2D" index="0"]
-position = Vector2(-75, 51)
-polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
+position = Vector2(-92, -81)
+polygon = PackedVector2Array(66, 59, 102, 61, 106, 88, 72, 87)
 
 [node name="QueenPicture" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
-position = Vector2(470, 56)
+position = Vector2(603, 211)
 imerisHolder = NodePath("../Imeris")
 currentDialogue = "ImerisRoom_QueenPicture"
 
+[node name="CollisionPolygon2D" parent="QueenPicture" index="0"]
+polygon = PackedVector2Array(-14, 22, 15, 23, 14, -24, -15, -24)
+
 [node name="CollisionPolygon2D" parent="QueenPicture/Area2D" index="0"]
-position = Vector2(-75, 51)
-polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
+position = Vector2(-89, -58)
+polygon = PackedVector2Array(67, 28, 112, 30, 114, 86, 70, 85)
+
+[node name="Sprite2D" type="Sprite2D" parent="QueenPicture"]
+texture = ExtResource("8_fs04p")
 
 [node name="BeehivePicture" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
-position = Vector2(670, 77)
+position = Vector2(494, 208)
 imerisHolder = NodePath("../Imeris")
 currentDialogue = "ImerisRoom_BeehivePicture"
 
+[node name="CollisionPolygon2D" parent="BeehivePicture" index="0"]
+polygon = PackedVector2Array(-17, 12, 16, 10, 14, -9, -17, -10)
+
 [node name="CollisionPolygon2D" parent="BeehivePicture/Area2D" index="0"]
-position = Vector2(-75, 51)
-polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
+position = Vector2(-78, -45)
+polygon = PackedVector2Array(55, 25, 100, 25, 98, 69, 56, 70)
+
+[node name="Sprite2D" type="Sprite2D" parent="BeehivePicture"]
+texture = ExtResource("9_rmw18")
 
 [node name="Armoire" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
-position = Vector2(582, 109)
+position = Vector2(548, 237)
 imerisHolder = NodePath("../Imeris")
 currentDialogue = "ImerisRoom_Armoire"
 
+[node name="CollisionPolygon2D" parent="Armoire" index="0"]
+position = Vector2(-29, 12)
+polygon = PackedVector2Array(10, 20, 51, 19, 50, -40, 10, -42)
+
 [node name="CollisionPolygon2D" parent="Armoire/Area2D" index="0"]
-position = Vector2(-75, 51)
-polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
+position = Vector2(-93, -69)
+polygon = PackedVector2Array(72, 36, 116, 37, 118, 103, 71, 101)
+
+[node name="Sprite2D" type="Sprite2D" parent="Armoire"]
+texture = ExtResource("6_yf6n4")
 
 [node name="Bed2" parent="." node_paths=PackedStringArray("imerisHolder") instance=ExtResource("5_udy2k")]
-position = Vector2(349, 99)
+position = Vector2(459, 280)
 imerisHolder = NodePath("../Imeris")
 currentDialogue = "interactable3"
 
+[node name="CollisionPolygon2D" parent="Bed2" index="0"]
+polygon = PackedVector2Array(-15, 31, 16, 32, 14, -33, -16, -35)
+
 [node name="CollisionPolygon2D" parent="Bed2/Area2D" index="0"]
-position = Vector2(-75, 51)
-polygon = PackedVector2Array(49, 24, 135, 26, 135, 126, 54, 115)
+position = Vector2(-90, -60)
+polygon = PackedVector2Array(72, 24, 106, 25, 107, 92, 74, 92)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bed2"]
+texture = ExtResource("11_41812")
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("6_5jhur")]
 
+[node name="CollisonBox" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisonBox"]
+polygon = PackedVector2Array(398, 229, 703, 223, 706, 396, 393, 402, 398, 231, 436, 247, 437, 384, 633, 382, 634, 336, 686, 337, 685, 286, 634, 286, 634, 245, 437, 247)
+
 [editable path="Doors/Door_roomDoor"]
-[editable path="bed1"]
+[editable path="SideBed"]
 [editable path="Dresser"]
 [editable path="Cocoon"]
 [editable path="QueenPicture"]
