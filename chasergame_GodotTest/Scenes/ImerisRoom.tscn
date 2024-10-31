@@ -29,7 +29,6 @@ scale = Vector2(1.26, 1.26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top wall"]
 position = Vector2(251.984, 65.0794)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xikfa")
 
 [node name="Doors" type="Node2D" parent="."]

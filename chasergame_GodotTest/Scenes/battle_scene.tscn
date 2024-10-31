@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=70 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
@@ -20,6 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://wug6vcdll66r" path="res://Assets/RealAssets/pillar.png" id="15_u2g55"]
 [ext_resource type="Texture2D" uid="uid://dkyjdgntxlexp" path="res://Assets/RealAssets/pew.png" id="16_3svda"]
 [ext_resource type="PackedScene" uid="uid://cpoehg5hog30" path="res://Scenes/Door.tscn" id="16_jd230"]
+[ext_resource type="Texture2D" uid="uid://douiwde3e1yn2" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_start_00.png" id="21_7l8r0"]
+[ext_resource type="Texture2D" uid="uid://cqfuhubgh4cx6" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_start_01.png" id="22_ns71k"]
+[ext_resource type="Texture2D" uid="uid://c3i4xli8vo22b" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_end_00.png" id="23_tt6ju"]
+[ext_resource type="Texture2D" uid="uid://drayantete64y" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_end_01.png" id="24_0riyj"]
+[ext_resource type="Texture2D" uid="uid://c10bwvhuxdwoj" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_end_02.png" id="25_ub4v3"]
+[ext_resource type="Texture2D" uid="uid://cv24jbmrcwvci" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_loop_00.png" id="26_aehu0"]
+[ext_resource type="Texture2D" uid="uid://c8okbaoy22usm" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_loop_01.png" id="27_qo0lf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba450"]
 size = Vector2(87, 36)
@@ -58,6 +65,73 @@ size = Vector2(518.5, 12.5)
 font = ExtResource("6_m5cl5")
 outline_size = 30
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efcvm"]
+atlas = ExtResource("21_7l8r0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaodh"]
+atlas = ExtResource("22_ns71k")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pincu"]
+atlas = ExtResource("23_tt6ju")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dssu2"]
+atlas = ExtResource("24_0riyj")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqmmd"]
+atlas = ExtResource("25_ub4v3")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4oct"]
+atlas = ExtResource("26_aehu0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2du5"]
+atlas = ExtResource("27_qo0lf")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7usy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efcvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaodh")
+}],
+"loop": true,
+"name": &"ChargeUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pincu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dssu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqmmd")
+}],
+"loop": true,
+"name": &"SmokeExplode",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4oct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2du5")
+}],
+"loop": true,
+"name": &"SmokeMove",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2kt0"]
 
@@ -226,11 +300,15 @@ tracks/0/keys = {
 "values": [Vector2(320, 419), Vector2(320, 138), Vector2(320, 138), Vector2(320, 419)]
 }
 
+[sub_resource type="Animation" id="Animation_20cki"]
+resource_name = "LinStartAttack"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46eun"]
 _data = {
 "DownArrow": SubResource("Animation_xt5e1"),
 "EnemyDied": SubResource("Animation_ifb4y"),
 "EnemyHurt": SubResource("Animation_tunke"),
+"LinStartAttack": SubResource("Animation_20cki"),
 "PlayerHurt": SubResource("Animation_sftu6"),
 "RESET": SubResource("Animation_hnokw"),
 "enemy_attack": SubResource("Animation_jvn1y"),
@@ -272,12 +350,119 @@ size = Vector2(101, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rofi"]
 size = Vector2(88.2838, 160)
 
+[sub_resource type="Animation" id="Animation_bxy3c"]
+resource_name = "chargeUp"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LinSmoke:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"ChargeUp"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LinSmoke:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_3yyqu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LinSmoke:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_snsxx"]
+resource_name = "LinAttackMove"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LinSmoke:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"SmokeMove"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LinSmoke:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_6lrb7"]
+resource_name = "SmokeExplode"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LinSmoke:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"SmokeExplode"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LinSmoke:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t2ifk"]
+_data = {
+"LinAttackMove": SubResource("Animation_snsxx"),
+"RESET": SubResource("Animation_3yyqu"),
+"SmokeExplode": SubResource("Animation_6lrb7"),
+"chargeUp": SubResource("Animation_bxy3c")
+}
+
 [node name="BattleScene" type="Node2D"]
 position = Vector2(150, 0)
 script = ExtResource("1_odkyw")
 enemy = ExtResource("2_rw1h8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = -500
 offset_left = -592.0
 offset_top = -267.0
@@ -492,6 +677,12 @@ max_value = 1.0
 step = 0.1
 fill_mode = 6
 
+[node name="LinSmoke" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(402, 81)
+sprite_frames = SubResource("SpriteFrames_g7usy")
+animation = &"ChargeUp"
+
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(400, 84)
 
@@ -698,6 +889,11 @@ destinationDoor = "chapelDoor"
 
 [node name="Spawn" parent="Doors/Door_chapelDoor" index="1"]
 position = Vector2(0, -86)
+
+[node name="LinAttackAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t2ifk")
+}
 
 [connection signal="area_entered" from="ChapelV2/HeadlessArea" to="." method="_on_headless_area_area_entered"]
 [connection signal="area_entered" from="ChapelV2/HeadlessArea2" to="." method="_on_headless_area_2_area_entered"]

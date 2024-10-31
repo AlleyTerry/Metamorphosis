@@ -135,10 +135,14 @@ func enemyTurn():
 	#$EnemyAnimationPlayer.play("EnemyAttack")
 	#Linneaus right now moves towards the player and thats when they press the key
 	#this will be changed to his smoke instead
-	var tweenPosition = $Enemy.position.y
+	$LinAttackAnimationPlayer.play("LinAttackMove")
+	var tweenPosition = $LinSmoke.position.y
 	var tween = create_tween()
-	tween.tween_property($Enemy, 'position:y', $Imeris.position.y, 0.5)
-	tween.tween_property($Enemy, 'position:y', tweenPosition, 0.5)
+	tween.tween_property($LinSmoke, 'position:y', $Imeris.position.y, 0.5)
+	$LinAttackAnimationPlayer.play("SmokeExplode")
+	await $LinAttackAnimationPlayer.animation_finished
+	$LinSmoke.visible = false
+	
 	#$AnimationPlayer.play("enemy_attack")
 	#await $EnemyAnimationPlayer.animation_finished
 	
@@ -156,8 +160,11 @@ func OnDialogicSignal(argument: String):
 	
 #the defense qte the player must do in order to not get hit
 func DefenseQTE():
+	$LinSmoke.position.y = $Enemy.position.y
 	#$EnemyQTE.visible = true
 	#chooses a random arrow
+	$LinSmoke.visible = true
+	$LinAttackAnimationPlayer.play("chargeUp")
 	$EnemyQTE.text = newRandomLetter
 	#finds the node based off the name newRandomLetter
 	#finds that arrow in the hirearchy and shows it
@@ -184,6 +191,7 @@ func DefenseQTE():
 		$EnemyQTE.visible = false
 		tempArrow.visible = false
 		$Node2D.visible = true
+		$LinSmoke.visible = false
 		#and start the next dalogue round
 		var dialog = Dialogic.start(bossName + "Round" + (str(Dialogic.VAR.currentRound)))
 		dialog.process_mode= Node.PROCESS_MODE_ALWAYS
@@ -339,6 +347,7 @@ func TurnReset():
 	#tween.tween_property($Imeris, 'position:y',  tweenPosition, 0.5)
 	startMinigame = false
 	$EnemyQTE.visible = false
+	$LinSmoke.visible = false
 	$letterShower/TextureProgressBar.value = 0
 	currentLetter = 0
 	$letterShower/Timer.stop()
@@ -350,6 +359,7 @@ func TurnReset():
 
 func _on_enemy_timer_timeout() -> void:
 	defenseCheck = false
+	$LinSmoke.visible = false
 	$EnemyQTE/EnemyTimer.stop()
 	$AnimationPlayer.play("PlayerHurt")
 	tempArrow.visible = false
