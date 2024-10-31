@@ -510,7 +510,7 @@ z_index = 1
 position = Vector2(0, -29)
 sprite_frames = SubResource("SpriteFrames_penay")
 animation = &"run"
-frame = 15
+frame = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

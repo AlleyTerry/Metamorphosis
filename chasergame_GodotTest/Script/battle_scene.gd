@@ -409,7 +409,7 @@ func _on_headless_area_2_area_entered(area: Area2D) -> void:
 
 func _giveVelocityBack(argument):
 	if argument == "velocity":
-		$Imeris.ACCELERATION = 0
+		$Imeris.canMove = false
 		
 func enemyDeath(argument):
 	if argument == "enemyDeath":
@@ -420,4 +420,4 @@ func enemyDeath(argument):
 func endVelocity(argument):
 	if argument == "endVelocity":
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
-		$Imeris.ACCELERATION += tempVelocity
+		$Imeris.canMove = true

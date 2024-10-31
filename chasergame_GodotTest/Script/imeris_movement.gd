@@ -35,6 +35,9 @@ func _physics_process(delta):
 	if canMove == true:
 		move(delta)
 		animate()
+	if canMove == false:
+		state = IDLE
+		animate()
 		
 
 
