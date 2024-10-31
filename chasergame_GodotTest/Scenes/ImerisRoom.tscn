@@ -34,7 +34,7 @@ shape = SubResource("RectangleShape2D_xikfa")
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="Door_roomDoor" parent="Doors" instance=ExtResource("2_l0b14")]
-position = Vector2(751, 346)
+position = Vector2(1089, 346)
 destinationScene = "Hallway"
 destinationDoor = "roomDoor"
 
@@ -43,6 +43,17 @@ position = Vector2(-52, -36)
 
 [node name="Spawn" parent="Doors/Door_roomDoor" index="1"]
 position = Vector2(-167, -33)
+
+[node name="Door_chapelDoor" parent="Doors" instance=ExtResource("2_l0b14")]
+position = Vector2(688, 397)
+destinationScene = "Chapel"
+destinationDoor = "chapelDoor"
+
+[node name="CollisionShape2D" parent="Doors/Door_chapelDoor" index="0"]
+position = Vector2(8, -88)
+
+[node name="Spawn" parent="Doors/Door_chapelDoor" index="1"]
+position = Vector2(-100, -86)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 400.0
@@ -168,6 +179,7 @@ texture = ExtResource("11_41812")
 polygon = PackedVector2Array(398, 229, 703, 223, 706, 396, 393, 402, 398, 231, 436, 247, 437, 384, 633, 382, 634, 336, 686, 337, 685, 286, 634, 286, 634, 245, 437, 247)
 
 [editable path="Doors/Door_roomDoor"]
+[editable path="Doors/Door_chapelDoor"]
 [editable path="SideBed"]
 [editable path="Dresser"]
 [editable path="Cocoon"]
