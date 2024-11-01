@@ -30,7 +30,7 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"Boss1AreaSignal": "res://Characters/Boss1AreaSignal.dtl",
+"Boss1AreaSignal": "res://Timelines/Boss1AreaSignal.dtl",
 "Boss1AreaSignal2": "res://Timelines/Boss1AreaSignal2.dtl",
 "Boss1Round1": "res://Timelines/Boss1Round1.dtl",
 "Boss1Round2": "res://Timelines/Boss1Round2.dtl",
@@ -44,9 +44,9 @@ directories/dtl_directory={
 "ImerisRoom_QueenPicture": "res://Timelines/Interactables/ImerisRoom_QueenPicture.dtl",
 "PLayerHurt": "res://Timelines/PLayerHurt.dtl",
 "PlayerDeath": "res://Timelines/PlayerDeath.dtl",
-"interactable1": "res://Timelines/interactable1.dtl",
-"interactable2": "res://Timelines/interactable2.dtl",
-"interactable3": "res://Timelines/interactable3.dtl"
+"interactable1": "res://Timelines/Interactables/interactable1.dtl",
+"interactable2": "res://Timelines/Interactables/interactable2.dtl",
+"interactable3": "res://Timelines/Interactables/interactable3.dtl"
 }
 variables={
 "attackFinished": false,
