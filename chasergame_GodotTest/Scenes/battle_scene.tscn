@@ -462,7 +462,6 @@ script = ExtResource("1_odkyw")
 enemy = ExtResource("2_rw1h8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 z_index = -500
 offset_left = -592.0
 offset_top = -267.0

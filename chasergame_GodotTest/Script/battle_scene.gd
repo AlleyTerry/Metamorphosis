@@ -252,9 +252,10 @@ func PlayerAttack():
 		$Imeris/PlayerAttack.visible = false
 		#make it so when you attack again you can do it the first time
 		firstCheck = true
-		#if enemy health is 0 they are dead but this doesnt make sense any more take it out
 		var tween = create_tween()
 		tween.tween_property($Imeris, 'position:y',  tweenPosition, 0.5)
+		#if enemy health is 0 they are dead but this doesnt make sense any more take it out
+
 		if (enemy.health <= 0):
 			$AnimationPlayer.play("EnemyDied")
 			await $AnimationPlayer.animation_finished
@@ -323,7 +324,7 @@ func StepThrough():
 
 func _on_timer_timeout() -> void:
 	var tween = create_tween()
-	tween.tween_property($Imeris, 'position:y',  $Enemy.position.y + 50, 0.5)
+	tween.tween_property($Imeris, 'position:y',  tweenPosition, 0.5)
 	inputCheck = false
 	TurnReset()
 	Dialogic.VAR.linAttack = true
