@@ -1,108 +1,88 @@
 [signal arg="startDialogue"]
 - Reason
 	Imeris (Group/New portrait): We were damned long before I chose this path.
-	Imeris (Group/j): Fighting me does you no good. You only continue to toil in the name of our cagers.
+	Imeris (Group/j): Fighting me will not save you. You merely toil in the name of our cagers.
 	Linnaeus (Group/fdjhslkgdh): Lies... Lies!!!
 	Linnaeus (Group/test): I was blessed! The Queen herself bestowed her favor on me!!!
 	Linnaeus: My life was one of ease, because of her mercy!
 	Linnaeus: And because of you, I will never get it back!!!
-	Linnaeus: If nothing else, I will punish you for that!
 	- Stand
 		Imeris: I am not afraid of you.
-		Imeris: (Linnaeus is enraged.)
+		(Linnaeus is enraged.)
 		Linnaeus: Oh?
-		Linnaeus: Don't worry.
-		Linnaeus: You will be.
-		(Next attack will be stronger)
+		Linnaeus: Don't worry. You will be.
+		(Next attack will be faster)
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Cower
-		(Linnaeus sees your fearful response. He smiles cruelly.)
+		(Linnaeus sees your fear. He smiles cruelly.)
 		Linnaeus: Are you frightened?
-		Linnaeus: Good.
-		Linnaeus: You should be.
-		(Next attack weaker)
+		Linnaeus: Good. You should be.
+		(Next attack will be slower)
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 - Apologize
 	Imeris: I'm sorry. I had to do this. I could not live any other way.
-	Linnaeus: Selfish... selfish, selfish, selfish!
-	Linnaeus: What good does your pathetic apology do?
+	Linnaeus: What good does that pathetic apology do? 
 	Linnaeus: Do you not see the devastation you've wrought?
-	Linnaeus: Your sinfulness cannot be washed away with a mere apology!
+	Linnaeus: Your sinfulness cannot be washed away with mere words!
 	- Refute
 		Imeris: I am NOT sinful.
-		Imeris: You of all people do not get to say that to me.
-		Imeris: I am becoming who I always was.
-		Imeris: And was it not Goddess who made me this way?
+		Imeris: You, of all people, do not get to say that to me.
+		Imeris:  I am becoming who the Goddess made me to be.
 		(Linnaeus is enraged.)
-		Linnaeus: You demean her by claiming so, wretch.
+		Linnaeus: You could never begin to know Her will, wretch.
 		Linnaeus: I shall not let this insult stand.
-		(Next attack stronger.)
+		(Next attack will be faster.)
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Apologize
 		Imeris: ...I'm sorry.
 		(Linnaeus looks at you with contempt, but also pity.)
 		(He says nothing, but his grip eases.)
-		(Next attack weaker.)
+		(Next attack will be slower.)
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 - Denounce
-	Imeris: You never saw the truth of Her teachings, in all your years.
-	Imeris: You'll never understand.
+	Imeris: You never saw the truth of Her teachings, in all your years… how pitiful.
 	(Linnaeus is enraged.)
-	Linnaeus: I won't understand? No, it is YOU who does not understand!
-	Linnaeus: That one of my own children would have the gall to condescend to me... No.
-	Linnaeus: You are my child no longer.
-	Linnaeus: And you shall find no more kindness from me.
-	Linnaeus: (Next attack stronger.)
+	Linnaeus: No, it is YOU who does not see!
+	Linnaeus: That one of my own children would have the gall to condescend to me in this way...
+	Linnaeus: My mercy ends here.
+	Linnaeus: (Next attack will be faster.)
 	- Accept
 		Imeris: If all that came before this was your mercy, then I am happy to do without it.
-		Linnaeus: ...
 		Linnaeus: ...Then so be it.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Flinch
 		(Linnaeus sees your stricken response. He smiles cruelly.)
-		Linnaeus: Oh, are you frightened, little lamb?
-		Linnaeus: You should be.
-		Linnaeus: Even if you make it out of this room, you'll never outrun your fate.
-		Linnaeus: You'll be followed forever by the very wings that spell out your crimes.
-		Linnaeus: Until you finally fall into the pits of Hell.
+		Linnaeus: Oh, are you frightened, heretic? You should be.
+		Linnaeus: Even if you make it out of this room, you'll never outrun your sin.
+		Linnaeus: It will follow you forever, like the very wings upon your back. 
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
-- Placate
+- Pacify
 	Imeris: Why do you despair, Father?
 	Imeris: I have done naught but follow Our Lady's word. Surely there is peace for us all at the end of Her path.
 	Linnaeus laughs bitterly.
-	Linnaeus: You are a naive fool if you think so.
-	Linnaeus: There is no way out of this. For any of us.
-	Linnaeus: Not until the bitter end.
-	Linnaeus: And there is certainly nothing good waiting after for sinners like you.
+	Linnaeus: There is no way out of this, you fool. For any of us. 
 	Linnaeus: But at least you have maintained some scrap of piety. I mustn't have failed so utterly, then.
-	(Next attack is weaker)
+	(Next attack will be slower)
 	- Argue
-		Imeris: I am no sinner.
-		Imeris: Our Lady guides me. I mold myself in Her image.
-		Imeris: My body is all the more holy for what I have done, and more true.
+		Imeris: I am no sinner. Our Lady guides me; I mold myself in Her image.
+		Imeris: My body is all the more holy for what I have done.
 		Imeris: If you wish to remain here, unchanged, and perish, then so be it. But I will not die with you.
-		Imeris: I will not walk in your shadow, Father, but in Her light.
 		(Linnaeus is enraged.)
-		Linnaeus: Does your arrogance know no bounds? Who are you to tell me what Our Lady wishes for us?
-		Linnaeus: Perhaps this "light" you see has blinded you, child.
-		Linnaeus: It is up to me to open your eyes to the truth.
+		Linnaeus: Who are you to tell me what Our Lady wishes for us?
+		Linnaeus: Open your eyes to the truth!
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Acquiesce
-		Imeris: You may be right.
-		Imeris: Perhaps I only seek to pervert myself, at the expense of others.
-		Imeris: But, even if that is so... I am compelled onward.
-		Imeris: I must heed the call of my soul.
-		Imeris: I must let myself out of the shell of this body.
-		Imeris: I hope you may come to understand.
+		Imeris: You may be right. Perhaps I only seek to pervert myself, at the expense of others. 
+		Imeris: But now that I have started, I cannot stop. I must let myself out of the shell of this body.
 		Linnaeus: ...
-		Linnaeus: ...So be it.
+		Linnaeus: So be it.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 [signal arg="endDialogue"]

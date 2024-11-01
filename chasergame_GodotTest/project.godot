@@ -26,6 +26,7 @@ directories/dch_directory={
 "Imeris": "res://Characters/Imeris.dch",
 "InteractableCharacter": "res://Characters/InteractableCharacter.dch",
 "Linnaeus": "res://Characters/Linnaeus.dch",
+"Narrator": "res://Characters/Narrator.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
