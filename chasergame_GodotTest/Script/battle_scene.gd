@@ -305,7 +305,7 @@ func StepThrough():
 		await get_tree().create_timer(.1).timeout
 		var tween = create_tween()
 		$letterShower/Timer.start()
-		if currentLetter <= 4:
+		if currentLetter <= 3:
 			var randomLetter = letterArray.pick_random()
 			$letterShower.text = randomLetter
 			tempArrow = find_child(randomLetter)

@@ -7,7 +7,7 @@ Linnaeus: Why do you approach? Do you not fear for your life?
 	Imeris: Your role has softened you, Father.
 	Imeris: You are frail and weak with the comforts of your life.
 	Imeris: You will not be able to hold me back. Stand aside.
-	(Linnaeus is enraged.)
+	Narrator: (Linnaeus is enraged.)
 	Linnaeus: Curb your tongue, child.
 	Linnaeus: Or I shall cut it out.
 	set {currentRound} += 1
@@ -22,19 +22,19 @@ Linnaeus: Why do you approach? Do you not fear for your life?
 	Imeris: You are hungry too, Father. Why resist your urges?
 	Imeris: Would Our Lady not wish for you to live to worship Her, rather than join Her early?
 	Linnaeus: Our Lady is merciful, but she is also unforgiving.
-	Linnaeus: You may have given in, but I shall not fail Her, no matter how you ply me. 
+	Linnaeus: You may have given in, but I shall not fail Her, no matter how you ply me.
 	set {currentRound} += 1
 	if {attackFinished} == false:
 	[signal arg="EnemyTurn"]
 - Attack
-	(Words will do no good here.)
-	(You ready your attack.)
+	Narrator: (Words will do no good here.)
+	Narrator: (You ready your attack.)
 	[signal arg="AttackChoice"]
 	Linnaeus: ...You would dare to raise your hand against your Father?
-	Linnaeus: It seems you are beyond my help now. 
+	Linnaeus: It seems you are beyond my help now.
 	Linnaeus: Come, child. I shall send you to meet our maker.
-	(Next attack will be faster.)
-	(Linnaeus will no longer listen to you.)
+	Narrator: (Next attack will be faster.)
+	Narrator: (Linnaeus will no longer listen to you.)
 	set {linAttack} = true
 	set {attackFinished} = false
 	set {currentRound} += 1

@@ -4,13 +4,13 @@
 Linnaeus: No... No!!!
 Linnaeus: Come no closer, wretch!
 Linnaeus: I shall not let you taint me, too!!!
-(Linnaeus raises his arm to strike you)
+Narrator: (Linnaeus raises his arm to strike you)
 - Defend yourself.
 - There is
 - no other
 - option.
 Narrator: (Short animation of Imeris striking Linnaeus, and then the screen fades to black,)
-Narrator: When you look up, your hands are wet with red, and Linnaeus's lifeless body lies before you. 
+Narrator: When you look up, your hands are wet with red, and Linnaeus's lifeless body lies before you.
 Narrator: This tool of the Court, wielding words like a cudgel to keep you all in check. Preaching false truths to distract from the wondrous reality you've managed to grasp.
 Narrator: You look upon him, the holder of the first key to your cage, and feel...
 - Sadness
@@ -18,11 +18,11 @@ Narrator: You look upon him, the holder of the first key to your cage, and feel.
 - Pity
 - Disgust
 Narrator: And *Hunger.*
-Narrator: His crimson blood flows like spilled wine and soaks into the scarlet carpet, and your tongue sits heavy in your dry mouth. 
+Narrator: His crimson blood flows like spilled wine and soaks into the scarlet carpet, and your tongue sits heavy in your dry mouth.
 Narrator: Your throat burns. Your teeth ache. Your hands curl into your stomach.
 Narrator: You look upon the offerings he defended with his life\: they are paltry. He threw himself away for mere scraps of bread, dry save for crusted spots of honey.
 Narrator: You look back at him.
-Narrator: You realize what you’ve just imagined, and it makes your blood run cold with shame and horror. But it does not dull your hunger. 
+Narrator: You realize what you’ve just imagined, and it makes your blood run cold with shame and horror. But it does not dull your hunger.
 - Eat the Bread
 	Narrator: (Short series of images showing Imeris at the offering bowls, and then walking down the carpet towards the exit of the church.)
 	Narrator: You gather all the offerings and eat them, one by one.
@@ -33,9 +33,9 @@ Narrator: You realize what you’ve just imagined, and it makes your blood run c
 	Narrator: You cannot bare it any longer.
 	Narrator: (A short series of images showing Imeris cupping their hands and filling them with blood before bringing them to their mouth.)
 	Narrator: At the very first bite of still-warm flesh, you lose yourself.
-	Narrator: Consumed whole by your own appetite, you feast. As your stomach fills, your heart empties. 
-	Narrator: When you can control yourself once more, you look down at what you’ve left behind and gag. 
+	Narrator: Consumed whole by your own appetite, you feast. As your stomach fills, your heart empties.
+	Narrator: When you can control yourself once more, you look down at what you’ve left behind and gag.
 	Narrator: What you’ve already taken threatens to climb back up your throat and out onto the carpet.
-	Narrator: You cover your mouth and run. 
+	Narrator: You cover your mouth and run.
 	Narrator: You leave what remains of Linnaeus, and a part of you is left behind with him.
 	[signal arg="endVelocity"]
