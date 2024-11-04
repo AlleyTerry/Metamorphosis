@@ -327,6 +327,8 @@ func _on_timer_timeout() -> void:
 	var tween = create_tween()
 	tween.tween_property($Imeris, 'position:y',  tweenPosition, 0.5)
 	inputCheck = false
+	upCheck = false
+	firstCheck = true
 	TurnReset()
 	Dialogic.VAR.linAttack = true
 	$AnimationPlayer.play("PlayerHurt")

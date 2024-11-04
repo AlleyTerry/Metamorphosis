@@ -1,4 +1,4 @@
 [signal arg="startDialogue"]
-this is the beginning text
-I am here to teach you how to play
+Narrator: Welcome to MetaSoma. Use WASD to move, and Enter to interact with objects and progress dialogue.
+Narrator: When given choices, use the Arrow Keys to select an option (note the white outline on the currently selected choice) and use Enter to confirm it.
 [signal arg="endDialogue"]

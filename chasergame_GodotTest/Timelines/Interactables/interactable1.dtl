@@ -1,2 +1,3 @@
+[signal arg="startDialogue"]
 Imeris (Group/ImerisNeutral): Not my bed. But the pattern on the sheets is familiar.
-[signal arg="end"]
+[signal arg="endDialogue"]

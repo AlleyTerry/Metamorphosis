@@ -12,6 +12,7 @@
 		Linnaeus (Group/LinNeutral): Oh?
 		Linnaeus (Group/LinAngry): Don't worry. You will be.
 		Narrator: (Next attack will be faster)
+		Narrator: Linnaeus is readying his attack. Brace yourself.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Cower
@@ -19,6 +20,7 @@
 		Linnaeus (Group/LinNeutral): Are you frightened?
 		Linnaeus (Group/LinAngry): Good. You should be.
 		Narrator: (Next attack will be slower)
+		Narrator: Linnaeus is readying his attack. Brace yourself.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 - Apologize
@@ -34,6 +36,7 @@
 		Linnaeus (Group/LinAngry): You could never begin to know Her will, wretch.
 		Linnaeus: I shall not let this insult stand.
 		Narrator: (Next attack will be faster.)
+		Narrator: Linnaeus is readying his attack. Brace yourself.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Apologize
@@ -41,6 +44,7 @@
 		Narrator: (Linnaeus looks at you with contempt, but also pity.)
 		Narrator: (He says nothing, but his grip eases.)
 		Narrator: (Next attack will be slower.)
+		Narrator: Linnaeus is readying his attack. Brace yourself.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 - Denounce
@@ -49,10 +53,11 @@
 	Linnaeus (Group/LinAngry): No, it is YOU who does not see!
 	Linnaeus: That one of my own children would have the gall to condescend to me in this way...
 	Linnaeus: My mercy ends here.
-	Linnaeus: (Next attack will be faster.)
+	Narrator: (Next attack will be faster.)
 	- Accept
 		Imeris (Group/ImerisAngry): If all that came before this was your mercy, then I am happy to do without it.
 		Linnaeus (Group/LinNeutral): ...Then so be it.
+		Narrator (Group/LinNeutral): Linnaeus is readying his attack. Brace yourself.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Flinch
@@ -60,6 +65,7 @@
 		Linnaeus (Group/LinNeutral): Oh, are you frightened, heretic? You should be.
 		Linnaeus (Group/LinAngry): Even if you make it out of this room, you'll never outrun your sin.
 		Linnaeus: It will follow you forever, like the very wings upon your back.
+		Narrator: Linnaeus is readying his attack. Brace yourself.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 - Pacify
@@ -76,6 +82,7 @@
 		(Linnaeus is enraged.)
 		Linnaeus (Group/LinAngry): Who are you to tell me what Our Lady wishes for us?
 		Linnaeus: Open your eyes to the truth!
+		Narrator: Linnaeus is readying his attack. Brace yourself.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Acquiesce
@@ -83,6 +90,7 @@
 		Imeris: But now that I have started, I cannot stop. I must let myself out of the shell of this body.
 		Linnaeus (Group/LinNeutral): ...
 		Linnaeus: So be it.
+		Narrator: Linnaeus is readying his attack. Brace yourself.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 [signal arg="endDialogue"]

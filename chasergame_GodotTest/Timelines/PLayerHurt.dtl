@@ -1,4 +1,5 @@
 Narrator: Your attack fails, and you are injured.
 Linnaeus (Group/LinAngry): Pathetic.
+Narrator (Group/LinAngry): Linnaeus is readying his attack. Brace yourself.
 set {currentRound} += 1
 [signal arg="EnemyTurn"]

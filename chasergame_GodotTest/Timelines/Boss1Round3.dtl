@@ -7,6 +7,7 @@ Linnaeus: I run out of ways to express my disappointment in you.
 	if {linAttack} == true:
 		Narrator: You open your mouth to speak.
 		Narrator: But Linnaeus is not listening.
+		Narrator: Linnaeus is readying his attack. Brace yourself.
 		[signal arg="EnemyTurn"]
 		set {currentRound} += 1
 	if {linAttack} == false:
@@ -16,12 +17,14 @@ Linnaeus: I run out of ways to express my disappointment in you.
 		Narrator: He bares his teeth, eyes crazed, unable to draw out a single clever word in response.
 		Narrator: You fall into silence, satisfied.
 		Narrator: There is nothing more to say.
+		Narrator: Linnaeus is readying his attack. Brace yourself.
 		[signal arg="EnemyTurn"]
 		set {currentRound} += 1
 - Preach
 	if {linAttack} == true:
 		Narrator: You open your mouth to speak.
 		Narrator: But Linnaeus is not listening.
+		Narrator: Linnaeus is readying his attack. Brace yourself.
 		[signal arg="EnemyTurn"]
 		set {currentRound} += 1
 	if {linAttack} == false:
@@ -32,6 +35,7 @@ Linnaeus: I run out of ways to express my disappointment in you.
 		Linnaeus (Group/LinNeutral): ...
 		Linnaeus: I can't.
 		There is nothing more to say.
+		Linnaeus is readying his attack. Brace yourself.
 		[signal arg="EnemyTurn"]
 		set {currentRound} += 1
 - Attack
@@ -40,6 +44,7 @@ Linnaeus: I run out of ways to express my disappointment in you.
 	[signal arg="AttackChoice"]
 	Linnaeus (Group/LinAngry): Agh-!
 	Linnaeus: Impudent pest!
+	Narrator: Linnaeus is readying his attack. Brace yourself.
 	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
 - Pray
@@ -48,5 +53,6 @@ Linnaeus: I run out of ways to express my disappointment in you.
 	Narrator: You close your eyes, lower your head, and begin to mumble your prayer.
 	Narrator: Linnaeus snarls.
 	Imeris (Group/ImerisNeutral): O' Goddess, save my soul.
+	Narrator (Group/ImerisNeutral): Linnaeus is readying his attack. Brace yourself.
 	[signal arg="EnemyTurn"]
 	set {currentRound} += 1
