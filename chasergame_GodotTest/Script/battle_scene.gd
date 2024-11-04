@@ -235,19 +235,19 @@ func _on_attack_button_pressed() -> void:
 func PlayerAttack():
 	#if they pass the attack qte
 	if (testPass == true):
-		#supposed to turn the little star guy on but we arent using it anymore so i will delete later
-		$Imeris/PlayerAttack.visible = true
 		#sets all of the enemy stuff to false
 		$letterShower.visible = false
+		#play enemy hurt animation
+		$AnimationPlayer.play("EnemyHurt")
+		#await $AnimationPlayer.animation_finished
 		tempArrow.visible = false
 		testPass = false
 		upCheck = false
+		
 		#decreases the enemy's health by 1 though we may not need this since the battle is on rails
 		enemy.health -= 1
 		print("enemy health ", enemy.health)
-		#play enemy hurt animation
-		$AnimationPlayer.play("EnemyHurt")
-		await $AnimationPlayer.animation_finished
+
 		print(enemy.health)
 		#turn star guy off
 		$Imeris/PlayerAttack.visible = false
@@ -276,7 +276,7 @@ func doMinigame():
 		tweenPosition = $Imeris.position.y
 		print (tweenPosition)
 		tween.tween_property($Imeris, 'position:y',  $Enemy.position.y + 50, 0.5)
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(.5).timeout
 		upCheck = true
 	tempArrow = null
 	inputCheck = true
@@ -291,10 +291,7 @@ func doMinigame():
 				tempArrow.visible = true
 				firstCheck = false
 			StepThrough()
-			if ($letterShower/TextureProgressBar.value >= 100):
-				testPass = true
-				TurnReset()
-				PlayerAttack()
+
 			break
 	
 	
@@ -306,21 +303,19 @@ func StepThrough():
 		await get_tree().create_timer(.1).timeout
 		var tween = create_tween()
 		$letterShower/Timer.start()
-		if currentLetter <= 3:
-			var randomLetter = letterArray.pick_random()
-			$letterShower.text = randomLetter
-			tempArrow = find_child(randomLetter)
-			letterToPress = randomLetter
-			print(letterToPress)
-			currentLetter += 1
-			tween.tween_property($letterShower/TextureProgressBar,"value", $letterShower/TextureProgressBar.value + 20, 0.5)
-			#$letterShower.visible = true
-			tempArrow.visible = true
-			
-		else:
-			tween.tween_property($letterShower/TextureProgressBar,"value", $letterShower/TextureProgressBar.value + 20, 0.5)
-
-
+		var randomLetter = letterArray.pick_random()
+		$letterShower.text = randomLetter
+		tempArrow = find_child(randomLetter)
+		letterToPress = randomLetter
+		print(letterToPress)
+		currentLetter += 1
+		tween.tween_property($letterShower/TextureProgressBar,"value", $letterShower/TextureProgressBar.value + 20, 0.5)
+		#$letterShower.visible = true
+		tempArrow.visible = true
+		if ($letterShower/TextureProgressBar.value >= 100):
+			testPass = true
+			PlayerAttack()
+			TurnReset()
 
 
 func _on_timer_timeout() -> void:

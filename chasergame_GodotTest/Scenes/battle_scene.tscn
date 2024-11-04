@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=87 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://cx4rm1qm85ys2" path="res://Assets/UpdatedAssets/UI/Medium_HunryImeris/Med Viewport Hungry Imeris 1.png" id="28_sgwyt"]
 [ext_resource type="Texture2D" uid="uid://dsh6w8qo6dp2p" path="res://Assets/UpdatedAssets/UI/Medium_HunryImeris/Med Viewport Hungry Imeris 2.png" id="29_cq3jj"]
 [ext_resource type="Texture2D" uid="uid://cma3e6nsqcmwb" path="res://Assets/UpdatedAssets/UI/Medium_HunryImeris/Med Viewport Hungry Imeris 3.png" id="30_32smf"]
+[ext_resource type="AudioStream" uid="uid://cnwi2ykt6pppe" path="res://Assets/Music/SOS (extended).mp3" id="32_d8ulk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba450"]
 size = Vector2(101.5, 42)
@@ -1081,6 +1082,8 @@ shape = SubResource("RectangleShape2D_6rofi")
 editor_draw_limits = true
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("10_wylqj")]
+stream = ExtResource("32_d8ulk")
+parameters/looping = true
 
 [node name="Doors" type="Node2D" parent="."]
 

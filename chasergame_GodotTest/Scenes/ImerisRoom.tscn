@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://buqtq3to38vbn"]
+[gd_scene load_steps=26 format=3 uid="uid://buqtq3to38vbn"]
 
 [ext_resource type="Script" path="res://Script/imeris_room.gd" id="1_w1vxl"]
 [ext_resource type="PackedScene" uid="uid://cpoehg5hog30" path="res://Scenes/Door.tscn" id="2_l0b14"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bp1hejbrtxaqv" path="res://Assets/UpdatedAssets/ImerisRoom/picture bee frame.png" id="9_rmw18"]
 [ext_resource type="Texture2D" uid="uid://pfghg6hb4fw0" path="res://Assets/UpdatedAssets/ImerisRoom/bed.png" id="11_41812"]
 [ext_resource type="Texture2D" uid="uid://dt0gy2g8kglcr" path="res://Assets/UpdatedAssets/UI/Small_RegularImeris/Small Viewport Reg Imeris 1.png" id="14_3k1pk"]
+[ext_resource type="AudioStream" uid="uid://cnwi2ykt6pppe" path="res://Assets/Music/SOS (extended).mp3" id="14_l6ulb"]
 [ext_resource type="Texture2D" uid="uid://ogmru81hdg5w" path="res://Assets/UpdatedAssets/UI/Small_RegularImeris/Small Viewport Reg Imeris 2.png" id="15_4wuub"]
 [ext_resource type="Texture2D" uid="uid://bdkbcxpikm2u4" path="res://Assets/UpdatedAssets/UI/Small_RegularImeris/Small Viewport Reg Imeris 3.png" id="16_qfslg"]
 
@@ -268,6 +269,8 @@ polygon = PackedVector2Array(72, 24, 106, 25, 107, 92, 74, 92)
 texture = ExtResource("11_41812")
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("6_5jhur")]
+stream = ExtResource("14_l6ulb")
+parameters/looping = true
 
 [node name="CollisonBox" type="StaticBody2D" parent="."]
 

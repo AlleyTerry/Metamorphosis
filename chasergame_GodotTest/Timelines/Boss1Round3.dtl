@@ -10,7 +10,7 @@ Linnaeus: I run out of ways to express my disappointment in you.
 		Narrator: Linnaeus is readying his attack. Brace yourself.
 		[signal arg="EnemyTurn"]
 		set {currentRound} += 1
-	if {linAttack} == true:
+	if {linAttack} == false:
 		Imeris (Group/ImerisAngry): Your regard is meaningless. You sit fat and fed at the center of a web of lies, surrounded by those you’ve led astray.
 		Imeris: Your damnation is your fault alone, Linnaeus.
 		Narrator: Linnaeus is mute with rage.
