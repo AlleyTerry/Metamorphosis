@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=91 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
@@ -36,6 +36,10 @@
 [ext_resource type="Texture2D" uid="uid://dsh6w8qo6dp2p" path="res://Assets/UpdatedAssets/UI/Medium_HunryImeris/Med Viewport Hungry Imeris 2.png" id="29_cq3jj"]
 [ext_resource type="Texture2D" uid="uid://cma3e6nsqcmwb" path="res://Assets/UpdatedAssets/UI/Medium_HunryImeris/Med Viewport Hungry Imeris 3.png" id="30_32smf"]
 [ext_resource type="AudioStream" uid="uid://cnwi2ykt6pppe" path="res://Assets/Music/SOS (extended).mp3" id="32_d8ulk"]
+[ext_resource type="Texture2D" uid="uid://cb3ff2krrtawv" path="res://Assets/UpdatedAssets/ChapelRoom/bookdebris.png" id="37_6mtri"]
+[ext_resource type="Texture2D" uid="uid://1sgtq4ygalv4" path="res://Assets/UpdatedAssets/ChapelRoom/debris3.png" id="38_jmvdu"]
+[ext_resource type="Texture2D" uid="uid://b5jwg4kbk8xd6" path="res://Assets/UpdatedAssets/ChapelRoom/debris4.png" id="39_q1hdf"]
+[ext_resource type="Texture2D" uid="uid://bgs4ge8uq3saa" path="res://Assets/UpdatedAssets/ChapelRoom/paperdebris.png" id="40_cnboj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba450"]
 size = Vector2(101.5, 42)
@@ -1049,6 +1053,65 @@ texture = ExtResource("26_6pbfv")
 [node name="Debris6" type="Sprite2D" parent="Pews"]
 position = Vector2(328, 471)
 rotation = 2.40616
+texture = ExtResource("25_u0e7d")
+
+[node name="Bookdebris" type="Sprite2D" parent="Pews"]
+position = Vector2(346, 392)
+texture = ExtResource("37_6mtri")
+
+[node name="Debris8" type="Sprite2D" parent="Pews"]
+position = Vector2(444, 332)
+texture = ExtResource("38_jmvdu")
+
+[node name="Debris9" type="Sprite2D" parent="Pews"]
+position = Vector2(213, 331)
+texture = ExtResource("38_jmvdu")
+
+[node name="Debris10" type="Sprite2D" parent="Pews"]
+position = Vector2(568, 522)
+texture = ExtResource("39_q1hdf")
+
+[node name="Debris11" type="Sprite2D" parent="Pews"]
+position = Vector2(477, 509)
+texture = ExtResource("38_jmvdu")
+
+[node name="Debris12" type="Sprite2D" parent="Pews"]
+position = Vector2(350, 631)
+texture = ExtResource("38_jmvdu")
+
+[node name="Paperdebris" type="Sprite2D" parent="Pews"]
+position = Vector2(302, 410)
+scale = Vector2(0.71875, 0.6875)
+texture = ExtResource("40_cnboj")
+
+[node name="Paperdebris2" type="Sprite2D" parent="Pews"]
+position = Vector2(352, 552)
+texture = ExtResource("40_cnboj")
+
+[node name="Debris13" type="Sprite2D" parent="Pews"]
+position = Vector2(358, 460)
+texture = ExtResource("39_q1hdf")
+
+[node name="Debris14" type="Sprite2D" parent="Pews"]
+position = Vector2(350, 227)
+texture = ExtResource("38_jmvdu")
+
+[node name="Paperdebris3" type="Sprite2D" parent="Pews"]
+position = Vector2(442, 251)
+texture = ExtResource("40_cnboj")
+
+[node name="Bookdebris2" type="Sprite2D" parent="Pews"]
+position = Vector2(468, 271)
+rotation = 2.41144
+texture = ExtResource("37_6mtri")
+
+[node name="Bookdebris3" type="Sprite2D" parent="Pews"]
+position = Vector2(570, 441)
+rotation = -2.77154
+texture = ExtResource("37_6mtri")
+
+[node name="Debris15" type="Sprite2D" parent="Pews"]
+position = Vector2(504, 542)
 texture = ExtResource("25_u0e7d")
 
 [node name="Debris7" type="Sprite2D" parent="Pews"]
