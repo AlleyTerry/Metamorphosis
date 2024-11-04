@@ -1,9 +1,10 @@
-[gd_scene load_steps=80 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=86 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
 [ext_resource type="Resource" uid="uid://cku4uxefc584m" path="res://Rresources/Linnaeus.tres" id="2_rw1h8"]
 [ext_resource type="PackedScene" uid="uid://beb3l6yikvoov" path="res://Scenes/PopUpText.tscn" id="3_8xy2b"]
+[ext_resource type="Texture2D" uid="uid://blhkxhflfp5pp" path="res://Assets/UpdatedAssets/ChapelRoom/goddess.png" id="4_f20o5"]
 [ext_resource type="Texture2D" uid="uid://ccxex1rcniad" path="res://Assets/PNG/GUI-Kit-Pack-Free_35.png" id="6_i26hj"]
 [ext_resource type="FontFile" uid="uid://jf1ssf5rwido" path="res://Assets/Fonts/SawarabiMincho-Regular.ttf" id="6_m5cl5"]
 [ext_resource type="Texture2D" uid="uid://bytwrh6dh5ehh" path="res://Assets/RealAssets/chapel v2 transparent.png" id="7_fkrdp"]
@@ -18,21 +19,28 @@
 [ext_resource type="Texture2D" uid="uid://cfg5s2s7jbj1s" path="res://Assets/UI/Up_Arrow.png" id="13_d1ogn"]
 [ext_resource type="Texture2D" uid="uid://bvcddfnpkw3vo" path="res://Assets/RealAssets/candle table.png" id="14_ebfux"]
 [ext_resource type="Texture2D" uid="uid://wug6vcdll66r" path="res://Assets/RealAssets/pillar.png" id="15_u2g55"]
-[ext_resource type="Texture2D" uid="uid://dkyjdgntxlexp" path="res://Assets/RealAssets/pew.png" id="16_3svda"]
 [ext_resource type="PackedScene" uid="uid://cpoehg5hog30" path="res://Scenes/Door.tscn" id="16_jd230"]
 [ext_resource type="Texture2D" uid="uid://douiwde3e1yn2" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_start_00.png" id="21_7l8r0"]
 [ext_resource type="Texture2D" uid="uid://cqfuhubgh4cx6" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_start_01.png" id="22_ns71k"]
 [ext_resource type="Texture2D" uid="uid://c3i4xli8vo22b" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_end_00.png" id="23_tt6ju"]
+[ext_resource type="Texture2D" uid="uid://cm5y0lqmisk2m" path="res://Assets/UpdatedAssets/ChapelRoom/brokenpew3.png" id="23_wtnsi"]
 [ext_resource type="Texture2D" uid="uid://drayantete64y" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_end_01.png" id="24_0riyj"]
+[ext_resource type="Texture2D" uid="uid://c4htlbaq04ova" path="res://Assets/UpdatedAssets/ChapelRoom/brokenpew2.png" id="24_pom5w"]
+[ext_resource type="Texture2D" uid="uid://c01pugqnkii4r" path="res://Assets/UpdatedAssets/ChapelRoom/debris2.png" id="25_u0e7d"]
 [ext_resource type="Texture2D" uid="uid://c10bwvhuxdwoj" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_end_02.png" id="25_ub4v3"]
+[ext_resource type="Texture2D" uid="uid://f6wyu4fd2hay" path="res://Assets/UpdatedAssets/ChapelRoom/debris_1.png" id="26_6pbfv"]
 [ext_resource type="Texture2D" uid="uid://cv24jbmrcwvci" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_loop_00.png" id="26_aehu0"]
+[ext_resource type="Texture2D" uid="uid://xw5v8ipgqkyo" path="res://Assets/UpdatedAssets/ChapelRoom/broken_pew.png" id="27_ch7u7"]
 [ext_resource type="Texture2D" uid="uid://c8okbaoy22usm" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_loop_01.png" id="27_qo0lf"]
 [ext_resource type="Texture2D" uid="uid://cx4rm1qm85ys2" path="res://Assets/UpdatedAssets/UI/Medium_HunryImeris/Med Viewport Hungry Imeris 1.png" id="28_sgwyt"]
 [ext_resource type="Texture2D" uid="uid://dsh6w8qo6dp2p" path="res://Assets/UpdatedAssets/UI/Medium_HunryImeris/Med Viewport Hungry Imeris 2.png" id="29_cq3jj"]
 [ext_resource type="Texture2D" uid="uid://cma3e6nsqcmwb" path="res://Assets/UpdatedAssets/UI/Medium_HunryImeris/Med Viewport Hungry Imeris 3.png" id="30_32smf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba450"]
-size = Vector2(87, 36)
+size = Vector2(101.5, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2w1uv"]
+size = Vector2(52, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytomv"]
 size = Vector2(85, 31)
@@ -563,6 +571,30 @@ texture = ExtResource("12_eybyw")
 position = Vector2(402, 41)
 shape = SubResource("RectangleShape2D_ba450")
 
+[node name="AltarTable2" type="StaticBody2D" parent="Objects"]
+position = Vector2(553, -3)
+
+[node name="Table" type="Sprite2D" parent="Objects/AltarTable2"]
+position = Vector2(-6, 4)
+scale = Vector2(0.635, 0.635)
+texture = ExtResource("4_f20o5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/AltarTable2"]
+position = Vector2(-6, 3.5)
+shape = SubResource("RectangleShape2D_2w1uv")
+
+[node name="AltarTable3" type="StaticBody2D" parent="Objects"]
+position = Vector2(256, -3)
+
+[node name="Table" type="Sprite2D" parent="Objects/AltarTable3"]
+position = Vector2(-6, 4)
+scale = Vector2(0.635, 0.635)
+texture = ExtResource("4_f20o5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/AltarTable3"]
+position = Vector2(-6, 3.5)
+shape = SubResource("RectangleShape2D_2w1uv")
+
 [node name="BeeWindow" type="Sprite2D" parent="Objects"]
 position = Vector2(400, -76)
 texture = ExtResource("13_cwpxj")
@@ -850,70 +882,127 @@ texture = ExtResource("13_d1ogn")
 [node name="Pews" type="Node2D" parent="."]
 
 [node name="pews" type="StaticBody2D" parent="Pews"]
-position = Vector2(288, 580)
+position = Vector2(317, 598)
+rotation = -0.303504
 
 [node name="Sprite2D" type="Sprite2D" parent="Pews/pews"]
-texture = ExtResource("16_3svda")
+texture = ExtResource("23_wtnsi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews"]
 position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_grxul")
 
+[node name="pews9" type="StaticBody2D" parent="Pews"]
+position = Vector2(318, 430)
+rotation = -0.303504
+
+[node name="Sprite2D" type="Sprite2D" parent="Pews/pews9"]
+texture = ExtResource("24_pom5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews9"]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_grxul")
+
+[node name="Debris2" type="Sprite2D" parent="Pews/pews9"]
+position = Vector2(6.56009, 99.5087)
+texture = ExtResource("25_u0e7d")
+
+[node name="Debris1" type="Sprite2D" parent="Pews/pews9"]
+position = Vector2(140.727, -0.986694)
+texture = ExtResource("26_6pbfv")
+
+[node name="Debris3" type="Sprite2D" parent="Pews/pews9"]
+position = Vector2(-16.8266, -90.1491)
+texture = ExtResource("25_u0e7d")
+
+[node name="Debris4" type="Sprite2D" parent="Pews/pews9"]
+position = Vector2(79.884, 183.25)
+texture = ExtResource("26_6pbfv")
+
+[node name="Debris5" type="Sprite2D" parent="Pews/pews9"]
+position = Vector2(66.0285, -177.373)
+texture = ExtResource("26_6pbfv")
+
+[node name="Debris6" type="Sprite2D" parent="Pews/pews9"]
+position = Vector2(-24.2172, 284.778)
+texture = ExtResource("25_u0e7d")
+
+[node name="Debris7" type="Sprite2D" parent="Pews/pews9"]
+position = Vector2(39.5637, 365.531)
+texture = ExtResource("26_6pbfv")
+
+[node name="Debris8" type="Sprite2D" parent="Pews/pews9"]
+position = Vector2(37.2292, 185.61)
+texture = ExtResource("25_u0e7d")
+
+[node name="Debris9" type="Sprite2D" parent="Pews/pews9"]
+position = Vector2(-145.592, 150.36)
+texture = ExtResource("26_6pbfv")
+
+[node name="Debris10" type="Sprite2D" parent="Pews/pews9"]
+position = Vector2(157.594, -168.607)
+texture = ExtResource("25_u0e7d")
+
 [node name="pews2" type="StaticBody2D" parent="Pews"]
-position = Vector2(288, 487)
+position = Vector2(275, 508)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pews/pews2"]
-texture = ExtResource("16_3svda")
+texture = ExtResource("27_ch7u7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews2"]
 position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_grxul")
 
 [node name="pews3" type="StaticBody2D" parent="Pews"]
-position = Vector2(288, 401)
+position = Vector2(230, 388)
+rotation = 0.514655
 
 [node name="Sprite2D" type="Sprite2D" parent="Pews/pews3"]
-texture = ExtResource("16_3svda")
+texture = ExtResource("23_wtnsi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews3"]
 position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_grxul")
 
 [node name="pews4" type="StaticBody2D" parent="Pews"]
-position = Vector2(288, 305)
+position = Vector2(337, 301)
+rotation = -1.33453
 
 [node name="Sprite2D" type="Sprite2D" parent="Pews/pews4"]
-texture = ExtResource("16_3svda")
+texture = ExtResource("27_ch7u7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews4"]
 position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_grxul")
 
 [node name="pews5" type="StaticBody2D" parent="Pews"]
-position = Vector2(515, 305)
+position = Vector2(524, 308)
+rotation = 0.0839258
 
 [node name="Sprite2D" type="Sprite2D" parent="Pews/pews5"]
-texture = ExtResource("16_3svda")
+texture = ExtResource("23_wtnsi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews5"]
 position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_grxul")
 
 [node name="pews6" type="StaticBody2D" parent="Pews"]
-position = Vector2(515, 396)
+position = Vector2(477, 423)
+rotation = -0.20944
 
 [node name="Sprite2D" type="Sprite2D" parent="Pews/pews6"]
-texture = ExtResource("16_3svda")
+texture = ExtResource("27_ch7u7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews6"]
 position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_grxul")
 
 [node name="pews7" type="StaticBody2D" parent="Pews"]
-position = Vector2(515, 491)
+position = Vector2(531, 471)
+rotation = 0.0507529
 
 [node name="Sprite2D" type="Sprite2D" parent="Pews/pews7"]
-texture = ExtResource("16_3svda")
+texture = ExtResource("23_wtnsi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews7"]
 position = Vector2(0.5, 5.5)
@@ -923,11 +1012,19 @@ shape = SubResource("RectangleShape2D_grxul")
 position = Vector2(515, 581)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pews/pews8"]
-texture = ExtResource("16_3svda")
+texture = ExtResource("24_pom5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pews/pews8"]
 position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_grxul")
+
+[node name="Debris1" type="Sprite2D" parent="Pews"]
+position = Vector2(236, 444)
+texture = ExtResource("26_6pbfv")
+
+[node name="Debris2" type="Sprite2D" parent="Pews"]
+position = Vector2(573, 365)
+texture = ExtResource("25_u0e7d")
 
 [node name="Imeris" parent="." instance=ExtResource("8_n3u82")]
 position = Vector2(399, 798)
