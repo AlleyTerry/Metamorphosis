@@ -1,10 +1,13 @@
 extends Node2D
 
+
+
 func _ready() -> void:
 	if DoorManager.spawnTag != null:
 		onleveSpawn(DoorManager.spawnTag)
 		
 	Dialogic.signal_event.connect(moveDresser)
+	$ViewportOverlay/AnimationPlayer.play("smallImeris")
 
 func onleveSpawn(destinationTag: String):
 	var door_path = "Doors/Door_" + destinationTag

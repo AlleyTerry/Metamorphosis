@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=80 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
@@ -27,6 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://c10bwvhuxdwoj" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_end_02.png" id="25_ub4v3"]
 [ext_resource type="Texture2D" uid="uid://cv24jbmrcwvci" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_loop_00.png" id="26_aehu0"]
 [ext_resource type="Texture2D" uid="uid://c8okbaoy22usm" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_loop_01.png" id="27_qo0lf"]
+[ext_resource type="Texture2D" uid="uid://cx4rm1qm85ys2" path="res://Assets/UpdatedAssets/UI/Medium_HunryImeris/Med Viewport Hungry Imeris 1.png" id="28_sgwyt"]
+[ext_resource type="Texture2D" uid="uid://dsh6w8qo6dp2p" path="res://Assets/UpdatedAssets/UI/Medium_HunryImeris/Med Viewport Hungry Imeris 2.png" id="29_cq3jj"]
+[ext_resource type="Texture2D" uid="uid://cma3e6nsqcmwb" path="res://Assets/UpdatedAssets/UI/Medium_HunryImeris/Med Viewport Hungry Imeris 3.png" id="30_32smf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba450"]
 size = Vector2(87, 36)
@@ -456,6 +459,85 @@ _data = {
 "chargeUp": SubResource("Animation_bxy3c")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6pky"]
+atlas = ExtResource("28_sgwyt")
+region = Rect2(0, 0, 1100, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgayw"]
+atlas = ExtResource("29_cq3jj")
+region = Rect2(0, 0, 1100, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onjc5"]
+atlas = ExtResource("30_32smf")
+region = Rect2(0, 0, 1100, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_csuom"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6pky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgayw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onjc5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_2u4e4"]
+resource_name = "ImerisHungrySmall"
+length = 1.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.533333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_t28m7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k6osc"]
+_data = {
+"ImerisHungrySmall": SubResource("Animation_2u4e4"),
+"RESET": SubResource("Animation_t28m7")
+}
+
 [node name="BattleScene" type="Node2D"]
 position = Vector2(150, 0)
 script = ExtResource("1_odkyw")
@@ -870,11 +952,6 @@ scale = Vector2(0.525, 0.525)
 shape = SubResource("RectangleShape2D_6rofi")
 
 [node name="Camera2D" type="Camera2D" parent="Imeris"]
-offset = Vector2(300, 0)
-limit_left = 300
-limit_top = -275
-limit_right = 800
-limit_bottom = 925
 editor_draw_limits = true
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("10_wylqj")]
@@ -892,6 +969,19 @@ position = Vector2(0, -86)
 [node name="LinAttackAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_t2ifk")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(550, 300)
+sprite_frames = SubResource("SpriteFrames_csuom")
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_k6osc")
 }
 
 [connection signal="area_entered" from="ChapelV2/HeadlessArea" to="." method="_on_headless_area_area_entered"]

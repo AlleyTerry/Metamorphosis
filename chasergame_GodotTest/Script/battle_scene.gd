@@ -32,6 +32,7 @@ var upCheck = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$CanvasLayer/AnimatedSprite2D/AnimationPlayer.play("ImerisHungrySmall")
 	#door set up when entering the room
 	if DoorManager.spawnTag != null:
 		onleveSpawn(DoorManager.spawnTag)
