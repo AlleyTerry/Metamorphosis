@@ -1,87 +1,87 @@
 [signal arg="startDialogue"]
 - Reason
-	Imeris (Group/New portrait): We were damned long before I chose this path.
-	Imeris (Group/j): Fighting me will not save you. You merely toil in the name of our cagers.
-	Linnaeus (Group/fdjhslkgdh): Lies... Lies!!!
-	Linnaeus (Group/test): I was blessed! The Queen herself bestowed her favor on me!!!
+	Imeris (Group/ImerisNeutral): We were damned long before I chose this path.
+	Imeris: Fighting me will not save you. You merely toil in the name of our cagers.
+	Linnaeus (Group/LinAngry): Lies... Lies!!!
+	Linnaeus: I was blessed! The Queen herself bestowed her favor on me!!!
 	Linnaeus: My life was one of ease, because of her mercy!
 	Linnaeus: And because of you, I will never get it back!!!
 	- Stand
-		Imeris: I am not afraid of you.
+		Imeris (Group/ImerisAngry): I am not afraid of you.
 		(Linnaeus is enraged.)
-		Linnaeus: Oh?
-		Linnaeus: Don't worry. You will be.
+		Linnaeus (Group/LinNeutral): Oh?
+		Linnaeus (Group/LinAngry): Don't worry. You will be.
 		Narrator: (Next attack will be faster)
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Cower
 		Narrator: (Linnaeus sees your fear. He smiles cruelly.)
-		Linnaeus: Are you frightened?
-		Linnaeus: Good. You should be.
+		Linnaeus (Group/LinNeutral): Are you frightened?
+		Linnaeus (Group/LinAngry): Good. You should be.
 		Narrator: (Next attack will be slower)
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 - Apologize
-	Imeris: I'm sorry. I had to do this. I could not live any other way.
-	Linnaeus: What good does that pathetic apology do?
+	Imeris (Group/ImerisNeutral): I'm sorry. I had to do this. I could not live any other way.
+	Linnaeus (Group/LinAngry): What good does that pathetic apology do?
 	Linnaeus: Do you not see the devastation you've wrought?
 	Linnaeus: Your sinfulness cannot be washed away with mere words!
 	- Refute
-		Imeris: I am NOT sinful.
+		Imeris (Group/ImerisAngry): I am NOT sinful.
 		Imeris: You, of all people, do not get to say that to me.
 		Imeris: I am becoming who the Goddess made me to be.
 		(Linnaeus is enraged.)
-		Linnaeus: You could never begin to know Her will, wretch.
+		Linnaeus (Group/LinAngry): You could never begin to know Her will, wretch.
 		Linnaeus: I shall not let this insult stand.
 		Narrator: (Next attack will be faster.)
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Apologize
-		Imeris: ...I'm sorry.
+		Imeris (Group/ImerisNeutral): ...I'm sorry.
 		Narrator: (Linnaeus looks at you with contempt, but also pity.)
 		Narrator: (He says nothing, but his grip eases.)
 		Narrator: (Next attack will be slower.)
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 - Denounce
-	Imeris: You never saw the truth of Her teachings, in all your years… how pitiful.
+	Imeris (Group/ImerisNeutral): You never saw the truth of Her teachings, in all your years… how pitiful.
 	Narrator: (Linnaeus is enraged.)
-	Linnaeus: No, it is YOU who does not see!
+	Linnaeus (Group/LinAngry): No, it is YOU who does not see!
 	Linnaeus: That one of my own children would have the gall to condescend to me in this way...
 	Linnaeus: My mercy ends here.
 	Linnaeus: (Next attack will be faster.)
 	- Accept
-		Imeris: If all that came before this was your mercy, then I am happy to do without it.
-		Linnaeus: ...Then so be it.
+		Imeris (Group/ImerisAngry): If all that came before this was your mercy, then I am happy to do without it.
+		Linnaeus (Group/LinNeutral): ...Then so be it.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Flinch
 		Narrator: (Linnaeus sees your stricken response. He smiles cruelly.)
-		Linnaeus: Oh, are you frightened, heretic? You should be.
-		Linnaeus: Even if you make it out of this room, you'll never outrun your sin.
+		Linnaeus (Group/LinNeutral): Oh, are you frightened, heretic? You should be.
+		Linnaeus (Group/LinAngry): Even if you make it out of this room, you'll never outrun your sin.
 		Linnaeus: It will follow you forever, like the very wings upon your back.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 - Pacify
-	Imeris: Why do you despair, Father?
+	Imeris (Group/ImerisNeutral): Why do you despair, Father?
 	Imeris: I have done naught but follow Our Lady's word. Surely there is peace for us all at the end of Her path.
 	Narrator: Linnaeus laughs bitterly.
-	Linnaeus: There is no way out of this, you fool. For any of us.
+	Linnaeus (Group/LinNeutral): There is no way out of this, you fool. For any of us.
 	Linnaeus: But at least you have maintained some scrap of piety. I mustn't have failed so utterly, then.
 	Narrator: (Next attack will be slower)
 	- Argue
-		Imeris: I am no sinner. Our Lady guides me; I mold myself in Her image.
+		Imeris (Group/ImerisAngry): I am no sinner. Our Lady guides me; I mold myself in Her image.
 		Imeris: My body is all the more holy for what I have done.
 		Imeris: If you wish to remain here, unchanged, and perish, then so be it. But I will not die with you.
 		(Linnaeus is enraged.)
-		Linnaeus: Who are you to tell me what Our Lady wishes for us?
+		Linnaeus (Group/LinAngry): Who are you to tell me what Our Lady wishes for us?
 		Linnaeus: Open your eyes to the truth!
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Acquiesce
-		Imeris: You may be right. Perhaps I only seek to pervert myself, at the expense of others.
+		Imeris (Group/ImerisNeutral): You may be right. Perhaps I only seek to pervert myself, at the expense of others.
 		Imeris: But now that I have started, I cannot stop. I must let myself out of the shell of this body.
-		Linnaeus: ...
+		Linnaeus (Group/LinNeutral): ...
 		Linnaeus: So be it.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]

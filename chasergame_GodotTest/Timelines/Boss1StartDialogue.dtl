@@ -1,7 +1,7 @@
 [signal arg="startDialogue"]
-Linnaeus: That door was barricaded for a reason, my child. 
-Linnaeus (Group/fdjhslkgdh): There is nothing for you here that I am willing to part with. Go.
-Linnaeus (Group/test): I shall not relinquish my offerings to Our Lady Mellonella even at the cost of my life.
+Linnaeus: That door was barricaded for a reason, my child.
+Linnaeus: There is nothing for you here that I am willing to part with. Go.
+Linnaeus: I shall not relinquish my offerings to Our Lady Mellonella even at the cost of my life.
 - I hunger.
 	Linnaeus: As do I, dear child. But these offerings do not belong to us.
 	Linnaeus: Our Golden Goddess demands our devotion, even in such hopeless circumstances.

@@ -1,7 +1,7 @@
 [signal arg="startDialogue"]
-Linnaeus: ...!
+Linnaeus (Group/LinSilhouette): ...!
 Linnaeus: Imeris... My most faithful disciple... Is that you?
 Linnaeus: You, who kneeled before our altar longer than all others, have risen and walked out of the grace of Our Lady's light…
 Linnaeus: Is your hunger so great you have swallowed even your common sense in an effort to fill your empty belly?
-Linnaeus: Answer me! 
+Linnaeus: Answer me!
 [signal arg="endDialogue"]

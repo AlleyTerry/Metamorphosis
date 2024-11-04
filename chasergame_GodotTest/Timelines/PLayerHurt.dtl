@@ -1,4 +1,4 @@
 Narrator: Your attack fails, and you are injured.
-Linnaeus: Pathetic.
+Linnaeus (Group/LinAngry): Pathetic.
 set {currentRound} += 1
 [signal arg="EnemyTurn"]

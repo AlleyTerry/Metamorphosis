@@ -1,4 +1,4 @@
-Imeris (Group/New portrait): I’ll move this out of the way.
+Imeris (Group/ImerisNeutral): I’ll move this out of the way.
 Move the dresser?
 - yes
 	[signal arg="moveDresser"]

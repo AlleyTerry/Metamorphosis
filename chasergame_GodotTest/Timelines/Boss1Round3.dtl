@@ -1,7 +1,7 @@
 [signal arg="velocity"]
 [signal arg="moveUp"]
 [wait time="0.5"]
-Linnaeus: ...How bold you are.
+Linnaeus (Group/LinNeutral): ...How bold you are.
 Linnaeus: I run out of ways to express my disappointment in you.
 - Scorn
 	if {linAttack} == true:
@@ -10,7 +10,7 @@ Linnaeus: I run out of ways to express my disappointment in you.
 		[signal arg="EnemyTurn"]
 		set {currentRound} += 1
 	if {linAttack} == false:
-		Imeris: Your regard is meaningless. You sit fat and fed at the center of a web of lies, surrounded by those you’ve led astray.
+		Imeris (Group/ImerisAngry): Your regard is meaningless. You sit fat and fed at the center of a web of lies, surrounded by those you’ve led astray.
 		Imeris: Your damnation is your fault alone, Linnaeus.
 		Narrator: Linnaeus is mute with rage.
 		Narrator: He bares his teeth, eyes crazed, unable to draw out a single clever word in response.
@@ -25,28 +25,28 @@ Linnaeus: I run out of ways to express my disappointment in you.
 		[signal arg="EnemyTurn"]
 		set {currentRound} += 1
 	if {linAttack} == false:
-		Imeris: Open your ears and *listen* to me, prideful man!
+		Imeris (Group/ImerisAngry): Open your ears and *listen* to me, prideful man!
 		Imeris: I found a way to make this body mine, and Our Lady herself showed me the way. I am not wrong for that.
 		Imeris: If you do not want this as I wanted it, then so be it.
-		Imeris: But please, understand.
-		Linnaeus: ...
+		Imeris (Group/ImerisNeutral): But please, understand.
+		Linnaeus (Group/LinNeutral): ...
 		Linnaeus: I can't.
 		There is nothing more to say.
 		[signal arg="EnemyTurn"]
 		set {currentRound} += 1
 - Attack
 	Narrator: (You look at Linnaeus in silence and ready your attack.)
-	Linnaeus: ...
+	Linnaeus (Group/LinNeutral): ...
 	[signal arg="AttackChoice"]
-	Narrator: Agh-!
+	Linnaeus (Group/LinAngry): Agh-!
 	Linnaeus: Impudent pest!
 	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
 - Pray
 	Narrator: You clasp your hands and look up at the Goddess statue before you. When you lower your gaze, Linnaeus's furious eyes look back.
-	Linnaeus: *Now* you pray? Do you think it will save you?
+	Linnaeus (Group/LinAngry): *Now* you pray? Do you think it will save you?
 	Narrator: You close your eyes, lower your head, and begin to mumble your prayer.
 	Narrator: Linnaeus snarls.
-	Imeris: O' Goddess, save my soul.
+	Imeris (Group/ImerisNeutral): O' Goddess, save my soul.
 	[signal arg="EnemyTurn"]
 	set {currentRound} += 1
