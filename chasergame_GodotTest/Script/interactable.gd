@@ -4,24 +4,31 @@ extends Node2D
 var tempVelocity = 0
 var player_in_area = false
 @export var currentDialogue = ""
+var isPlaying = true
 
 func _ready():
-	tempVelocity = imerisHolder.ACCELERATION
+	Dialogic.signal_event.connect(_endDialogue)
+	Dialogic.signal_event.connect(_startDialogue)
 
 
 
 	
 func _physics_process(delta):
-	if Input.is_action_just_pressed("interact") && player_in_area == true:
+	if Input.is_action_just_pressed("interact") && player_in_area == true && isPlaying == true:
 		playText()
 		
 
+func _startDialogue(argument: String):
+	if argument == "startDialogue":
+		imerisHolder.canMove = false
+		#get_tree().paused = true
 
-func _on_dialogic_signal(argument: String):
-	if argument == "end":
-		print("ended")
-		imerisHolder.canMove = true
 
+func _endDialogue(argument: String):
+	if argument == "endDialogue":
+		imerisHolder.canMove = false
+		isPlaying = true
+		#get_tree().paused = false
 
 
 
@@ -32,7 +39,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 
 func playText():
-	Dialogic.signal_event.connect(_on_dialogic_signal)
+	isPlaying = false
 	var dialog = Dialogic.start(currentDialogue)
 	dialog.process_mode = Node.PROCESS_MODE_ALWAYS
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS

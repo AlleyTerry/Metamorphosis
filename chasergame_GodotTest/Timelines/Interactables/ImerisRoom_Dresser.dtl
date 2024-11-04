@@ -1,6 +1,7 @@
+[signal arg="startDialogue"]
 Imeris (Group/ImerisNeutral): I’ll move this out of the way.
 Move the dresser?
 - yes
 	[signal arg="moveDresser"]
 - no
-[signal arg="end"]
+[signal arg="endDialogue"]

@@ -1,0 +1,4 @@
+[signal arg="startDialogue"]
+this is the beginning text
+I am here to teach you how to play
+[signal arg="endDialogue"]

@@ -1,2 +1,3 @@
+[signal arg="startDialogue"]
 Imeris (Group/ImerisAngry): …Her Majesty.
-[signal arg="end"]
+[signal arg="endDialogue"]

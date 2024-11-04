@@ -857,7 +857,8 @@ texture_progress = ExtResource("7_koc7e")
 wait_time = 0.75
 
 [node name="Arrows" type="Node2D" parent="."]
-position = Vector2(483, 140)
+position = Vector2(456, 140)
+scale = Vector2(3.01, 3.01)
 
 [node name="Down" type="Sprite2D" parent="Arrows"]
 visible = false
@@ -1018,6 +1019,11 @@ texture = ExtResource("24_pom5w")
 position = Vector2(0.5, 5.5)
 shape = SubResource("RectangleShape2D_grxul")
 
+[node name="Brokenpew2" type="Sprite2D" parent="Pews"]
+position = Vector2(445, 524)
+rotation = -1.59046
+texture = ExtResource("24_pom5w")
+
 [node name="Debris1" type="Sprite2D" parent="Pews"]
 position = Vector2(236, 444)
 texture = ExtResource("26_6pbfv")
@@ -1025,6 +1031,29 @@ texture = ExtResource("26_6pbfv")
 [node name="Debris2" type="Sprite2D" parent="Pews"]
 position = Vector2(573, 365)
 texture = ExtResource("25_u0e7d")
+
+[node name="Debris3" type="Sprite2D" parent="Pews"]
+position = Vector2(447, 359)
+texture = ExtResource("25_u0e7d")
+
+[node name="Debris4" type="Sprite2D" parent="Pews"]
+position = Vector2(440, 278)
+texture = ExtResource("26_6pbfv")
+
+[node name="Debris5" type="Sprite2D" parent="Pews"]
+position = Vector2(354, 370)
+rotation = -1.6925
+texture = ExtResource("26_6pbfv")
+
+[node name="Debris6" type="Sprite2D" parent="Pews"]
+position = Vector2(328, 471)
+rotation = 2.40616
+texture = ExtResource("25_u0e7d")
+
+[node name="Debris7" type="Sprite2D" parent="Pews"]
+position = Vector2(357, 487)
+rotation = 0.887542
+texture = ExtResource("26_6pbfv")
 
 [node name="Imeris" parent="." instance=ExtResource("8_n3u82")]
 position = Vector2(399, 798)
