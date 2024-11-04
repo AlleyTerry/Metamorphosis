@@ -630,6 +630,7 @@ position = Vector2(608, 506)
 
 [node name="Pillar" type="Sprite2D" parent="Objects/PillarCollision"]
 texture = ExtResource("15_u2g55")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/PillarCollision"]
 position = Vector2(7, 2)
@@ -641,6 +642,7 @@ position = Vector2(608, 506)
 [node name="Pillar2" type="Sprite2D" parent="Objects/PillarCollision2"]
 position = Vector2(0, -331)
 texture = ExtResource("15_u2g55")
+flip_h = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/PillarCollision2"]
 position = Vector2(4, -333)
@@ -652,7 +654,6 @@ position = Vector2(608, 506)
 [node name="Pillar3" type="Sprite2D" parent="Objects/PillarCollision3"]
 position = Vector2(-414, 0)
 texture = ExtResource("15_u2g55")
-flip_h = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Objects/PillarCollision3"]
 position = Vector2(-419, -3)
@@ -664,7 +665,6 @@ position = Vector2(608, 506)
 [node name="Pillar4" type="Sprite2D" parent="Objects/PillarCollision4"]
 position = Vector2(-415, -324)
 texture = ExtResource("15_u2g55")
-flip_h = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Objects/PillarCollision4"]
 position = Vector2(-418, -321)
