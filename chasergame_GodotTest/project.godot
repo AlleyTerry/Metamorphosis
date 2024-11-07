@@ -52,6 +52,7 @@ directories/dtl_directory={
 variables={
 "attackFinished": false,
 "currentRound": 1,
+"lerpSpeed": 0.75,
 "linAttack": false
 }
 layout/style_list=["res://addons/dialogic/Styles/DefaultBackup.tres", "res://addons/dialogic/Styles/SideStyle2.tres", "res://addons/dialogic/Styles/styleTest.tres", "res://addons/dialogic/testtest.tres", "res://addons/dialogic/VizStyle.tres", "res://Stylepls/test again sigghhhh.tres", "res://Stylepls/ImerisStyle.tres", "res://Characters/twest.tres"]

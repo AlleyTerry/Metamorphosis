@@ -1,3 +1,4 @@
+set {lerpSpeed} = 0.7
 [signal arg="velocity"]
 [signal arg="moveUp"]
 [wait time="0.5"]
@@ -10,14 +11,18 @@ Linnaeus (Group/LinNeutral): Why do you approach? Do you not fear for your life?
 	Narrator: (Linnaeus is enraged.)
 	Linnaeus (Group/LinAngry): Curb your tongue, child.
 	Linnaeus: Or I shall cut it out.
+	Narrator: (Next attack will be faster)
 	Narrator: Linnaeus is readying his attack. Brace yourself.
+	set {lerpSpeed} = 0.55
 	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
 - Plead
 	Imeris (Group/ImerisNeutral): Please. I am starving.
 	Imeris: Allow me to pass. I beg you, Father.
 	Linnaeus (Group/LinNeutral): I pray Our Lady of Gold have mercy on you, child… But unfortunately, I shall not.
+	Narrator: (Next attack will be slower)
 	Narrator (Group/LinNeutral): Linnaeus is readying his attack. Brace yourself.
+	set {lerpSpeed} = 0.85
 	set {currentRound} += 1
 	[signal arg="EnemyTurn"]
 - Tempt

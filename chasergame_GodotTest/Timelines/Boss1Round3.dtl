@@ -17,7 +17,9 @@ Linnaeus: I run out of ways to express my disappointment in you.
 		Narrator: Linnaeus is mute with rage.
 		Narrator: He bares his teeth, eyes crazed, unable to draw out a single clever word in response.
 		Narrator: You fall into silence, satisfied. There is nothing more to say.
+		Narrator: (Next attack will be faster)
 		Narrator: Linnaeus is readying his attack. Brace yourself.
+		set {lerpSpeed} = 0.55
 		[signal arg="EnemyTurn"]
 		set {linAttack} = true
 		set {currentRound} += 1
@@ -36,7 +38,9 @@ Linnaeus: I run out of ways to express my disappointment in you.
 		Linnaeus (Group/LinNeutral): ...
 		Linnaeus: I can't.
 		Narrator: There is nothing more to say.
+		Narrator: (Next attack will be slower)
 		Narrator: Linnaeus is readying his attack. Brace yourself.
+		set {lerpSpeed} = 0.85
 		[signal arg="EnemyTurn"]
 		set {currentRound} += 1
 - Attack

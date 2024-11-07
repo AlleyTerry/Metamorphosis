@@ -13,6 +13,7 @@
 		Linnaeus (Group/LinAngry): Don't worry. You will be.
 		Narrator: (Next attack will be faster)
 		Narrator: Linnaeus is readying his attack. Brace yourself.
+		set {lerpSpeed} = 0.55
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Cower
@@ -21,6 +22,7 @@
 		Linnaeus (Group/LinAngry): Good. You should be.
 		Narrator: (Next attack will be slower)
 		Narrator: Linnaeus is readying his attack. Brace yourself.
+		set {lerpSpeed} = 0.8
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 - Apologize
@@ -37,6 +39,7 @@
 		Linnaeus: I shall not let this insult stand.
 		Narrator: (Next attack will be faster.)
 		Narrator: Linnaeus is readying his attack. Brace yourself.
+		set {lerpSpeed} = 0.55
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 	- Apologize
@@ -45,6 +48,7 @@
 		Narrator: (He says nothing, but his grip eases.)
 		Narrator: (Next attack will be slower.)
 		Narrator: Linnaeus is readying his attack. Brace yourself.
+		set {lerpSpeed} = 0.85
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
 - Denounce
@@ -54,6 +58,7 @@
 	Linnaeus: That one of my own children would have the gall to condescend to me in this way...
 	Linnaeus: My mercy ends here.
 	Narrator: (Next attack will be faster.)
+	set {lerpSpeed} = 0.55
 	- Accept
 		Imeris (Group/ImerisAngry): If all that came before this was your mercy, then I am happy to do without it.
 		Linnaeus (Group/LinNeutral): ...Then so be it.
@@ -75,6 +80,7 @@
 	Linnaeus (Group/LinNeutral): There is no way out of this, sinner. For any of us.
 	Linnaeus: But at least you have maintained some scrap of piety. I mustn't have failed so utterly, then.
 	Narrator: (Next attack will be slower)
+	set {lerpSpeed} = 0.85
 	- Argue
 		Imeris (Group/ImerisAngry): I am no sinner. Our Lady guides me; I mold myself in Her image.
 		Imeris: My body is all the more holy for what I have done.

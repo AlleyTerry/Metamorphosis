@@ -30,6 +30,7 @@ var upCheck = false
 @onready var tweenPosition = $Imeris.position.y
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$CanvasLayer/AnimatedSprite2D/AnimationPlayer.play("ImerisHungrySmall")
@@ -139,7 +140,7 @@ func enemyTurn():
 	$LinAttackAnimationPlayer.play("LinAttackMove")
 	var tweenPosition = $LinSmoke.position.y
 	var tween = create_tween()
-	tween.tween_property($LinSmoke, 'position:y', $Imeris.position.y, 0.5)
+	tween.tween_property($LinSmoke, 'position:y', $Imeris.position.y, Dialogic.VAR.lerpSpeed)
 	$LinAttackAnimationPlayer.play("SmokeExplode")
 	await $LinAttackAnimationPlayer.animation_finished
 	$LinSmoke.visible = false
