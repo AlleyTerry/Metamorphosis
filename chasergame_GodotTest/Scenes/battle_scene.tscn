@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=93 format=3 uid="uid://igecqa2dw71t"]
 
 [ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bvcddfnpkw3vo" path="res://Assets/RealAssets/candle table.png" id="14_ebfux"]
 [ext_resource type="Texture2D" uid="uid://wug6vcdll66r" path="res://Assets/RealAssets/pillar.png" id="15_u2g55"]
 [ext_resource type="PackedScene" uid="uid://cpoehg5hog30" path="res://Scenes/Door.tscn" id="16_jd230"]
+[ext_resource type="PackedScene" uid="uid://c0onab0cstxr3" path="res://Scenes/SmokeParticle.tscn" id="18_dtk51"]
 [ext_resource type="Texture2D" uid="uid://douiwde3e1yn2" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_start_00.png" id="21_7l8r0"]
 [ext_resource type="Texture2D" uid="uid://cqfuhubgh4cx6" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_start_01.png" id="22_ns71k"]
 [ext_resource type="Texture2D" uid="uid://c3i4xli8vo22b" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_end_00.png" id="23_tt6ju"]
@@ -551,6 +552,12 @@ _data = {
 "RESET": SubResource("Animation_t28m7")
 }
 
+[sub_resource type="Curve2D" id="Curve2D_pdxhs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 398, 137, 0, 0, 0, 0, 345, 125, 0, 0, 0, 0, 322, 90, 0, 0, 0, 0, 331, 46, -5.03968, -1.25992, 5.03968, 1.25992, 365, 22, -21.4187, -18.2689, 21.4187, 18.2689, 440, 22, -4.40972, -3.1498, 4.40972, 3.1498, 472, 51, 6.29961, -9.44941, -6.29961, 9.44941, 484, 100, 0, 0, 0, 0, 451, 135, 0, 0, 0, 0, 398, 137)
+}
+point_count = 10
+
 [node name="BattleScene" type="Node2D"]
 position = Vector2(150, 0)
 script = ExtResource("1_odkyw")
@@ -799,14 +806,16 @@ fill_mode = 6
 visible = false
 position = Vector2(402, 81)
 sprite_frames = SubResource("SpriteFrames_g7usy")
-animation = &"ChargeUp"
+animation = &"SmokeMove"
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
-position = Vector2(400, 84)
+position = Vector2(402, 84)
 
 [node name="EnemyArea2" type="Area2D" parent="Enemy"]
+position = Vector2(34, 9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/EnemyArea2"]
+position = Vector2(-34, -8)
 scale = Vector2(7.085, 7.085)
 shape = SubResource("RectangleShape2D_y2kt0")
 
@@ -1144,6 +1153,8 @@ shape = SubResource("RectangleShape2D_6rofi")
 [node name="Camera2D" type="Camera2D" parent="Imeris"]
 editor_draw_limits = true
 
+[node name="position" type="Node2D" parent="Imeris"]
+
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("10_wylqj")]
 stream = ExtResource("32_d8ulk")
 parameters/looping = true
@@ -1176,6 +1187,19 @@ libraries = {
 "": SubResource("AnimationLibrary_k6osc")
 }
 
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(1, 1)
+curve = SubResource("Curve2D_pdxhs")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(398, 137)
+rotation = -2.91893
+
+[node name="Smoke" parent="Path2D/PathFollow2D" instance=ExtResource("18_dtk51")]
+
+[node name="Smoke2" parent="." instance=ExtResource("18_dtk51")]
+position = Vector2(399, 137)
+
 [connection signal="area_entered" from="ChapelV2/HeadlessArea" to="." method="_on_headless_area_area_entered"]
 [connection signal="area_entered" from="ChapelV2/HeadlessArea2" to="." method="_on_headless_area_2_area_entered"]
 [connection signal="timeout" from="letterShower/Timer" to="." method="_on_timer_timeout"]
@@ -1185,3 +1209,5 @@ libraries = {
 
 [editable path="letterShower"]
 [editable path="Doors/Door_chapelDoor"]
+[editable path="Path2D/PathFollow2D/Smoke"]
+[editable path="Smoke2"]

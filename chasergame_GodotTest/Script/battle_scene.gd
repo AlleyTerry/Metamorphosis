@@ -28,17 +28,18 @@ var inputCheck = false
 var firstCheck = true
 var upCheck = false
 @onready var tweenPosition = $Imeris.position.y
+@onready var smokePosition = $Smoke2.position
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#$Smoke/CPUParticles2D.emitting = true
 	$CanvasLayer/AnimatedSprite2D/AnimationPlayer.play("ImerisHungrySmall")
 	#door set up when entering the room
 	if DoorManager.spawnTag != null:
 		onleveSpawn(DoorManager.spawnTag)
 	#all of the signals that need to happen for dialogue to play
-	Dialogic.signal_event.connect(OnDialogicSignal)
 	Dialogic.signal_event.connect(AttackSignal)
 	Dialogic.signal_event.connect(EnemySignal)
 	Dialogic.signal_event.connect(_endDialogue)
@@ -90,8 +91,6 @@ func enemyAttack1(argument: String):
 	if argument == "enemyAttack1":
 		print("this is enemy attack function")
 		newRandomLetter = letterArray.pick_random()
-		defenseCheck = true
-		timerCheck = true
 		enemyTurn()
 
 #start dialogue at the beginning
@@ -127,6 +126,7 @@ func _physics_process(delta: float) -> void:
 
 # this is the enemy's turn
 func enemyTurn():
+	$Path2D/PathFollow2D.progress_ratio = 0
 	#turns the check to false so after this is done it is no longet the enemy's turn
 	enemyTurnCheck = false
 	#the timer for the player's defense qte is stopped and turned off
@@ -136,33 +136,28 @@ func enemyTurn():
 	#print("player health ", playerHealth)
 	#$EnemyAnimationPlayer.play("EnemyAttack")
 	#Linneaus right now moves towards the player and thats when they press the key
-	#this will be changed to his smoke instead
-	$LinAttackAnimationPlayer.play("LinAttackMove")
-	var tweenPosition = $LinSmoke.position.y
+	$Path2D/PathFollow2D/Smoke/CPUParticles2D.emitting = true
+	
 	var tween = create_tween()
-	tween.tween_property($LinSmoke, 'position:y', $Imeris.position.y, Dialogic.VAR.lerpSpeed)
-	$LinAttackAnimationPlayer.play("SmokeExplode")
-	await $LinAttackAnimationPlayer.animation_finished
-	$LinSmoke.visible = false
+	tween.tween_property($Path2D/PathFollow2D, "progress_ratio", 1, 1)
+	tween.tween_interval(.02)
+	$Smoke2/CPUParticles2D.emitting = true
+	tween.tween_property($Smoke2, "position", $Imeris.position, Dialogic.VAR.lerpSpeed)
+	#tween.tween_property($Node2D2, "progress_ratio",1, 1)
+	#tween.tween_property($Path2D/PathFollow2D, "progress_ratio",tweenPosition, Dialogic.VAR.lerpSpeed)
+	#tween.tween_interval(1)
 	
-	#$AnimationPlayer.play("enemy_attack")
-	#await $EnemyAnimationPlayer.animation_finished
+	await get_tree().create_timer(1.5).timeout
+	$Path2D/PathFollow2D/Smoke/CPUParticles2D.emitting = false
+	#this will be changed to his smoke instead
+	timerCheck = true
+	defenseCheck = true    	
 	
 	
-#starts the battle dialogue
-func OnDialogicSignal(argument: String):
-	#remember to pause dialogue
-	if argument == "startBattle":
-		print("signal was fired")
-		$Imeris.canMove = false
-		var dialog = Dialogic.start(bossName + "Round1")
-		dialog.process_mode= Node.PROCESS_MODE_ALWAYS
-		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
-		$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
+
 	
 #the defense qte the player must do in order to not get hit
 func DefenseQTE():
-	$LinSmoke.position.y = $Enemy.position.y
 	#$EnemyQTE.visible = true
 	#chooses a random arrow
 	$LinSmoke.visible = true
@@ -194,6 +189,8 @@ func DefenseQTE():
 		tempArrow.visible = false
 		$Node2D.visible = true
 		$LinSmoke.visible = false
+		$Smoke2/CPUParticles2D.emitting = false
+		$Smoke2.position = smokePosition
 		#and start the next dalogue round
 		var dialog = Dialogic.start(bossName + "Round" + (str(Dialogic.VAR.currentRound)))
 		dialog.process_mode= Node.PROCESS_MODE_ALWAYS
@@ -221,8 +218,7 @@ func EnemySignal(argument: String):
 		$Node2D.visible = false
 		$letterShower/TextureProgressBar.value = 0
 		enemyTurn()
-		timerCheck = true
-		defenseCheck = true
+
 	
 
 #this is from the old way i dont think i use this anymore
@@ -359,7 +355,8 @@ func TurnReset():
 
 func _on_enemy_timer_timeout() -> void:
 	defenseCheck = false
-	$LinSmoke.visible = false
+	$Smoke2/CPUParticles2D.emitting = false
+	$Smoke2/CPUParticles2D.position = smokePosition
 	$EnemyQTE/EnemyTimer.stop()
 	$AnimationPlayer.play("PlayerHurt")
 	tempArrow.visible = false
@@ -373,7 +370,6 @@ func _on_enemy_timer_timeout() -> void:
 	var dialog = Dialogic.start(bossName + "Round" + (str(Dialogic.VAR.currentRound)))
 	dialog.process_mode= Node.PROCESS_MODE_ALWAYS
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
-	$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
 
 
 

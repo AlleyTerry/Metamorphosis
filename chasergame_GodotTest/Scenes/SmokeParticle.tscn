@@ -1,9 +1,24 @@
-[gd_scene format=3 uid="uid://c0onab0cstxr3"]
+[gd_scene load_steps=3 format=3 uid="uid://c0onab0cstxr3"]
+
+[ext_resource type="Texture2D" uid="uid://cqfuhubgh4cx6" path="res://Assets/UpdatedAssets/LinneausAttackSprites/L_attack_start_01.png" id="1_v1b5r"]
+
+[sub_resource type="Curve" id="Curve_cqcut"]
+_data = [Vector2(0.095122, 0.341543), 0.0, 0.0, 0, 0, Vector2(0.519512, 0.19052), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Smoke" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 118
+lifetime = 0.7
+speed_scale = 0.25
+texture = ExtResource("1_v1b5r")
 emission_shape = 1
 emission_sphere_radius = 10.0
 gravity = Vector2(0, -600)
+radial_accel_min = -50.0
+radial_accel_max = -40.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_cqcut")

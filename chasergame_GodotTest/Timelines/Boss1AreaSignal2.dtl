@@ -9,4 +9,3 @@ Narrator: Linnaeus is readying his attack. Brace yourself\: press the correct ar
 [signal arg="endDialogue"]
 [signal arg="enemyAttack1"]
 [wait time="2.5"]
-[signal arg="startBattle"]
