@@ -28,7 +28,7 @@ func goToLevel(levelTag, destinationTag):
 		
 	if sceneToLoad != null:
 		spawnTag = destinationTag
-		get_tree().change_scene_to_packed(sceneToLoad)
+		get_tree().change_scene_to_packed.call_deferred(sceneToLoad)
 		
 func triggerPlayerSpawn(position: Vector2,direction: String):
 	onTriggerPlayerSpawn.emit(position, direction)
