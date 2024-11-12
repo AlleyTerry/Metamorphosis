@@ -14,11 +14,13 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("interact") && player_in_area == true && isPlaying == true:
-		isPlaying = false
-		isDialogue = true
 		Dialogic.signal_event.connect(_endDialogue)
 		Dialogic.signal_event.connect(_startDialogue)
 		playText()
+	if Dialogic.Text.is_textbox_visible():
+		isPlaying = false
+	else:
+		isPlaying = true
 
 	
 
@@ -36,8 +38,7 @@ func _endDialogue(argument: String):
 		print("end")
 		Dialogic.signal_event.disconnect(_endDialogue)
 		Dialogic.signal_event.disconnect(_startDialogue)
-		isPlaying = true
-		isDialogue = false
+		
 
 
 
