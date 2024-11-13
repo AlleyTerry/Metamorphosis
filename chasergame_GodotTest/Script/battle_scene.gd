@@ -48,7 +48,6 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(enemyAttack1)
 	Dialogic.signal_event.connect(moveUp)
 	Dialogic.signal_event.connect(gameOver)
-	Dialogic.signal_event.connect(enemyDeath)
 	Dialogic.signal_event.connect(endVelocity)
 	#I wish i knew what node this is lmao i dont think it exists anymore
 	$Node2D.visible = true
@@ -132,21 +131,16 @@ func enemyTurn():
 	#the timer for the player's defense qte is stopped and turned off
 	$EnemyQTE/EnemyTimer.stop()
 	$EnemyQTE.visible = false
-	#playerHealth -= 1
-	#print("player health ", playerHealth)
-	#$EnemyAnimationPlayer.play("EnemyAttack")
-	#Linneaus right now moves towards the player and thats when they press the key
+	#the first smoke starts emitting and does a circle around the player
 	$Path2D/PathFollow2D/Smoke/CPUParticles2D.emitting = true
-	
 	var tween = create_tween()
 	tween.tween_property($Path2D/PathFollow2D, "progress_ratio", 1, 1)
 	tween.tween_interval(.02)
+	#then the second smoke then tweens towards the player at the specific lerp speed
+	#based off of the choice the player made
 	$Smoke2/CPUParticles2D.emitting = true
 	tween.tween_property($Smoke2, "position", $Imeris.position, Dialogic.VAR.lerpSpeed)
-	#tween.tween_property($Node2D2, "progress_ratio",1, 1)
-	#tween.tween_property($Path2D/PathFollow2D, "progress_ratio",tweenPosition, Dialogic.VAR.lerpSpeed)
-	#tween.tween_interval(1)
-	
+	#wait until the tween is done and then turn off everything and run the qte
 	await get_tree().create_timer(1.5).timeout
 	$Path2D/PathFollow2D/Smoke/CPUParticles2D.emitting = false
 	#this will be changed to his smoke instead
@@ -220,14 +214,6 @@ func EnemySignal(argument: String):
 		enemyTurn()
 
 	
-
-#this is from the old way i dont think i use this anymore
-func _on_attack_button_pressed() -> void:
-	$Node2D.visible = false
-	$letterShower/TextureProgressBar.value = 0
-	startMinigame = true
-	
-	
 # player attack turn
 func PlayerAttack():
 	#if they pass the attack qte
@@ -292,13 +278,12 @@ func doMinigame():
 			break
 	
 	
-
+#this is the function that shows a new arrow everytime one is pressed
 func StepThrough():
 	if (Input.is_action_just_pressed(letterToPress + "Action")):
 		$letterShower.visible = false
 		tempArrow.visible = false
 		await get_tree().create_timer(.1).timeout
-		var tween = create_tween()
 		$letterShower/Timer.start()
 		var randomLetter = letterArray.pick_random()
 		$letterShower.text = randomLetter
@@ -306,6 +291,7 @@ func StepThrough():
 		letterToPress = randomLetter
 		print(letterToPress)
 		currentLetter += 1
+		var tween = create_tween()
 		tween.tween_property($letterShower/TextureProgressBar,"value", $letterShower/TextureProgressBar.value + 20, 0.5)
 		#$letterShower.visible = true
 		tempArrow.visible = true
@@ -315,6 +301,7 @@ func StepThrough():
 			TurnReset()
 
 
+#if you miss an attack arrow the player gets hurt and everything resets
 func _on_timer_timeout() -> void:
 	var tween = create_tween()
 	tween.tween_property($Imeris, 'position:y',  tweenPosition, 0.5)
@@ -337,10 +324,9 @@ func _on_timer_timeout() -> void:
 		Dialogic.Text.show_textbox()
 		Dialogic.start("PLayerHurt")
 	
-	
+
+#turn reset function that resets everything after a player attack
 func TurnReset():
-	#var tween = create_tween()
-	#tween.tween_property($Imeris, 'position:y',  tweenPosition, 0.5)
 	startMinigame = false
 	$EnemyQTE.visible = false
 	$LinSmoke.visible = false
@@ -352,7 +338,9 @@ func TurnReset():
 	tempArrow.visible = false
 
 
-
+#if the player missed the defense qte
+#smoke stops emitting and goes back to its original position
+#the player gets hurt and everything resets
 func _on_enemy_timer_timeout() -> void:
 	defenseCheck = false
 	$Smoke2/CPUParticles2D.emitting = false
@@ -373,13 +361,15 @@ func _on_enemy_timer_timeout() -> void:
 
 
 
-
+#enemy area
 func _on_player_area_area_entered(area: Area2D) -> void:
 	if area.name == "EnemyArea":
 		defenseCheck = true
 		print(area.name)
+		
+		
 
-
+#area entered when Lin is headless 1
 func _on_headless_area_area_entered(area: Area2D) -> void:
 	if area.name == "PlayerArea":
 		print("u are in the correct area")
@@ -389,9 +379,10 @@ func _on_headless_area_area_entered(area: Area2D) -> void:
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 		$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
 		$ChapelV2/HeadlessArea.visible = false
+		#this deletes the area so the player doesnt accidently hit it again
 		$ChapelV2/HeadlessArea.queue_free()
 
-
+#area entered when Lin is headless 1
 func _on_headless_area_2_area_entered(area: Area2D) -> void:
 	if area.name == "PlayerArea":
 		print("u are in the correct area... again")
@@ -403,17 +394,15 @@ func _on_headless_area_2_area_entered(area: Area2D) -> void:
 		$ChapelV2/HeadlessArea2.visible = false
 		$ChapelV2/HeadlessArea2.queue_free()
 
+#this stops imeris movement
 func _giveVelocityBack(argument):
 	if argument == "velocity":
 		$Imeris.canMove = false
-		
-func enemyDeath(argument):
-	if argument == "enemyDeath":
-		$AnimationPlayer.play("EnemyDied")
-		await $AnimationPlayer.animation_finished
-		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
+
+
+#when the battle ends the player can move again
 func endVelocity(argument):
 	if argument == "endVelocity":
-		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+		print("the battle has ended")
 		$Imeris.canMove = true
