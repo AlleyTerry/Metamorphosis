@@ -11,7 +11,7 @@ func _ready() -> void:
 	pointArray.append($Marker2D2)
 	pointArray.append($Marker2D3)
 	#set the initial position
-	marker.position = pointArray[2].position
+	#marker.position = pointArray[2].position
 	arraymarker = 1
 
 

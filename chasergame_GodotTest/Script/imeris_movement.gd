@@ -43,7 +43,7 @@ func _physics_process(delta):
 
 
 func move(delta):
-	var inputVector = Input.get_vector("move_left","move_right","move_up","move_down")
+	var inputVector = Input.get_vector("LeftAction","RightAction","UpAction","DownAction")
 	#print(inputVector)
 	#if we are not moving
 	if inputVector == Vector2.ZERO:

@@ -4,7 +4,7 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j275e"]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("marker")]
+[node name="Markers" type="Node2D" node_paths=PackedStringArray("marker")]
 script = ExtResource("1_0c1os")
 marker = NodePath("Sprite2D")
 
@@ -19,5 +19,3 @@ position = Vector2(90, 0)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
 position = Vector2(180, 0)
-
-[node name="Camera2D" type="Camera2D" parent="."]

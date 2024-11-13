@@ -6,6 +6,5 @@ Linnaeus: You’ve perverted the body and soul bestowed upon you by Our Lady of 
 Linnaeus: And that transgression... has damned us all…
 Linnaeus: HOW COULD YOU!!!
 Narrator: Linnaeus is readying his attack. Brace yourself\: press the correct arrow key to dodge.
-[signal arg="endDialogue"]
 [signal arg="enemyAttack1"]
 [wait time="2.5"]

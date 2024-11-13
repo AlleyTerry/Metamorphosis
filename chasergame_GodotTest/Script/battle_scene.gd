@@ -30,10 +30,20 @@ var upCheck = false
 @onready var tweenPosition = $Imeris.position.y
 @onready var smokePosition = $Smoke2.position
 var lockMovement = false
+var pointArray = []
+@export var marker: Node2D
+var arraymarker: int
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+		#add markers to array
+	pointArray.append($Marker2D)
+	pointArray.append($Marker2D2)
+	pointArray.append($Marker2D3)
+	#set the initial position
+	#marker.position = pointArray[2].position
+	arraymarker = 1
 	#$Smoke/CPUParticles2D.emitting = true
 	$CanvasLayer/AnimatedSprite2D/AnimationPlayer.play("ImerisHungrySmall")
 	#door set up when entering the room
@@ -50,7 +60,7 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(gameOver)
 	Dialogic.signal_event.connect(endVelocity)
 	#I wish i knew what node this is lmao i dont think it exists anymore
-	$Node2D.visible = true
+	
 	#setting the values in the enemy resource
 	enemy.health = 3
 	$Enemy/Sprite2D.texture = enemy.texture
@@ -80,9 +90,12 @@ func gameOver (argument: String):
 #imeris will move up a certain amount when this is called
 func moveUp(argument: String):
 	if argument == "moveUp":
+		$Imeris.add_child($Imeris/Camera2D)
 		var tween = create_tween()
 		tween.tween_property($Imeris, 'position:y', $Imeris.position.y -50 , 0.5)
-	
+		$Marker2D.position.y = $Marker2D.position.y -50
+		$Marker2D2.position.y = $Marker2D2.position.y - 50
+		$Marker2D3.position.y = $Marker2D3.position.y - 50
 	
 #when dialogic calls the enemy attack, it sets the defesnse qte checks to true
 #picks a random arrow and then runs enemy turn
@@ -95,7 +108,7 @@ func enemyAttack1(argument: String):
 #start dialogue at the beginning
 func _startDialogue(argument: String):
 	if argument == "startDialogue":
-		#$Imeris.canMove = false
+		$Imeris.canMove = false
 		print("this is the movement signal")
 
 		
@@ -187,7 +200,6 @@ func DefenseQTE():
 		#turn everything off
 		$EnemyQTE.visible = false
 		tempArrow.visible = false
-		$Node2D.visible = true
 		$LinSmoke.visible = false
 		$Smoke2/CPUParticles2D.emitting = false
 		$Smoke2.position = smokePosition
@@ -207,7 +219,6 @@ func AttackSignal(argument: String):
 			Dialogic.Text.hide_textbox()
 		else:
 			Dialogic.Text.show_textbox()
-		$Node2D.visible = false
 		$letterShower/TextureProgressBar.value = 0
 		startMinigame = true
 
@@ -215,7 +226,6 @@ func AttackSignal(argument: String):
 func EnemySignal(argument: String):
 	if argument == "EnemyTurn":
 		newRandomLetter = letterArray.pick_random()
-		$Node2D.visible = false
 		$letterShower/TextureProgressBar.value = 0
 		enemyTurn()
 
@@ -400,12 +410,30 @@ func _on_headless_area_2_area_entered(area: Area2D) -> void:
 		$ChapelV2/HeadlessArea2.visible = false
 		$ChapelV2/HeadlessArea2.queue_free()
 		$Imeris.canMove = false
+		marker.position = pointArray[1].position
+		print($Imeris.position)
+		print(pointArray[1].position)
+		#$Imeris/Camera2D.position.x = pointArray[1].position.x
+		$Imeris.remove_child($Imeris/Camera2D)
 		lockMovement = true
 
 func snapMovement():
-	print("this is the movement func")
-	if Input.is_action_just_pressed("a"):
-		print("move to the left")
+	if Input.is_action_just_pressed("LeftAction"):
+		#the marker will jump to the position to its left
+		if arraymarker <= 0:
+			arraymarker = 0
+		else:
+			marker.position = pointArray[arraymarker - 1].position
+			arraymarker = arraymarker -1
+	
+	if Input.is_action_just_pressed("RightAction"):
+		#the marker will jump to the right if the marker is all the way to the right
+		#make it go nowhere
+		if arraymarker >=2:
+			arraymarker = 2
+		else:
+			marker.position = pointArray[arraymarker + 1].position
+			arraymarker = arraymarker +1
 
 #this stops imeris movement
 func _giveVelocityBack(argument):

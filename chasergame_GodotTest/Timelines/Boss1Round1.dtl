@@ -99,4 +99,3 @@
 		Narrator: Linnaeus is readying his attack. Brace yourself.
 		set {currentRound} += 1
 		[signal arg="EnemyTurn"]
-[signal arg="endDialogue"]

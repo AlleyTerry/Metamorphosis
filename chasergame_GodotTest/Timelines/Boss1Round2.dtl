@@ -1,5 +1,4 @@
 set {lerpSpeed} = 0.7
-[signal arg="velocity"]
 [signal arg="moveUp"]
 [wait time="0.5"]
 Linnaeus (Group/LinNeutral): Why do you approach? Do you not fear for your life?
