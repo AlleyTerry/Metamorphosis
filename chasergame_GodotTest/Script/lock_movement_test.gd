@@ -6,9 +6,11 @@ var arraymarker: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#add markers to array
 	pointArray.append($Marker2D)
 	pointArray.append($Marker2D2)
 	pointArray.append($Marker2D3)
+	#set the initial position
 	marker.position = pointArray[2].position
 	arraymarker = 1
 
@@ -27,14 +29,14 @@ func snapMovement():
 		else:
 			marker.position = pointArray[arraymarker - 1].position
 			arraymarker = arraymarker -1
-			print(arraymarker)
 	
 	if Input.is_action_just_pressed("RightAction"):
+		#the marker will jump to the right if the marker is all the way to the right
+		#make it go nowhere
 		if arraymarker >=2:
 			arraymarker = 2
 		else:
 			marker.position = pointArray[arraymarker + 1].position
 			arraymarker = arraymarker +1
-			print(arraymarker)
 		
 		
