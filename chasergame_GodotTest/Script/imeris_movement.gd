@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 var canMove = true
+var lockMovement = false
 #setting up constant variables so you dont have to write 800 every time not public
 @export var ACCELERATION = 100
 const FRICTION = 10000
@@ -38,7 +39,7 @@ func _physics_process(delta):
 	if canMove == false:
 		state = IDLE
 		animate()
-		
+
 
 
 func move(delta):

@@ -29,7 +29,7 @@ var firstCheck = true
 var upCheck = false
 @onready var tweenPosition = $Imeris.position.y
 @onready var smokePosition = $Smoke2.position
-
+var lockMovement = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -95,8 +95,8 @@ func enemyAttack1(argument: String):
 #start dialogue at the beginning
 func _startDialogue(argument: String):
 	if argument == "startDialogue":
-		$Imeris.canMove = false
-		#get_tree().paused = true
+		#$Imeris.canMove = false
+		print("this is the movement signal")
 
 		
 #ends the dialogue
@@ -108,6 +108,12 @@ func _endDialogue(argument: String):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#once lock movement is true it will run snap movement
+	#only allowing the player to move in 3 spaces on the x axis
+	if lockMovement == true:
+		snapMovement()
+	
+	
 	#because these checks are predicated on input they need to be in process
 	#as long as they are true, you can do the minigame qtes
 	if defenseCheck == true:
@@ -393,6 +399,13 @@ func _on_headless_area_2_area_entered(area: Area2D) -> void:
 		$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS
 		$ChapelV2/HeadlessArea2.visible = false
 		$ChapelV2/HeadlessArea2.queue_free()
+		$Imeris.canMove = false
+		lockMovement = true
+
+func snapMovement():
+	print("this is the movement func")
+	if Input.is_action_just_pressed("a"):
+		print("move to the left")
 
 #this stops imeris movement
 func _giveVelocityBack(argument):
