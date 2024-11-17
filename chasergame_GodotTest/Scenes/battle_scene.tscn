@@ -701,7 +701,6 @@ scale = Vector2(1.26, 1.26)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/left wall2"]
 position = Vector2(81.4286, 560.318)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_skge3")
 
 [node name="right wall2" type="StaticBody2D" parent="ChapelV2"]
@@ -711,7 +710,6 @@ scale = Vector2(1.26, 1.26)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/right wall2"]
 position = Vector2(117.858, 561.111)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5egwp")
 
 [node name="right wall" type="StaticBody2D" parent="ChapelV2"]

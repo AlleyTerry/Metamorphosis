@@ -39,8 +39,14 @@ func _physics_process(delta):
 	if canMove == false:
 		state = IDLE
 		animate()
+	jump()
 
-
+func jump():
+	if Input.is_action_just_pressed("jump"):
+		var tween =  create_tween()
+		tween.tween_property($".", 'position:y', $".".position.y -300 , 0.5)
+		tween.tween_property($".", 'position:y', $".".position.y, 0.5)
+		pass
 
 func move(delta):
 	var inputVector = Input.get_vector("LeftAction","RightAction","UpAction","DownAction")
@@ -50,10 +56,13 @@ func move(delta):
 		state = IDLE
 		applyFriction(FRICTION)
 	else: #we are moving
+		#state = IDLE
+		#await get_tree().create_timer(0.2).timeout
 		state = RUN
 		applyMovement(inputVector * ACCELERATION)
 		blendPoition = inputVector
 	move_and_slide()
+	
 	
 #apply friction
 func applyFriction(amount) -> void:
