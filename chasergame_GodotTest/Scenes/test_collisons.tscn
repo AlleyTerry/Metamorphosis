@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://17bqdja71nxy"]
+
+[ext_resource type="PackedScene" uid="uid://egcchmciies4" path="res://Scenes/imerisMovement.tscn" id="1_b47rt"]
+[ext_resource type="Texture2D" path="res://Assets/PlaceholderAssets/sideTemp.png" id="2_0em2a"]
+[ext_resource type="Texture2D" uid="uid://wug6vcdll66r" path="res://Assets/RealAssets/pillar.png" id="3_xutuh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmdbn"]
+size = Vector2(276.5, 106.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1b540"]
+size = Vector2(48.25, 105.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_igeh5"]
+size = Vector2(214.125, 114.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5ei3"]
+size = Vector2(600.063, 114.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0k0mp"]
+size = Vector2(37.0625, 119.313)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41nrm"]
+size = Vector2(41, 187)
+
+[node name="TestCollisons" type="Node2D"]
+
+[node name="Imeris" parent="." instance=ExtResource("1_b47rt")]
+position = Vector2(159, 368)
+scale = Vector2(1.97, 1.97)
+
+[node name="SideTemp" type="StaticBody2D" parent="."]
+position = Vector2(393, 221)
+
+[node name="Sprite2D" type="Sprite2D" parent="SideTemp"]
+texture = ExtResource("2_0em2a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="SideTemp"]
+texture = ExtResource("2_0em2a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideTemp"]
+position = Vector2(0.75, 111.25)
+shape = SubResource("RectangleShape2D_kmdbn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SideTemp"]
+position = Vector2(165.875, 141.375)
+shape = SubResource("RectangleShape2D_1b540")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="SideTemp"]
+position = Vector2(288, 141)
+shape = SubResource("RectangleShape2D_1b540")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="SideTemp"]
+position = Vector2(191.938, -78.3125)
+shape = SubResource("RectangleShape2D_igeh5")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="SideTemp"]
+position = Vector2(-0.03125, 270)
+shape = SubResource("RectangleShape2D_u5ei3")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="SideTemp"]
+position = Vector2(-25.5313, -75.6563)
+shape = SubResource("RectangleShape2D_0k0mp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(267, 321)
+
+[node name="Pillar" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("3_xutuh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-6, 14.5)
+shape = SubResource("RectangleShape2D_41nrm")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(336, 167)
+
+[node name="Pillar" type="Sprite2D" parent="StaticBody2D2"]
+texture = ExtResource("3_xutuh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-6, 14.5)
+shape = SubResource("RectangleShape2D_41nrm")

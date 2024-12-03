@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://egcchmciies4"]
+[gd_scene load_steps=68 format=3 uid="uid://egcchmciies4"]
 
 [ext_resource type="Script" path="res://Script/imeris_movement.gd" id="1_3givb"]
 [ext_resource type="Texture2D" uid="uid://bbl7ot81yvxw4" path="res://Assets/UpdatedAssets/ImerisNewSprites/Imeris Smallwings Left.png" id="2_usc0x"]
@@ -497,6 +497,8 @@ graph_offset = Vector2(-66, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50uu3"]
 size = Vector2(20, 58)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dmxle"]
+
 [node name="Imeris" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_3givb")
@@ -530,3 +532,8 @@ position = Vector2(0, 18)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
 position = Vector2(1, -25)
 shape = SubResource("RectangleShape2D_50uu3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 18)
+scale = Vector2(14.75, 7.75)
+texture = SubResource("PlaceholderTexture2D_dmxle")

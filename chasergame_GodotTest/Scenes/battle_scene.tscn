@@ -1,6 +1,5 @@
-[gd_scene load_steps=93 format=3 uid="uid://igecqa2dw71t"]
+[gd_scene load_steps=90 format=3 uid="uid://igecqa2dw71t"]
 
-[ext_resource type="Texture2D" uid="uid://bbqdp28sba0ej" path="res://Assets/Fish.png" id="1_btm8f"]
 [ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_odkyw"]
 [ext_resource type="Resource" uid="uid://cku4uxefc584m" path="res://Rresources/Linnaeus.tres" id="2_rw1h8"]
 [ext_resource type="PackedScene" uid="uid://beb3l6yikvoov" path="res://Scenes/PopUpText.tscn" id="3_8xy2b"]
@@ -67,10 +66,10 @@ size = Vector2(131.746, 48.4126)
 size = Vector2(1327, 83.8333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skge3"]
-size = Vector2(367.461, 121.587)
+size = Vector2(252.382, 121.587)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5egwp"]
-size = Vector2(368.254, 121.429)
+size = Vector2(252.381, 121.429)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qloq3"]
 size = Vector2(503.5, 12.5)
@@ -268,34 +267,22 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Imeris/PlayerAttack:position")
+tracks/3/path = NodePath("Imeris:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(529, 531)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Imeris:modulate")
+tracks/4/path = NodePath("Arrows:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Arrows:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -307,18 +294,6 @@ resource_name = "enemy_attack"
 
 [sub_resource type="Animation" id="Animation_bg4a0"]
 resource_name = "player_attack"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Imeris/PlayerAttack:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(320, 419), Vector2(320, 138), Vector2(320, 138), Vector2(320, 419)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46eun"]
 _data = {
@@ -361,11 +336,6 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grxul"]
 size = Vector2(101, 31)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u4nxi"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rofi"]
-size = Vector2(88.2838, 160)
 
 [sub_resource type="Animation" id="Animation_snsxx"]
 resource_name = "LinAttackMove"
@@ -558,10 +528,11 @@ _data = {
 }
 point_count = 10
 
-[node name="BattleScene" type="Node2D"]
+[node name="BattleScene" type="Node2D" node_paths=PackedStringArray("marker")]
 position = Vector2(150, 0)
 script = ExtResource("1_odkyw")
 enemy = ExtResource("2_rw1h8")
+marker = NodePath("Imeris")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -500
@@ -728,7 +699,7 @@ position = Vector2(-212, -583)
 scale = Vector2(1.26, 1.26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/left wall2"]
-position = Vector2(81.4289, 502.778)
+position = Vector2(81.4286, 560.318)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_skge3")
 
@@ -737,7 +708,7 @@ position = Vector2(-38, -583)
 scale = Vector2(1.26, 1.26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChapelV2/right wall2"]
-position = Vector2(117.858, 503.175)
+position = Vector2(117.858, 561.111)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_5egwp")
 
@@ -820,17 +791,6 @@ scale = Vector2(7.085, 7.085)
 shape = SubResource("RectangleShape2D_y2kt0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="AttackButton" type="Button" parent="Node2D"]
-visible = false
-offset_left = 32.0
-offset_top = 390.0
-offset_right = 134.0
-offset_bottom = 438.0
-text = "ATTACK
-"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1129,31 +1089,10 @@ rotation = 0.887542
 texture = ExtResource("26_6pbfv")
 
 [node name="Imeris" parent="." instance=ExtResource("8_n3u82")]
-position = Vector2(399, 798)
-
-[node name="Sprite2D" type="Sprite2D" parent="Imeris"]
-visible = false
-position = Vector2(0, -5)
-scale = Vector2(31.5, 24.5)
-texture = SubResource("PlaceholderTexture2D_u4nxi")
-
-[node name="PlayerAttack" type="CharacterBody2D" parent="Imeris"]
-position = Vector2(529, 531)
-
-[node name="Sprite2D" type="Sprite2D" parent="Imeris/PlayerAttack"]
-texture = ExtResource("1_btm8f")
-
-[node name="Area2D" type="Area2D" parent="Imeris/PlayerAttack"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Imeris/PlayerAttack/Area2D"]
-position = Vector2(-2.99998, -31)
-scale = Vector2(0.525, 0.525)
-shape = SubResource("RectangleShape2D_6rofi")
+position = Vector2(402, 783)
 
 [node name="Camera2D" type="Camera2D" parent="Imeris"]
 editor_draw_limits = true
-
-[node name="position" type="Node2D" parent="Imeris"]
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("10_wylqj")]
 stream = ExtResource("32_d8ulk")
@@ -1200,14 +1139,22 @@ rotation = -2.91893
 [node name="Smoke2" parent="." instance=ExtResource("18_dtk51")]
 position = Vector2(399, 137)
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(312, 269)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(402, 269)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(492, 269)
+
 [connection signal="area_entered" from="ChapelV2/HeadlessArea" to="." method="_on_headless_area_area_entered"]
 [connection signal="area_entered" from="ChapelV2/HeadlessArea2" to="." method="_on_headless_area_2_area_entered"]
 [connection signal="timeout" from="letterShower/Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Node2D/AttackButton" to="." method="_on_attack_button_pressed"]
 [connection signal="timeout" from="EnemyQTE/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
-[connection signal="area_entered" from="Imeris/PlayerAttack/Area2D" to="." method="_on_area_2d_area_entered"]
 
 [editable path="letterShower"]
+[editable path="Imeris"]
 [editable path="Doors/Door_chapelDoor"]
 [editable path="Path2D/PathFollow2D/Smoke"]
 [editable path="Smoke2"]

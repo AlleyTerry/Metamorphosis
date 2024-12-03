@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bif0514gg1n7w"]
+
+[ext_resource type="Script" path="res://Script/lock_movement_test.gd" id="1_0c1os"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j275e"]
+
+[node name="Markers" type="Node2D" node_paths=PackedStringArray("marker")]
+script = ExtResource("1_0c1os")
+marker = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(17.95, 17.95)
+texture = SubResource("PlaceholderTexture2D_j275e")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(90, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(180, 0)
